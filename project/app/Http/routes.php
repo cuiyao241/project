@@ -15,38 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//创建session
-Route::get('session',function(){
-	session(['gid'=>'15']);
-	echo '登入成功';
-});
+Route::get('admin', 'AdminController@index');
 
-Route::get('login',function(){
-	echo '这是登录';
-});
+Route::controller('admin/user','AdminUserController');
 
-//分组-后台
-Route::group(['middleware'=>'Login'],function(){
-
-	//后台用户
-	Route::get('admin','AdminController@index');
-	//用户操作
-	Route::controller('admin/user','AdminUserController');
-});
-
-//分组-前台
-Route::group([],function(){
-	Route::get('home',function(){
-		
-		echo '这是前台';
-	
-	
-
-	});	
-});
-
-//404
-Route::get('404',function(){
-	adort('404');
-});
+Route::controller('admin/goods','AdminGoodsController');
 
