@@ -19,5 +19,7 @@ Route::get('admin', 'AdminController@index');
 
 Route::controller('admin/user','AdminUserController');
 
+Route::controller('admin/cate','AdminCateController');
+
 Route::controller('admin/goods','AdminGoodsController');
 

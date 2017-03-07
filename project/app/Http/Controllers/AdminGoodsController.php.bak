@@ -1,0 +1,417 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+use DB;
+
+
+class AdminGoodsController extends Controller
+{
+    public static $value = '';
+
+    public function getIndex(Request $request)
+    {
+
+        $res = DB::table('goods')->
+        select(DB::raw("*,concat(path,',',id) as paths"))->
+        orderBy('paths')->
+        where('title','like','%'.$request->input('search').'%')->paginate($request->input('num',10));
+
+        foreach ($res as $k => $v) {
+
+            $info = explode(',',$v->path);
+
+            $count = count($info)-1;
+
+            $v->title = str_repeat('|--', $count).$v->title;
+
+            $pids[] = $v->pid;
+        }
+
+        // $qq = DB::table('goods')->where('pid','id')->get();
+
+        // dd($qq);
+
+        foreach ($res as $k => $v) {
+
+            // dd(self::$value);
+            // echo '<pre>';
+
+            // var_dump(self::$value);
+            // die;
+
+            if(!in_array($v->id, $pids)){
+
+                self::$value[] = $v->id;
+            }
+        }
+        
+        // dd($this->value);
+      
+       // dd(self::$value);
+
+    	//商品列表页
+    	return  view('admins.goods.lists',['request'=>$request,
+            'res'=>$res, 'value'=>self::$value]);
+
+    }
+
+    public function getType()
+    {
+        $res = DB::table('goods')
+            ->select(DB::raw('*,concat(path,",",id) as paths'))
+            ->orderBy('paths')
+            ->get();
+
+        return $res;
+    }
+
+    public function getGoodsList($res)
+    {
+        //将结果集转化成树状结构
+        foreach($res as $k => $v) {
+           
+            $into = explode(',',$v->path);
+
+            // echo '<pre>';
+            // var_dump($into);
+
+            //获取添加的字符串 '|--'
+
+            $level = count($into) - 1;
+
+            $v->title = str_repeat('|--',$level).$v->title;
+
+        }
+        
+        return $v->title;
+
+    }
+
+
+    /**
+    *   添加分类
+    */
+    public function getAdd($str)
+    {    
+        $res = $this->getType();
+
+        $this->getGoodsList($res);
+
+        
+        $arr = explode('-', $str);
+        
+        // die;
+        if($arr[0] == 'ding'){
+
+            $son = $arr[0];
+        } else {
+
+            $son = DB::table('goods')->where('id', $arr[1])->first();
+        }
+        
+        return view('admins.goods.add',['res'=>$res,'son'=>$son]);
+
+    }
+
+
+ 
+    public function postInsert(Request $request)
+    {
+    	// dd($request);
+
+        // echo 1234;
+        $res = $request->except('_token');
+
+        $res['path'] = 0;
+
+        // var_dump($res);
+
+        if($request->pid == '0'){
+
+            $res['path'] = '0';
+        } else {
+
+            $info = DB::table('goods')->where('id','=',$request->pid)->first();
+
+            $res['path'] = $info->path . ',' . $info->id;
+
+            // var_dump($res);
+        }
+
+
+
+        $res = DB::table('goods')->insert($res);
+
+        return redirect('/admin/goods/index');
+        
+    }
+
+    /**
+    *   删除分类
+    */
+
+    public function getDelete($id)
+    {
+
+        // echo $id;
+       $res = DB::table('goods')->where('id', $id)->first();
+
+       $paths = $res->path .','. $res->id;
+
+        if($res){
+
+           $into = DB::table('goods')->where('path', 'like', $paths . '%')->orWhere('id', $id)->delete();
+
+        } else {
+
+           $into = DB::table('goods')->where('id', $id)->delete();
+        }
+
+       if($into) {
+
+            echo '删除成功';
+            return redirect('/admin/goods/index')->with('info', '删除成功');
+        } else {
+
+            return back()->with('info','删除失败');
+        }
+
+    }
+
+
+    /**
+    *   修改
+    */
+
+    public function getEdit($id){
+
+        $son = DB::table('goods')->where('id', $id)->first();
+
+        // dd($son->pid);
+        if($son->pid != 0){
+           $parent = DB::table('goods')->where('id',$son->pid)->first(); 
+        } else {
+
+            // $arr = array(0, '顶级大类');
+            
+            // $parent = (object)$arr;
+
+            $parent = (object)['id'=>0, 'title'=>'顶级大类'];
+        }  
+
+
+        $res = DB::table('goods')->get();
+
+        $this->getGoodsList($res);
+
+
+        return view('admins/goods/edit', ['res'=>$res, 'son'=>$son, 'parent'=>$parent]);
+
+    }
+
+    public function postUpdate(Request $request)
+    {
+        // echo 'aaa';
+        // dd($request);
+       $res = $request->except('_token','id');
+
+       $id = $request->id;
+
+       $pid = $request->pid;
+
+       $exc = DB::table('goods')->where('id',$pid)->first();
+       
+       //得到新的path,用于页面排序
+       $res['path'] = $exc->path. ','. $exc->id;
+
+       $pro = DB::table('goods')->where('id', $id)->update($res);
+
+       if($pro) {
+
+            return redirect('/admin/goods/index')->with('goods_info','修改成功');
+        } else {
+
+            return back()->with('goods_info','修改失败');
+        }
+
+    }
+
+    /**
+    *   添加商品页
+    */
+    public function getAdds($id)
+    {
+
+        $res = DB::table('goods')->where('id', $id)->first();
+
+        return view('admins.goods.adds', ['res'=>$res]);
+    }
+
+
+    /**
+    *   所有商品列表
+    */
+
+    public function getLists(Request $request, $id)
+    {
+
+        $res = DB::table('cate_goods')
+        ->where('pid', $id)
+        // ->where('title','like','%'.$request->input('search').'%')
+        ->paginate($request->input('num',10));
+
+        // $res = DB::table('cate_goods')
+        // ->where(function($query) {
+        //     $query->where('pid', 21)
+        //           ->where('title', 'like', '%'.$request->input('search').'%');
+        // })
+        // ->paginate($request->input('num',10));
+
+        //  $res = DB::table('cate_goods')
+        // ->where([
+        //     'pid'=>$id,
+        //     'title'=>'%'.$request->input('search').'%'
+        //     ])
+        // ->paginate($request->input('num',10));
+        
+        // dd($res);
+        // echo '<pre>';
+        // var_dump($res);
+        // die;
+        
+        $parent = DB::table('goods')->where('id', $id)->first();
+        //商品列表页
+        return  view('admins.goods.list',['request'=>$request,
+            'res'=>$res,'parent'=>$parent]);
+    }
+
+    public function getDeletes($id)
+    {
+        // dd($id);
+        $res = DB::table('cate_goods')->where('id', $id)->first();
+
+        $info = DB::table('cate_goods')->where('id', $id)->delete();
+
+        // dd($res->pid);
+
+        if($info) {
+            // echo '删除成功';
+
+            return redirect("/admin/goods/lists/$res->pid")->with('info', '删除成功');
+        } else {
+
+            return back()->with('info','删除失败');
+        }
+    }
+
+    public function getEdits($id)
+    {
+        dd(self::$value);
+         $son = DB::table('cate_goods')->where('id', $id)->first();
+
+        // dd($son->pid);
+        if($son->pid != 0){
+           $parent = DB::table('goods')->where('id',$son->pid)->first(); 
+        } else {
+
+            // $arr = array(0, '顶级大类');
+            
+            // $parent = (object)$arr;
+
+            $parent = (object)['id'=>0, 'title'=>'顶级大类'];
+        }  
+
+
+        $res = DB::table('goods')->get();
+
+        $this->getGoodsList($res);
+
+
+        return view('admins/goods/edits', ['res'=>$res, 'son'=>$son, 'parent'=>$parent]);
+    }
+
+
+    public function postUpdates(Request $request)
+    {
+
+        $res = $request->except('_token','id');
+
+        // echo '<pre>';
+        // var_dump($res);
+
+        // die;
+
+        $id = $request->id;
+ 
+        
+ 
+        $tiao = DB::table('cate_goods')->where('id', $id)->first();
+
+        // dd();
+
+        $pid = $tiao->pid;
+
+        // $exc = DB::table('goods')->where('id',$pid)->first();
+        
+        //得到新的path,用于页面排序
+        // $res['path'] = $exc->path. ','. $exc->id;
+ 
+        $pro = DB::table('cate_goods')->where('id', $id)->update($res);
+        // dd($id);
+       if($pro) {
+
+        // echo '11111111';
+            return redirect("/admin/goods/lists/$tiao->pid")->with('info','修改成功');
+        } else {
+
+            // echo 22222222222;
+            return back()->with('info','修改失败');
+        }
+    }
+
+// http://122.10.32.10/admin/index.php/content/index.html
+    public function digui($pid)
+    {
+         $res = DB::table('goods')->where('pid'->$pid)->get();
+
+        $arr = [];
+        foreach($res as $k=>$v){
+
+            $v->itms = $this->digui($v->id);
+
+            $arr[] = $v;
+        }
+
+
+        return $arr;
+
+
+       //  //先确认顶级信息
+       //  $cates = DB::table('cate')->where('pid',$pid)->get();
+
+       //  $num_cate = [];
+       // foreach($cates as $k => $v) {
+
+       //      $v->num_cate[] = $this->getCateDiGuiMessage($v->id);    
+
+       // }
+
+
+
+       // return $num_cate;
+
+    }
+
+    // public function getText($id)
+    // {
+    //     $a = $this->digui($id);
+
+    //     dd($a);
+    // }
+
+}

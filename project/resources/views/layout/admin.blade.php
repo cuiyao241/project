@@ -33,7 +33,7 @@
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
 
-<link rel="stylesheet" type="text/css" href="/admins/css/style.css" media="screen">
+<!-- <link rel="stylesheet" type="text/css" href="/admins/css/style.css" media="screen"> -->
 
 
 <title>@yield('title')</title>
@@ -237,7 +237,20 @@
                             <li><a href="/admin/user/index"><i class="icol32-group-link"></i>用户列表页</a></li>
                             
                         </ul>
-                    </li>                 
+                    </li>  
+
+                     <li>
+                        <a href="#"><i class="icon-th"></i>商品管理</a>
+                        <ul class='closed'>
+                            
+                            <li><a href="/admin/cate/index"><i class="icon-calendar-month"></i>　商品列表</a></li>
+                            <li><a href="/admin/cate/add/ding"><i class="icon-google-plus"></i>　添加种类</a></li>
+                            <li><a href="/admin/goods/allup"><i class="icon-box-remove"></i>　销售中商品</a></li>
+                            <li><a href="/admin/goods/alldown"><i class="icon-box-add"></i>　已下架商品</a></li>
+                            
+                        </ul>
+                    </li> 
+                                          
                 </ul>
             </div>         
         </div>
@@ -299,5 +312,9 @@
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
 
+    
+    @section('js')
+    
+    @show
 </body>
 </html>
