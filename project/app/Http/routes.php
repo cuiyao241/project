@@ -15,11 +15,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', 'AdminController@index');
 
-Route::controller('admin/user','AdminUserController');
 
-Route::controller('admin/cate','AdminCateController');
 
-Route::controller('admin/goods','AdminGoodsController');
+
+//后台登录
+Route::controller('login','AdminLoginController');
+
+//分组-后台
+Route::group(['middleware'=>'Login'],function(){
+
+	//后台用户
+	Route::get('admin','AdminController@index');
+	//用户操作
+	Route::controller('admin/user','AdminUserController');
+	//订单详情
+	Route::controller('admin/order','OrderController');
+	//分类详情
+	Route::controller('admin/cate','AdminCateController');
+	//商品详情
+	Route::controller('admin/goods','AdminGoodsController');
+
+});
+
+//分组-前台
+Route::group([],function(){
+
+	//后台用户
+	Route::get('home','HomeController@index');
+	//用户操作
+	// Route::controller('home/user','HomeUserController');
+	//订单详情
+	Route::controller('home/order','HomeOrderController');
+	
+});
+
+//404
+Route::get('404',function(){
+	adort('404');
+});
 

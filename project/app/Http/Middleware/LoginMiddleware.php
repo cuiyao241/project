@@ -15,12 +15,13 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $ip = $request->ip();
-        file_put_contents('ip.log', $ip, FILE_APPEND);
+        // $ip = $request->ip();
+        // file_put_contents('ip.log', $ip, FILE_APPEND);
 
-        $uid = session('gid');
+        $newName = session('username');
+        
         //判断有没有登录
-        if ($uid) {
+        if ($newName) {
             return $next($request);
         } else {
             return redirect('login');

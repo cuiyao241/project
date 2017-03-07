@@ -195,7 +195,7 @@
                     <ul>
                     	<li><a href="#">Profile</a></li>
                         <li><a href="#">Change Password</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li><a href="/login/close">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -229,17 +229,19 @@
             
             <!-- Main Navigation -->
             <div id="mws-navigation">
-                <ul>            
+                <ul>    
+                    <!-- 关于用户 -->
                     <li>
-                        <a href="#"><i class="icol32-group"></i>用户管理</a>
+                        <a href="#"><i class="icon-official"></i>用户管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/user/add"><i class="icol32-group-add"></i>用户添加</a></li>
-                            <li><a href="/admin/user/index"><i class="icol32-group-link"></i>用户列表页</a></li>
+                            <li><a href="/admin/user/add"><i class="icon-add-contact"></i> 用户添加</a></li>
+                            <li><a href="/admin/user/index"><i class="icon-users"></i> 用户列表页</a></li>
                             
                         </ul>
-                    </li>  
+                    </li>   
 
-                     <li>
+                    <!-- 关于商品 -->
+                    <li>
                         <a href="#"><i class="icon-th"></i>商品管理</a>
                         <ul class='closed'>
                             
@@ -250,6 +252,15 @@
                             
                         </ul>
                     </li> 
+                    
+                    <!-- 关于订单 -->
+                     <li>
+                        <a href="#"><i class="icon-shopping-cart"></i>订单中心</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/order/index"><i class="icon-bag"></i> 订单详情</a></li>
+                            <li><a href="#"><i class="icon-truck"></i> 消费记录</a></li>
+                        </ul>
+                    </li>
                                           
                 </ul>
             </div>         
