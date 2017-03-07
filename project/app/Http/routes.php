@@ -35,6 +35,7 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::controller('admin/cate','AdminCateController');
 	//商品详情
 	Route::controller('admin/goods','AdminGoodsController');
+	
 
 });
 
