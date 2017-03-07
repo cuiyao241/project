@@ -79,7 +79,8 @@
                     <input type="hidden" name="imgs" value="{{$good->pic}}">
                 </div>
                 
-                <div class="mws-panel grid_4">
+                <div class="mws-panel grid_4" style="margin-left:180px;">
+
                     <div class="mws-tabs ui-tabs ui-widget ui-widget-content ui-corner-all">
 
                         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
@@ -93,7 +94,30 @@
                         </div>                                          
                     </div>
                 </div>
+                
+                <div class="clear"></div>
 
+                <div class="mws-form-row">
+
+                    <label class="mws-form-label">商品介绍:</label>
+                    <div class="mws-form-item">
+              
+                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/ueditor.config.js"></script>
+                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/ueditor.all.min.js"> </script>
+
+                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+                        <script type="text/javascript">
+
+                            var ue = UE.getEditor('editor');
+                        </script>
+
+                        <script id="editor" type="text/plain" style="width:700px;height:300px;"name='content'>{{$good->content}}
+                        </script>
+
+                    </div>
+
+                </div>
 
 
                 <div class="clear"></div>
@@ -134,15 +158,8 @@
 
 @section('js')
 
-
-   <script type="text/javascript">alert($)</script>
-
-
-@endsection
-
-@section('js')
-
   <script type="text/javascript">
+
      setTimeout(function(){
            $('.mws-form-message').slideUp(1000);
      },3000)
