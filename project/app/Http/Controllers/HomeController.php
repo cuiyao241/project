@@ -15,5 +15,7 @@ class HomeController extends Controller
     	// echo '这是前台首页';
     	return view('homes.index');
     }
+
+    
     
 }

@@ -9,5 +9,9 @@ use App\Http\Controllers\Controller;
 
 class HomeIntroduceController extends Controller
 {
-    //
+    public function getIndex($id)
+    {
+    	// $res = DB::table('cate')
+    	return view('homes.lists.introduce');
+    }
 }

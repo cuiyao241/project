@@ -130,7 +130,7 @@
 
 					
 						<li class="wthreesearch">
-							<form action="#" method="post">
+							<form action="" method="post">
 								<input type="search" name="Search" placeholder="Search for a Product" required="">
 								<button type="submit" class="btn btn-default search" aria-label="Left Align">
 									<i class="fa fa-search" aria-hidden="true"></i>
@@ -149,17 +149,7 @@
 
 			</div>
 		</nav>
-		<!-- //Navigation -->
-
-
-
-
-
-
-
-
-
-
+		<!-- //Navigation --> <!-- introduce -->
 
 
 
@@ -183,27 +173,27 @@
 			</div>
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
+	
+		<!-- Header-Slider -->
+		<div class="w3slideraits">
+			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
+				<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>
+				<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>
+				<div data-thumb="images/slide-3-small.jpg" data-src="images/slide-3.jpg"></div>
+				<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>
+				<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>
+			</div>
+		</div>
+		<!-- //Header-Slider -->
+
 	</div>
-
-	<div class="container">
-            @section('content')
-            
-            	
-            @show
-    </div>
-
+	<!-- //Header -->
+	@section('content')
 
 	
 
 
-
-
-
-
-
-
-
-
+	@show
 	<!-- Footer -->
 	<div class="agileinfofooter">
 		<div class="agileinfofooter-grids">
