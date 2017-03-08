@@ -4,6 +4,13 @@
 
 @section('content')
 	<style type="text/css">
+    .noConsignment a{
+        text-decoration:none;
+        color: green;
+    }
+    .yesConsignment {
+        color: red;
+    }
     #but a{
         text-decoration:none;
         color: black;
@@ -143,23 +150,23 @@
                 <thead>
                     <tr role="row">
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        rowspan="1" colspan="1" style="width: 80px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             订单号
                         </th>
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 100px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                            下单人姓名
+                        rowspan="1" colspan="1" style="width: 50px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                            姓名
                         </th>
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 149px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                            商品信息
+                            商品名
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 194px;" aria-label="Browser: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 150px;" aria-label="Browser: activate to sort column ascending">
                             下单时间
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 60px;" aria-label="Platform(s): activate to sort column ascending">
                             收货人
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -171,8 +178,8 @@
                             应付金额
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 50px;" aria-label="CSS grade: activate to sort column ascending">
-                            订单状态
+                        rowspan="1" colspan="1" style="width: 70px;" aria-label="CSS grade: activate to sort column ascending">
+                            状态
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 90px;" aria-label="CSS grade: activate to sort column ascending">
@@ -187,10 +194,10 @@
                             {{ $v->Order_id }}
                         </td>
                         <td class=" ">
-                            {{ $v->ReceiverName }}
+                            {{ $v->UserName }}
                         </td>
                         <td class=" ">
-                            波斯比亚碎花裙
+                            {{ $v->GoodsName }}
                         </td>
                         <td class=" ">
                         	{{ $v->OrderDate }}
@@ -212,9 +219,9 @@
                             @endif
 
                             @if($v->IsConsignment == '0') 
-                                未发货 
+                                <span class="noConsignment"><a  href="/admin/order/consignment/{{ $v->Order_id }}" >[确认发货] </a></span> 
                             @else
-                                已发货 
+                                <span class="yesConsignment">[已发货]</span> 
                             @endif
 
                         </td>

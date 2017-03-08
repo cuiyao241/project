@@ -52,14 +52,6 @@
                     <div id="mws-login-remember" class="mws-form-row mws-inset">
                         <ul class="mws-form-list inline">
                             <li>
-                                <label for="remember">验证码:  </label>
-                                <input class="required" type="text"  style="width:111px;height:15px"> 
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="mws-login-remember" class="mws-form-row mws-inset">
-                        <ul class="mws-form-list inline">
-                            <li>
                                 <input id="remember" type="checkbox"> 
                                 <label for="remember">记住密码</label>
                             </li>

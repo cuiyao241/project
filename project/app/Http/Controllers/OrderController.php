@@ -13,9 +13,9 @@ class OrderController extends Controller
     //订单详情页
     public function getIndex(Request $request)
     {
-       	$res = DB::table('orderinfo')->
-       		where('ReceiverName','like','%'.$request->input('search').'%')->
-       		paginate($request->input('num',10));
+        $res = DB::table('orderinfo')->
+            where('Order_id','like','%'.$request->input('search').'%')->
+            paginate($request->input('num',10));
        
         return view('admins.order.index',['res'=>$res,'request'=>$request]);
 
@@ -23,12 +23,12 @@ class OrderController extends Controller
 
     //商品详细信息
     public function getAllinfo($id)
-    {	
+    {   
 
-    	$res = DB::table('orderinfo')->where('Order_id',$id)->get();
-    	// echo '<pre>';
-    	// var_dump($res);
-    	return view('admins.order.allInfo',['res'=>$res]);
+        $res = DB::table('orderinfo')->where('Order_id',$id)->get();
+        // echo '<pre>';
+        // var_dump($res);
+        return view('admins.order.allInfo',['res'=>$res]);
     }
 
     //确认订单
@@ -48,23 +48,23 @@ class OrderController extends Controller
     public function getEdit($id)
     {
 
-    	$res = DB::table('orderinfo')->where('Order_id',$id)->get();
-    	return view('admins.order.edit',['res'=>$res,'id'=>$id]);
+        $res = DB::table('orderinfo')->where('Order_id',$id)->get();
+        return view('admins.order.edit',['res'=>$res,'id'=>$id]);
 
     }
 
     //修改数据方法
     public function postUpdate(Request $request)
     {
-    	$res = $request->except('_token','Order_id');
-    	// echo '<pre>';
-    	// var_dump($res);
-    	$Order_id = $request->Order_id;
-    	// echo $Order_id;
+        $res = $request->except('_token','Order_id');
+        // echo '<pre>';
+        // var_dump($res);
+        $Order_id = $request->Order_id;
+        // echo $Order_id;
 
-    	$update = DB::table('orderinfo')->where('Order_id',$Order_id)->update($res);
-		//判断是否修改成功
-		if ($update) {
+        $update = DB::table('orderinfo')->where('Order_id',$Order_id)->update($res);
+        //判断是否修改成功
+        if ($update) {
             return redirect("/admin/order/allinfo/$Order_id")->with('order_edit','恭喜,修改成功!');
             // echo '成功';
 
@@ -90,6 +90,26 @@ class OrderController extends Controller
         }
     }
 
+    //订单查询
+    public function getBill()
+    {
+
+        return view('admins.order.bill');
+
+    }
+
+    //确认发货
+    public function getConsignment($id)
+    {   
+        // var_dump($id);die;
+
+        $res = DB::table('orderinfo')->where('Order_id',$id)->update(['IsConsignment'=>1]);
+        if ($res) {
+            return back()->with('info','发货成功!');
+        } else {
+            return back()->with('infos','发货失败,请重新关闭');
+        }
+    }
 
 
 }
