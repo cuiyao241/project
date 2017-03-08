@@ -17,8 +17,8 @@ class AdminUserController extends Controller
         where('User_name','like','%'.$request->input('search').'%')->
         paginate($request->input('num',10));
 
-        // dd($res);
-        return view('admins.user.index',['res'=>$res]);
+        // var_dump($res);
+        return view('admins.user.index',['request'=>$request,'res'=>$res]);
         
     }
 
@@ -55,6 +55,7 @@ class AdminUserController extends Controller
             'Emails.email' => '邮箱格式不正确',
             'Phonecode.required' => '手机号码不能为空',
             'Phonecode.regex' => '手机号码格式不正确',
+
             ]);
 
         // 表单验证
@@ -62,18 +63,21 @@ class AdminUserController extends Controller
         // echo '<pre>';
         // var_dump($res);die;
         //判断文件上传
-        if($request->hasFile('profile')){
+        // $names = 12345;
+        if($request->hasFile('Profile')){
             //自定义上传的文件名
             $names = rand(1111,9999).time();
             // dd($names);
             //获取上传文件的后缀
-            $suffix = $request->file('profile')->getClientOriginalExtension();
+            $suffix = $request->file('Profile')->getClientOriginalExtension();
 
-            $request->file('profile')->move('./upload/',$names.'.'.$suffix);
+            $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
+
+              //把上传的图片存储到数据库中
+            $res['profile'] = '/upload/'.$names.'.'.$suffix;
         }
 
-        //把上传的图片存储到数据库中
-        $res['profile'] = '/upload/'.$names.'.'.$suffix;
+      
 
         //哈希加密密码
         $res['Password'] = Hash::make($request->input('Password'));
@@ -88,14 +92,82 @@ class AdminUserController extends Controller
             return redirect('/admin/user/index')->with('info','添加成功');
         } else {
 
-            return back();
+            return back()->with('info','添加失败');
         }
     }
 
-    public function postEdit($id)
+    public function getEdit($id)
     {
-        $res = DB::table('user')->where('id','=',$id)->first();
-
+        $res = DB::table('user')->where('User_id','=',$id)->first();
+        // var_dump($res);die;
         return view('admins/user/edit',['res'=>$res]);
     }
+
+     public function postUpdate(Request $request)
+    {
+
+
+        // 表单验证
+        $res = $request->except('_token','id','Profile');
+        echo '<pre>';
+        // var_dump($res);die;
+        //判断文件上传
+        // $names = 12345;
+
+        $id = $request->input('id');
+        //  var_dump($id);die;
+        //  hasFile 检测Profile是否存在
+        if($request->hasFile('Profile')){
+            //自定义上传的文件名
+            $names = rand(1111,9999).time();
+            // dd($names);
+            //获取上传文件的后缀
+            $suffix = $request->file('Profile')->getClientOriginalExtension();
+
+            $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
+
+              //把上传的图片存储到数据库中
+            $res['Profile'] = '/upload/'.$names.'.'.$suffix;
+
+
+
+            // dd($id);
+            $pro = DB::table('user')->where('User_id',$id)->update($res);
+
+            // var_dump($pro);die;
+            if($pro) {
+
+                return redirect('admin/user/index')->with('info','添加成功');
+
+            } else {
+
+                return back()->with('info','添加失败');
+            }
+        }
+
+    }
+
+
+    public function getDelete($id)
+    {
+
+        $res = DB::table('user')->where('User_id', $id)->first();
+
+        // var_Dump($res);die;
+        if($res){
+
+           $into = DB::table('user')->where('User_id', $id)->delete();
+
+        } 
+
+       if($into) {
+
+            echo '删除成功';
+            return redirect('/admin/user/index')->with('info', '删除成功');
+        } else {
+
+            return back()->with('info','删除失败');
+        }
+
+}
 }

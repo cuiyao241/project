@@ -24,6 +24,7 @@ class AdminLoginController extends Controller
     	$newName = $postUser['username']; 
     	$newPassword = $postUser['password']; 
 
+        // var_dump($postUser);die;
         //通过用户名查询密码
     	$user = DB::table('user')->where('User_name',$newName)->first();
         // var_dump($user);die;
@@ -46,7 +47,7 @@ class AdminLoginController extends Controller
 
 
         }
-
+        // echo 1234;
        
 
     }

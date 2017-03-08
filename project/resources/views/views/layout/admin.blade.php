@@ -252,6 +252,9 @@
         
         	<!-- Inner Container Start -->
             <div class="container">
+           
+
+            
             @section('content')
             
             	
@@ -303,6 +306,8 @@
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
+@section('js')
 
+@endsection
 </body>
 </html>
