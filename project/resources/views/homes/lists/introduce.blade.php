@@ -4,6 +4,7 @@
 
 @section('content')
 
+
 	<!-- Single-Product-View -->
 	<div class="w3aitssinglewthree">
 		<div class="container">
@@ -14,14 +15,14 @@
 					<div class="col-md-6 single-top-left">
 						<div class="flexslider">
 							<ul class="slides">
-								<li data-thumb="images/s1.jpg">
-									<div class="thumb-image detail_images"> <img src="images/s1.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
+								<li data-thumb="/images/s1.jpg">
+									<div class="thumb-image detail_images"> <img src="/images/s1.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
 								</li>
-								<li data-thumb="images/s2.jpg">
-									 <div class="thumb-image"> <img src="images/s2.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
+								<li data-thumb="/images/s2.jpg">
+									 <div class="thumb-image"> <img src="/images/s2.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
 								</li>
-								<li data-thumb="images/s3.jpg">
-									<div class="thumb-image"> <img src="images/s3.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
+								<li data-thumb="/images/s3.jpg">
+									<div class="thumb-image"> <img src="/images/s3.jpg" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
 								</li> 
 							</ul>
 						</div>
@@ -99,10 +100,10 @@
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="accordion-image">
 								<div class="ac-img">
-									<a href="#"><img src="images/product-1.jpg" alt="Groovy Apparel"></a>
+									<a href="#"><img src="/images/product-1.jpg" alt="Groovy Apparel"></a>
 								</div>
 								<div class="ac-img">
-									<a href="#"><img src="images/product-2.jpg" alt="Groovy Apparel"></a>
+									<a href="#"><img src="/images/product-2.jpg" alt="Groovy Apparel"></a>
 								</div>
 								<div class="clearfix"></div>
 							</div>
@@ -153,7 +154,7 @@
 
 
 	<!-- Newsletter -->
-	<div class="w3lsnewsletter" id="w3lsnewsletter">
+	<!-- <div class="w3lsnewsletter" id="w3lsnewsletter">
 		<div class="container">
 			<div class="w3lsnewsletter-grids">
 				<div class="col-md-5 w3lsnewsletter-grid w3lsnewsletter-grid-1 subscribe">
@@ -168,14 +169,14 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- //Newsletter -->
 
-@endsection
+
 
 
 	<!-- Footer -->
-	<div class="agileinfofooter">
+	<!-- <div class="agileinfofooter">
 		<div class="agileinfofooter-grids">
 
 			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
@@ -212,13 +213,13 @@
 			<div class="clearfix"></div>
 
 		</div>
-	</div>
-	<!-- //Footer -->
+	</div> -->
+	<!-- //Footer  --> <!-- w3aitssinglewthree -->
 
-
+@endsection
 
 	<!-- Copyright -->
-	<div class="w3lscopyrightaits">
+	<!-- <div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
 			<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
 		</div>
@@ -234,7 +235,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-	</div>
+	</div> -->
 	<!-- //Copyright -->
 
 

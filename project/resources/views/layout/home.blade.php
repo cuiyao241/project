@@ -47,6 +47,17 @@
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 
+
+<style type="text/css">
+
+	#bs-megadropdown-tabs li{
+		
+		list-style:none ;
+	}
+
+
+</style>
+
 </head>
 <!-- //Head -->
 
@@ -190,7 +201,7 @@
 								</li>
 							</ul>
 							<div class="send-button wthree agileits">
-								<input type="submit" value="LOGIN">
+								<input type="submit" value="登录">
 							</div>
 						</form>
 					</div>
@@ -204,7 +215,7 @@
 							<input type="password" Name="Password" placeholder="Password" required="">
 							<input type="text" Name="Phone Number" placeholder="Phone Number" required="">
 							<div class="send-button wthree agileits">
-								<input type="submit" value="SIGN UP">
+								<input type="submit" value="注册">
 							</div>
 						</form>
 					</div>
@@ -215,7 +226,9 @@
 
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
-	
+		
+
+
 		<!-- Header-Slider -->
 		<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
