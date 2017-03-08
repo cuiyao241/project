@@ -266,7 +266,9 @@
                         <a href="#"><i class="icon-shopping-cart"></i>订单中心</a>
                         <ul class='closed'>
                             <li><a href="/admin/order/index"><i class="icon-bag"></i>　订单详情</a></li>
-                            <li><a href="/admin/order/bill"><i class="icon-truck"></i>　消费记录</a></li>
+                            <li><a href="/admin/order/bill"><i class="icon-truck"></i>  未发货</a></li>
+                            <li><a href="/admin/order/bill"><i class="icon-truck"></i>　未付款</a></li>
+
                         </ul>
                     </li>
                                           

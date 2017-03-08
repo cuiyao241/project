@@ -3,7 +3,7 @@
 @section('title','订单详情页')
 
 @section('content')
-	<style type="text/css">
+    <style type="text/css">
     .noConsignment a{
         text-decoration:none;
         color: green;
@@ -15,83 +15,83 @@
         text-decoration:none;
         color: black;
         }
-	#dvs a{
-		text-decoration:none;
-		background-color: #444444;
-	    border-left: 1px solid rgba(255, 255, 255, 0.15);
-	    border-right: 1px solid rgba(0, 0, 0, 0.5);
-	    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
-	    color: #fff;
-	    cursor: pointer;
-	    display: block;
-	    float: left;
-	    font-size: 12px;
-	    height: 20px;
-	    line-height: 20px;
-	    outline: medium none;
-	    padding: 0 10px;
-	    text-align: center;
-	    text-decoration: none;
-	    border-left: 0;   
-		
-		}
-	.active{
-		background-color: #c5d52b;
-		background-image: none;
-   		border: medium none;
-    	box-shadow: 0 0 4px rgba(0, 0, 0, 0.25) inset;
-   		color: #323232;
-   		border-left: 1px solid rgba(255, 255, 255, 0.15);
-	    border-right: 1px solid rgba(0, 0, 0, 0.5);
-	    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
-	    color: #fff;
-	    cursor: pointer;
-	    display: block;
-	    float: left;
-	    font-size: 12px;
-	    height: 20px;
-	    line-height: 20px;
-	    outline: medium none;
-	    padding: 0 10px;
-	    text-align: center;
-	    text-decoration: none;
+    #dvs a{
+        text-decoration:none;
+        background-color: #444444;
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        outline: medium none;
+        padding: 0 10px;
+        text-align: center;
+        text-decoration: none;
+        border-left: 0;   
+        
+        }
+    .active{
+        background-color: #c5d52b;
+        background-image: none;
+        border: medium none;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.25) inset;
+        color: #323232;
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        outline: medium none;
+        padding: 0 10px;
+        text-align: center;
+        text-decoration: none;
 
-	}
-	.disabled{
-		text-decoration:none;
-		background-color: #444444;
-	    border-left: 1px solid rgba(255, 255, 255, 0.15);
-	    border-right: 1px solid rgba(0, 0, 0, 0.5);
-	    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
-	    color: #fff;
-	    cursor: pointer;
-	    display: block;
-	    float: left;
-	    font-size: 12px;
-	    height: 20px;
-	    line-height: 20px;
-	    outline: medium none;
-	    padding: 0 10px;
-	    text-align: center;
-	    text-decoration: none;
+    }
+    .disabled{
+        text-decoration:none;
+        background-color: #444444;
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        border-right: 1px solid rgba(0, 0, 0, 0.5);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        float: left;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        outline: medium none;
+        padding: 0 10px;
+        text-align: center;
+        text-decoration: none;
 
-	}
-	#dvs ul{
-		list-style: none;
-		background-color: rgba(0, 0, 0, 0.15);
-	    border-radius: 5px;
-	    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 2px rgba(0, 0, 0, 0.5) inset;
-	    color: #ffffff;
-	    float: right;
-	    margin: 10px 8px 10px 0;
-	    padding: 2px;	
-	}
-	#dvs li{
-		float:left;
-	}
-	
+    }
+    #dvs ul{
+        list-style: none;
+        background-color: rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 2px rgba(0, 0, 0, 0.5) inset;
+        color: #ffffff;
+        float: right;
+        margin: 10px 8px 10px 0;
+        padding: 2px;   
+    }
+    #dvs li{
+        float:left;
+    }
+    
 
-	</style>
+    </style>
     <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>
@@ -138,11 +138,11 @@
             </div>
             <div class="dataTables_filter" id="DataTables_Table_1_filter">
                 <label>
-          			{{ csrf_field()}}
-          			关键字:
-                    	<input aria-controls="DataTables_Table_1" type="text" name="search" value="{{$request->search}}"></label>
-                    	<input type="submit" value="搜索">
-                    </form>	
+                    {{ csrf_field()}}
+                    关键字:
+                        <input aria-controls="DataTables_Table_1" type="text" name="search" value="{{$request->search}}"></label>
+                        <input type="submit" value="搜索">
+                    </form> 
                 
             </div>
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
@@ -200,7 +200,7 @@
                             {{ $v->GoodsName }}
                         </td>
                         <td class=" ">
-                        	{{ $v->OrderDate }}
+                            {{ $v->OrderDate }}
                         </td>
                         <td class=" ">
                             {{ $v->ReceiverName }}
@@ -227,7 +227,7 @@
                         </td>
                         <td id="but">
                             @if($v->IsConfirm == '0') 
-                                <button><a  href="/admin/order/close/{{ $v->Order_id }}">确认订单 </a></button> 
+                                <button><a  href="/admin/order/close/{{ $v->Order_id }}">确认订单 </a></button>
                             @else
                                 <button disabled = "disabled">订单完成 </button>
                             @endif
@@ -243,8 +243,8 @@
                 第 {{$res->currentPage()}}  页  共 {{$res->total()}} 条数据
             </div>
             <div id="dvs"  id="DataTables_Table_1_paginate">
-           		{{--<!-- {!! $res->render() !!} -->--}}
-               		{!! $res->appends(['search' => $request->search,'num' => $request->num ])->render() !!}
+                {{--<!-- {!! $res->render() !!} -->--}}
+                    {!! $res->appends(['search' => $request->search,'num' => $request->num ])->render() !!}
 
             </div>
         </div>

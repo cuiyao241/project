@@ -48,6 +48,8 @@ Route::group([],function(){
 	Route::controller('home/user','HomeRegisterController');
 	//订单详情
 	Route::controller('home/order','HomeOrderController');
+	//商品详情
+	Route::controller('home/introduce','HomeIntroduceController');
 	
 });
 
