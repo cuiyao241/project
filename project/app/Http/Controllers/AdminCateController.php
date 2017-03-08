@@ -30,11 +30,6 @@ class AdminCateController extends Controller
 
     public function getCateList($res)
     {
-        
-        // $res = DB::table('cate')
-        //     ->select(DB::raw('*,concat(path,",",id) as paths'))
-        //     ->orderBy('paths')
-        //     ->get();
 
         foreach($res as $k => $v) {
            
@@ -48,6 +43,7 @@ class AdminCateController extends Controller
 
         }
         
+
         return $v->title;
 
     }
@@ -64,8 +60,7 @@ class AdminCateController extends Controller
         select(DB::raw("*,concat(path,',',id) as paths"))->
         orderBy('paths')->
         where('title','like','%'.$request->input('search').'%')->paginate($request->input('num',10));
-
-        // $this->getCateList($res);
+        
 
         foreach ($res as $k => $v) {
 
@@ -80,6 +75,7 @@ class AdminCateController extends Controller
         }
 
         //获取底层分类的id
+        $value = [];
         foreach ($res as $k => $v) {
 
             if(!in_array($v->id, $pids)){

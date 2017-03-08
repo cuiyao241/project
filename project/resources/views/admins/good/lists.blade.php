@@ -284,7 +284,9 @@
                         {{$v->price}}
                     </td>
                     <td class=" ">
-                        <button class="butt" src="{{$v->pic}}">点击查看</button>
+                        
+                        <img src="{{$v->pic}}" class="imges" alt="" />
+
                     </td>
                     <td class=" ">
                         [新品][特价]
@@ -335,16 +337,16 @@
      },3000)
 
 
-     $('.butt').click(function(){
+    // $('.butt').click(function(){
 
-        $(this).parent().html('<img src="{{$v->pic}}" class="imges" alt="" />')
+    //     $(this).parent().html('<img src="{{$v->pic}}" class="imges" alt="" />')
 
-     })
+    //  })
 
-     $('.imges').click(function(){
+    // $('.imges').click(function(){
 
-        $(this).parent().html('<button class="butt" >点击查看</button>')
-     })
+    //     $(this).parent().html('<button class="butt" >点击查看</button>')
+    //  })
   </script>
 
 

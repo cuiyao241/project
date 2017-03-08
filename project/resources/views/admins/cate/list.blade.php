@@ -209,12 +209,8 @@
                     <td class="  sorting_1">
                 
                     @if(!in_array($v->id, $value)) 
-
         
-                  {{$v->title}}
-
-                   
-
+                        {{$v->title}}
 
                      @else
 

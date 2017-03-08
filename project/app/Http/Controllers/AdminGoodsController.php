@@ -233,7 +233,7 @@ class AdminGoodsController extends Controller
         $this->validate($request,[
                 'title' => 'required|regex:/^\S{1,255}$/',
                 'color' => 'required|regex:/^\S{1,32}$/',
-                'price'=>'required|regex:/^\w{1,10}$/',
+                // 'price'=>'required|regex:/^\w{1,8}.?\d{2}/',
                 'size'=> 'required|',
 
             ],[

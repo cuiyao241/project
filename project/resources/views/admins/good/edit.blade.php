@@ -7,7 +7,7 @@
             
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
-        <span>商品添加</span>
+        <span>商品修改</span>
     </div>
     <div class="mws-panel-body no-padding">
         <form class="mws-form" action="/admin/goods/update" method="post" enctype="multipart/form-data">
@@ -90,7 +90,7 @@
                         </ul>
                         
                         <div id="tab-1" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false">
-                            <p><img src="/upload/58331488807373.jpg" alt=""></p>
+                            <p><img src="{{$good->pic}}" alt=""></p>
                         </div>                                          
                     </div>
                 </div>

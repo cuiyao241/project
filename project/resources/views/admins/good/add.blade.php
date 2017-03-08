@@ -115,7 +115,7 @@
 
   <script type="text/javascript">
      setTimeout(function(){
-           $('.mws-form-message').slideUp(1000);
+           $('.mws-form-message').slideUp(4000);
      },3000)
   </script>
 @endsection
