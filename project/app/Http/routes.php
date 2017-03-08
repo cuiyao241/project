@@ -44,8 +44,8 @@ Route::group([],function(){
 
 	//后台用户
 	Route::get('home','HomeController@index');
-	//用户操作
-	// Route::controller('home/user','HomeUserController');
+	//用户操作 //注册
+	Route::controller('home/user','HomeRegisterController');
 	//订单详情
 	Route::controller('home/order','HomeOrderController');
 	

@@ -243,22 +243,55 @@ class AdminCateController extends Controller
     *      递归获取全部分类信息
     */
 
-    public function getCateDiGuiMessage($pid)
+
+
+    public static function getCateDiGuiMessage($pid)
     {
         //先确认顶级信息
         $cates = DB::table('cate')->where('pid',$pid)->get();
 
-        $num_cate = [];
+        $num_sub = [];
        foreach($cates as $k => $v) {
 
-            $v->num_cate[] = $this->getCateDiGuiMessage($v->id);    
+            $v->num_cate = self::getCateDiGuiMessage($v->id);  
+            
+            $num_sub[] = $v;
 
        }
-
-       // dd($num_cate);
        
-       return $num_cate;
+       return $num_sub;
 
+    }
+
+    // public function getTest($id)
+    // {
+    //     $a = self::getQqq($id);
+
+    //     dd($a);
+    // }
+
+    public static function getIsNow()
+    {
+        $isHot = DB::table('cate_goods')
+            ->where('isHot', 1)
+            ->get();
+
+        $isNew = DB::table('cate_goods')
+            ->where('isNew', 1)
+            ->get();
+
+        $isZhe = DB::table('cate_goods')
+            ->where('isZhe', 1)
+            ->get();
+
+
+
+        $isNow['isHot']  = $isHot;
+        $isNow['isNew']  = $isNew;
+        $isNow['isZhe']  = $isZhe;
+           
+
+        return $isNow;
     }
 }
 

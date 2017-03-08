@@ -1,3 +1,17 @@
+<?php
+
+	namespace App\Http\Controllers;
+
+	use DB;
+
+	$data = AdminCateController::getCateDiGuiMessage(0);
+
+	$isNow = AdminCateController::getIsNow();
+
+
+	// dd($data);
+	// dd($isNow);
+?>
 <!DOCTYPE html>
 <html lang="zxx"> 
 <!-- Head -->
@@ -46,15 +60,18 @@
 	<!-- Header -->
 	<div class="agileheader" id="agileitshome">
 
-		<!-- Navigation -->
+		<!-- Navigation顶部信息 -->
+
+
+
 		<nav class="navbar navbar-default w3ls navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header wthree nav_2">
 					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
 						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
+						<span class="icon-bar">1</span>
+						<span class="icon-bar">2</span>
+						<span class="icon-bar">3</span>
 					</button>
 					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
 					<ul class="w3header-cart">
@@ -63,162 +80,55 @@
 				</div>
 				<div id="bs-megadropdown-tabs" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
+
+					@foreach($data as $k => $v)
+
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle w3-agile hyper" data-toggle="dropdown"><span> 男装 &nbsp;</span></a>
+							<a href="#" class="dropdown-toggle w3-agile hyper" data-toggle="dropdown"><span> {{$v->title}} &nbsp;</span></a>
+
 							<ul class="dropdown-menu aits-w3 multi multi1">
-								<div class="row">
 
+
+								 <div class="row">
+								
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">
 										<ul class="multi-column-dropdown">
-											<li class="heading">精选</li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New 新品上市</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>商场同步</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>品牌</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>反季清仓</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>折扣</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>热门推荐</a></li>
+											<li class="heading">{{$v->title}}</li>
+
+											@foreach($v->num_cate as $ak => $av)
+											<li class="heading"><a href="">{{$av->title}}</a>
+											</li>					
+											
+											@endforeach
+											
 										</ul>
 									</div>
 
+
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
-										<p>上衣</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-1.jpg" alt="Groovy Apparel"></a>
+										<p>热门推荐</p>
+										<a href="mens.html"><img src="{{$isNow['isHot'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
-
+								
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
-										<p>下装</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-2.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
-										<p>配件/配饰</p>
-										<a href="mens_accessories.html"><img src="/homes/images/men-nav-3.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="clearfix"></div>
-									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
-								</div>
-
-							</ul>
-						</li>
-
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span> 女装&nbsp;&nbsp; </span></a>
-							<ul class="dropdown-menu multi multi2">
-								<div class="row">
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">
-										<ul class="multi-column-dropdown">
-											<li class="heading">精选</li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New 新品上市</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>商场同步</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>品牌</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>反季清仓</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>折扣</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>热门推荐</a></li>
-										</ul>
+										<p>新品上市</p>
+										<a href="mens.html"><img src="{{$isNow['isNew'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
-										<p>上衣</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-1.jpg" alt="Groovy Apparel"></a>
+										<p>品牌折扣</p>
+										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
-										<p>下装</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-2.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
-										<p>配件/配饰</p>
-										<a href="mens_accessories.html"><img src="/homes/images/men-nav-3.jpg" alt="Groovy Apparel"></a>
-									</div>
-
 									<div class="clearfix"></div>
 									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
-								</div>
-
+								</div> 
 							</ul>
 						</li>
 
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span> 童装 </span></a>
-							<ul class="dropdown-menu multi multi3">
-								<div class="row">
+					@endforeach	
+					</ul>	
 
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">
-										<ul class="multi-column-dropdown">
-											<li class="heading">精选</li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New 新品上市</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>商场同步</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>品牌</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>反季清仓</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>折扣</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>热门推荐</a></li>
-										</ul>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
-										<p>上衣</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-1.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
-										<p>下装</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-2.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
-										<p>配件/配饰</p>
-										<a href="mens_accessories.html"><img src="/homes/images/men-nav-3.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="clearfix"></div>
-									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
-								</div>
-
-							</ul>
-						</li>
-
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle hyper" data-toggle="dropdown"><span>配饰 </span></a>
-							<ul class="dropdown-menu multi multi3">
-								<div class="row">
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-1">
-										<ul class="multi-column-dropdown">
-											<li class="heading">精选</li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>New 新品上市</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>商场同步</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>品牌</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>反季清仓</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>折扣</a></li>
-											<li><a href="mens.html"><i class="fa fa-angle-right" aria-hidden="true"></i>热门推荐</a></li>
-										</ul>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
-										<p>上衣</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-1.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
-										<p>下装</p>
-										<a href="mens.html"><img src="/homes/images/men-nav-2.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-4">
-										<p>配件/配饰</p>
-										<a href="mens_accessories.html"><img src="/homes/images/men-nav-3.jpg" alt="Groovy Apparel"></a>
-									</div>
-
-									<div class="clearfix"></div>
-									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
-								</div>
-
-							</ul>
-						</li>
-						<li><a href="about.html">服务</a></li>
+					
 						<li class="wthreesearch">
 							<form action="#" method="post">
 								<input type="search" name="Search" placeholder="Search for a Product" required="">
@@ -226,7 +136,7 @@
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>
 							</form>
-						</li>
+						</li> 
 						<li class="wthreecartaits wthreecartaits2 cart cart box_1"> 
 						 <form action="#" method="post" class="last"> 
 								<input type="hidden" name="cmd" value="_cart" />
@@ -234,12 +144,25 @@
 								<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
 							</form>   
 						</li>
-					</ul>
+					
 				</div>
 
 			</div>
 		</nav>
 		<!-- //Navigation -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		<!-- Header-Top-Bar-(Hidden) -->
 		<div class="agileheader-topbar">
@@ -456,10 +379,13 @@
 
 
 		<!-- Bootstrap-JavaScript --> <script src="/homes/js/bootstrap.js"></script>
+	
+	@section('js')
 
+	@show
 </body>
 <!-- //Body -->
 
 
-
+	
 </html>

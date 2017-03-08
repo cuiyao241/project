@@ -7,3 +7,7 @@
 		<img src="/homes/images/banner.jpg" alt="Groovy Apparel">
 	</div>
 @endsection
+
+@section('js')
+
+@endsection
