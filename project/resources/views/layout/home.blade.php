@@ -47,6 +47,10 @@
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 
+<!-- 关于购物车 -->
+<link href="/homes/css/myCart.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/homes/js/myCart.js"></script>
+
 
 <style type="text/css">
 
@@ -84,7 +88,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
+					<a class="navbar-brand agileinfo" href="index.html"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>

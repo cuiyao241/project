@@ -44,12 +44,15 @@ Route::group([],function(){
 
 	//前台用户
 	Route::get('home','HomeController@index');
-	//用户操作 //注册
+	//用户操作 注册
 	Route::controller('home/user','HomeRegisterController');
+	//购物车
+	Route::controller('home/cart','HomeCartController');
 	//订单详情
 	Route::controller('home/order','HomeOrderController');
 	//商品详情
 	Route::controller('home/introduce','HomeIntroduceController');
+
 	
 });
 
