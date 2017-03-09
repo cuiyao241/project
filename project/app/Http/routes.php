@@ -42,7 +42,7 @@ Route::group(['middleware'=>'Login'],function(){
 //分组-前台
 Route::group([],function(){
 
-	//后台用户
+	//前台用户
 	Route::get('home','HomeController@index');
 	//用户操作 //注册
 	Route::controller('home/user','HomeRegisterController');

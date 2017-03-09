@@ -90,14 +90,6 @@ class OrderController extends Controller
         }
     }
 
-    //订单查询
-    public function getBill()
-    {
-
-        return view('admins.order.bill');
-
-    }
-
     //确认发货
     public function getConsignment($id)
     {   
@@ -109,6 +101,28 @@ class OrderController extends Controller
         } else {
             return back()->with('infos','发货失败,请重新关闭');
         }
+    }
+
+    //未发货
+    public function getIsconsignment(Request $request)
+    {
+        $res = DB::table('orderinfo')->
+            where('Order_id','like','%'.$request->input('search').'%')->
+            Where('IsConsignment', '0')->
+            paginate($request->input('num',10));
+       
+        return view('admins.order.isconsignment',['res'=>$res,'request'=>$request]);
+    }
+
+    //未付款
+    public function getIspayment(Request $request)
+    {
+        $res = DB::table('orderinfo')->
+            where('Order_id','like','%'.$request->input('search').'%')->
+            Where('IsPayment', '0')->
+            paginate($request->input('num',10));
+       
+        return view('admins.order.ispayment',['res'=>$res,'request'=>$request]);
     }
 
 
