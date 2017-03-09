@@ -14,6 +14,19 @@ class HomeIntroduceController extends Controller
     {
     	$res = DB::table('cate_goods')->where('id', $id)->first();
 
-    	return view('homes.lists.introduce',['res'=>$res]);
+    	$das = DB::table('goods_images')->where('pid',$id)->get();
+
+
+    	$goods['color'] = (explode(',', $res->color));
+
+
+
+    	$goods['size'] = (explode(',', $res->size));
+
+    	// dd(explode('，', $res->color));
+
+
+   
+    	return view('homes.lists.introduce',['res'=>$res, 'das'=>$das, 'goods'=>$goods]);
     }
 }
