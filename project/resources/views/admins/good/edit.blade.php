@@ -112,7 +112,7 @@
                             var ue = UE.getEditor('editor');
                         </script>
 
-                        <script id="editor" type="text/plain" style="width:700px;height:300px;"name='content'>{{$good->content}}
+                        <script id="editor" type="text/plain" style="width:700px;height:300px;"name='content'>{!!$good->content!!}
                         </script>
 
                     </div>
@@ -137,7 +137,7 @@
                     <div class="mws-form-item clearfix">
                         <ul class="mws-form-list inline"> 
                             <li><input type="radio" name="isHot" value="0" @if($good->status == 1) checked @endif > <label>普通</label></li>
-                            <li><input type="radio" name="isHot" value="1"> <label>置顶</label></li>
+                            <li><input type="radio" name="isHot" value="0"> <label>置顶</label></li>
                            
                         </ul>
                     </div>

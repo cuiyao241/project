@@ -259,6 +259,7 @@ class AdminGoodsController extends Controller
             $imgs = $request->input('imgs');
 
 
+            // dd($res);
             //判断文件上传
             if($request->hasFile('pic')) {
 
