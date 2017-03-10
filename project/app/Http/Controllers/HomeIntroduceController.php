@@ -25,8 +25,13 @@ class HomeIntroduceController extends Controller
 
     	// dd(explode('，', $res->color));
 
+    	//同类商品
+    	$pro = DB::table('cate_goods')->where('pid', $res->pid)->get();
+
+    	// dd($pro);
+
 
    
-    	return view('homes.lists.introduce',['res'=>$res, 'das'=>$das, 'goods'=>$goods]);
+    	return view('homes.lists.introduce',['res'=>$res, 'das'=>$das, 'goods'=>$goods, 'pro'=>$pro]);
     }
 }

@@ -33,6 +33,19 @@
 
 	} 
 
+	.color .cur{
+
+		border:solid 2px red;
+		background: red;
+
+	}
+	.size .cur{
+
+		border:solid 2px red;
+		background: red;
+
+	}
+
 	</style>
 
 	<!-- Single-Product-View -->
@@ -88,6 +101,7 @@
 
 						<!-- <p class="single-price-text"> </p> -->
 
+
 						<ul class="color">
 							<li style="border-style:none;color:#1abc9c">颜色：</li>	
 							@foreach($goods['color'] as $k => $v)	
@@ -109,6 +123,11 @@
 
 						<br><br>
 						<div class="cbp-pgcontent aitssinglew3" id="mens_single">
+
+							<input type="hidden" name="id" value="{{$res->id}}">
+							<input type="hidden" name="color" value="">
+							<input type="hidden" name="size" value="">
+
 							<button class="btn btn-danger agileits my-cart-btn" data-id="mens_single" data-name="Black Leather Jacket" data-summary="Black Leather Jacket" data-price="67.5" data-quantity="1" data-image="images/s1.jpg"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
 							<div class="clearfix"></div>
 						</div>
@@ -138,6 +157,7 @@
 							<div class="panel-body panel_text">
 								<div class="scrollbar" id="style-2">
 									详细介绍
+									{{$res->content}}
 								</div>
 							</div>
 						</div>
@@ -146,17 +166,19 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingTwo">
 							<h4 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">More Colors (2) <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">同类商品 <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="accordion-image">
 
-							@foreach($das as $k=>$v)
-								<div class="ac-img">
-									<a href="#"><img src="{{$v->pic}}" alt="Groovy Apparel"></a>
+							@foreach($pro as $k=>$v)
+								<div class="ac-img" style="width:40%;text-align:left;margin-top:10px;margin-left:30px">
+									<a href="#"><img src="{{$v->pic}}" width="230px" height="320px" alt="Groovy Apparel"></a>
+									<a href="#" style="margin-left:30px;font-size:20px">{{$v->title}}</a>
 								</div>
+
 							@endforeach
 								
 								<div class="clearfix"></div>
@@ -378,15 +400,28 @@
 
 <script type="text/javascript">
 	
-// alert($);
+	//颜色
+	$('.color li:gt(0)').click(function(){
 
-	$('.color li').click(funciton(){
+		$(this).addClass('.cur');
 
-		alert(1234);
+		$(this).siblings().removeClass('.cur');
 
+		var tx = 12345;
+
+		console.log(tx);
 
 	})
 
+	//尺寸
+	$('.size li:gt(0)').click(function(){
+
+		$(this).addClass('.cur');
+
+		$(this).siblings().removeClass('.cur');
+
+
+	})
 
 
 
