@@ -40,7 +40,9 @@ Route::group(['middleware'=>'Login'],function(){
 
 });
 
+//前台登录
 Route::controller('logined','HomeLoginController');
+
 
 //分组-前台
 Route::group([],function(){
@@ -55,6 +57,8 @@ Route::group([],function(){
 	Route::controller('home/order','HomeOrderController');
 	//商品详情
 	Route::controller('home/introduce','HomeIntroduceController');
+	//商品列表页
+	Route::controller('home/list', 'HomeListController');
 
 	
 });

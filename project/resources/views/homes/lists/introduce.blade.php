@@ -39,7 +39,7 @@
 	.size .addcolor{
 
 		border:solid 2px red;
-		background: red;
+		/*background: red;*/
 
 	}
 
@@ -443,9 +443,9 @@
 	//尺寸
 	$('.size li:gt(0)').click(function(){
 
-		$(this).addClass('.cur');
+		$(this).addClass('addcolor');
 
-		$(this).siblings().removeClass('.cur');
+		$(this).siblings().removeClass('addcolor');
 
 
 	})

@@ -138,7 +138,7 @@
 										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 									<div class="clearfix"></div>
-									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
+									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="/home/introduce/index/5">详情</a></p>
 								</div> 
 							</ul>
 						</li>
@@ -176,7 +176,7 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
+					<p> 全场满 $ 199 免邮费。 <a href="/home/introduce/index/5">详情</a></p>
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 					<ul>
@@ -184,7 +184,7 @@
 						<li><a href="faq.html">常见问题</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog1">登录</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
-						<li><a href="contact.html">联系我们</a></li>
+						<li><a href="/home/list">联系我们</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
