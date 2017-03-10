@@ -10,4 +10,10 @@ use App\Http\Controllers\Controller;
 class HomeOrderController extends Controller
 {
     //
+    public function getIndex()
+    {
+
+    	return view('homes.cart.order');
+
+    }
 }
