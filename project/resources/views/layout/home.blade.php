@@ -175,11 +175,18 @@
 			<!-- Popup-Box -->
 			<div id="popup1">
 				<div id="small-dialog1" class="mfp-hide agileinfo">
+				 @if (session('info'))
+
+	                <div class="mws-form-message error">
+	                    {{ session('info') }}
+	                </div>
+
+	            @endif
 					<div class="pop_up">
-						<form action="#" method="post">
-							<h3>登录</h3>
-							<input type="text" Name="Userame" placeholder="Username" required="">
-							<input type="password" Name="Password" placeholder="Password" required="">
+						<form action="/logined/test" method="post">
+							<h3>会员入口</h3>
+							<input type="text" Name="User_name" placeholder="ID" >
+							<input type="password" Name="Password" placeholder="Password" >
 							<ul class="tick w3layouts agileinfo">
 								<li>
 									<input type="checkbox" id="brand1" value="">
@@ -190,12 +197,13 @@
 								</li>
 							</ul>
 							<div class="send-button wthree agileits">
-								<input type="submit" value="LOGIN">
+								{{ csrf_field()}}							
+								<input type="submit" value="登录">
 							</div>
 						</form>
 					</div>
 				</div>
-
+			</div>
 	            
 					
 				<div id="small-dialog2" class="mfp-hide agileinfo">

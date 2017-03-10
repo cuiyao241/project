@@ -29,28 +29,32 @@ class HomeRegistercontroller extends Controller
     {
     	// dd($request->all());
 
-        $res = $request->except('_token','rePassword');
-
-        if (Session::get('Captcha') != $res['Captcha']) {
-
-            return back()->with('info','验证码错误!');
-        }
-
+        $res = $request->except('_token','rePassword','Captcha');
+        // dd($res);
+        
         $res['Password'] = Hash::make($request->input('Password'));
+        // dd();
 
-        $res['status'] = '0';
+        // $res['status'] = '1';
+
+        // dd($res);
 
         $data = DB::table('user')->insert($res);
 
         // dd($data);
+
         if($data){
 
-            return redirect('admin/login');
+            return redirect('/home/logined');
         } else {
 
             return back();
         }
         // return back();
+        if (Session::get('Captcha') != $res['Captcha']) {
+
+            return back()->with('info','验证码错误!');
+        }
     }
 
       public function getCaptcha()
