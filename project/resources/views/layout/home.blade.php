@@ -173,7 +173,7 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-					<p> 全场满 $ 199 免邮费。 <a href="http://lamp.com/home/introduce/index/5">详情</a></p>
+					<p> 全场满 $ 199 免邮费。 <a href="/home/introduce/index/5">详情</a></p>
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 					<ul>
@@ -181,7 +181,7 @@
 						<li><a href="faq.html">常见问题</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog1">登录</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
-						<li><a href="contact.html">联系我们</a></li>
+						<li><a href="http://lamp.com/home/introduce/index/5">联系我们</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

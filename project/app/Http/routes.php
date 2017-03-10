@@ -40,6 +40,8 @@ Route::group(['middleware'=>'Login'],function(){
 
 });
 
+Route::controller('logined','HomeLoginController');
+
 //分组-前台
 Route::group([],function(){
 
