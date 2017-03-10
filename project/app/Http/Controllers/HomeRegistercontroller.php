@@ -45,7 +45,7 @@ class HomeRegistercontroller extends Controller
 
         if($data){
 
-            return redirect('/home/logined');
+            return redirect('home');
         } else {
 
             return back();

@@ -45,7 +45,7 @@ class HomeLoginController extends Controller
         //用户名判断
         if (!$user) {
 
-            return back()->with('info','用户不存在');
+            return back()->with('into','用户不存在');
 
         } else {
 
@@ -53,11 +53,11 @@ class HomeLoginController extends Controller
                 if($user->Password == $newPassword){
                    
 
-                    return redirect('home')->with('info','登录成功');
+                    return redirect('home')->with('into','登录成功');
 
                 } else {
 
-                    return back()->with('info','登录失败,密码错误!');
+                    return back()->with('into','登录失败,密码错误!');
                 }
 
             

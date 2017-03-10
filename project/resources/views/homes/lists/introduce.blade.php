@@ -39,7 +39,7 @@
 	.size .addcolor{
 
 		border:solid 2px red;
-		background: red;
+		/*background: red;*/
 
 	}
 
@@ -120,12 +120,14 @@
 
 						<br><br>
 						<div class="cbp-pgcontent aitssinglew3" id="mens_single">
-
-							<input type="hidden" name="id" value="{{$res->id}}">
-							<input type="hidden" name="color" value="">
-							<input type="hidden" name="size" value="">
-
-							<button class="btn btn-danger agileits my-cart-btn" data-id="mens_single" data-name="Black Leather Jacket" data-summary="Black Leather Jacket" data-price="67.5" data-quantity="1" data-image="images/s1.jpg"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+							<form action="/home/cart/remind" method="post">
+								<input type="hidden" name="id" value="{{$res->id}}">
+								<input id="incolor" type="hidden" name="color" value="">
+								<input id="insize" type="hidden" name="size" value="">
+								 {{ csrf_field()}}
+								<input type="submit" class="btn btn-danger agileits my-cart-btn" data-id="mens_single" data-name="Black Leather Jacket" data-summary="Black Leather Jacket" data-price="67.5" data-quantity="1" data-image="images/s1.jpg" value="加入购物车">
+	
+							</form>
 							<div class="clearfix"></div>
 						</div>
 
@@ -432,7 +434,10 @@
 
 			//var tx = 12345;
 
-			//console.log(tx);
+			var tx = $(this).text();
+			$('#incolor').attr('value',tx);
+			// var tt = $('#incolor').attr('value');
+			// console.log(tt);
 
 		})
 
@@ -443,9 +448,14 @@
 	//尺寸
 	$('.size li:gt(0)').click(function(){
 
-		$(this).addClass('.cur');
+		$(this).addClass('addcolor');
 
-		$(this).siblings().removeClass('.cur');
+		$(this).siblings().removeClass('addcolor');
+
+		var ts = $(this).text();
+		$('#insize').attr('value',ts);
+			// var ta = $('#insize').attr('value');
+			// console.log(ta);
 
 
 	})

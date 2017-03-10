@@ -79,7 +79,7 @@
                     <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" alt="minus" onclick="changeNum('num_1','minus')"
                     class="hand" style="font-size:15px;"></span> 
     
-                    <input id="num_1" type="text" value="{{$v['num']}}" class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
+                    <input id="num_1" type="text" value="1" class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
                     /> 
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" onclick="changeNum('num_1','add')"
                     class="hand" style="font-size:15px;"></span>
@@ -103,7 +103,23 @@
         </form>
     </table>
 </div>
-
+<!-- 相关商品 -->
+<div class="w3lsnewsletter" id="w3lsnewsletter">
+        <div class="container">
+            <div class="w3lsnewsletter-grids">
+                <div class="col-md-5 w3lsnewsletter-grid w3lsnewsletter-grid-1 subscribe">
+                    <h2>Subscribe to our Newsletter</h2>
+                </div>
+                <div class="col-md-7 w3lsnewsletter-grid w3lsnewsletter-grid-2 email-form">
+                    <form action="#" method="post">
+                        <input class="email" name="Email" placeholder="Email Address" required="" type="email">
+                        <input class="submit" value="SUBSCRIBE" type="submit">
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('js')
