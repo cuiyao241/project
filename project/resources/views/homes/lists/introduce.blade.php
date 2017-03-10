@@ -34,7 +34,6 @@
 	.color .addcolor{
 
 		border:solid 2px red;
-		background: red;
 
 	}
 	.size .addcolor{
@@ -155,7 +154,7 @@
 							<div class="panel-body panel_text">
 								<div class="scrollbar" id="style-2">
 									详细介绍
-									{{$res->content}}
+									{!!$res->content!!}
 								</div>
 							</div>
 						</div>
@@ -169,12 +168,34 @@
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+						<style type="text/css">
+							.title {
+							    color: #333;
+							    display: block;
+							    font-size: 14px;
+							    height: 14px;
+							    line-height: 14px;
+							    margin-top: 10px;
+							    overflow: hidden;
+							    text-overflow: ellipsis;
+							    white-space: nowrap;
+							}
+							.accordion-image img{
+								width:90%;
+							}
+
+						</style>
 							<div class="accordion-image">
 
+
+
 							@foreach($pro as $k=>$v)
-								<div class="ac-img" style="width:40%;text-align:left;margin-top:10px;margin-left:30px">
+								<div class="ac-img" style="width:24%;text-align:center;margin-top:10px;">
 									<a href="#"><img src="{{$v->pic}}" width="230px" height="320px" alt="Groovy Apparel"></a>
-									<a href="#" style="margin-left:30px;font-size:20px">{{$v->title}}</a>
+									<br>
+									<a href="#" class="title">{{$v->title}}</a>
+									<br>
+									<a href="#" style="margin-left:3px">￥{{$v->price}}</a>
 								</div>
 
 							@endforeach
@@ -403,11 +424,9 @@
 		//颜色
 		$('.color li:gt(0)').click(function(){
 
-			// alert(12345);
 
 			$(this).addClass('addcolor');
 
-			// $(this).css('border','solid 2px red');
 
 			$(this).siblings().removeClass('addcolor');
 
