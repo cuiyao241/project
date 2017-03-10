@@ -426,7 +426,7 @@
 
 	<!-- //Custom-JavaScript-File-Links -->
 
-
+		<script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script>
 
 		<!-- Bootstrap-JavaScript --> <script src="/homes/js/bootstrap.js"></script>
 	
