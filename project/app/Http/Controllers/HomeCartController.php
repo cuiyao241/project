@@ -34,7 +34,7 @@ class HomeCartController extends Controller
     {
     	$res = $request->except('_token');
     	//把数据存入到数据库
-    	// Session::push('cart',$res);
+    	Session::push('cart',$res);
         // dd($res);
 
     	return view('homes.cart.remind');
@@ -52,6 +52,7 @@ class HomeCartController extends Controller
     	}
     	// echo '<pre>';
     	// var_dump($data);
+        // dd();
     	return view('homes.cart.cart',['data'=>$data]);
 
     }
