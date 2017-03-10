@@ -47,21 +47,6 @@
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 
-<!-- 关于购物车 -->
-<link href="/homes/css/myCart.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/homes/js/myCart.js"></script>
-
-
-<style type="text/css">
-
-	#bs-megadropdown-tabs li{
-		
-		list-style:none ;
-	}
-
-
-</style>
-
 </head>
 <!-- //Head -->
 
@@ -88,7 +73,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>玛丽莲</span> 梦露</a> 
+					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
@@ -192,34 +177,58 @@
 				<div id="small-dialog1" class="mfp-hide agileinfo">
 					<div class="pop_up">
 						<form action="#" method="post">
-							<h3>LOGIN</h3>
+							<h3>登录</h3>
 							<input type="text" Name="Userame" placeholder="Username" required="">
 							<input type="password" Name="Password" placeholder="Password" required="">
 							<ul class="tick w3layouts agileinfo">
 								<li>
 									<input type="checkbox" id="brand1" value="">
-									<label for="brand1"><span></span>Remember me</label>
+									<label for="brand1"><span></span>记住账号</label>
 								</li>
 								<li>
-									<a href="#">Forgot Password?</a>
+									<a href="#">忘记 PASSWORD?</a>
 								</li>
 							</ul>
 							<div class="send-button wthree agileits">
-								<input type="submit" value="登录">
+								<input type="submit" value="LOGIN">
 							</div>
 						</form>
 					</div>
 				</div>
+
+	            
+					
 				<div id="small-dialog2" class="mfp-hide agileinfo">
+				@if (count($errors) > 0)
+				    <div class="alert alert-danger">
+				        <ul>
+				            @foreach ($errors->all() as $error)
+				                <li>{{ $error }}</li>
+				            @endforeach
+				        </ul>
+				    </div>
+				@endif
+
+				@if (session('info')) 
+					<div class="alert alert-danger">
+						{{ session('info')}}
+					</div>
+				@endif
+				
 					<div class="pop_up">
-						<form action="#" method="post">
-							<h3>SIGN UP</h3>
-							<input type="text" Name="Name" placeholder="Name" required="">
-							<input type="text" Name="Email" placeholder="Email" required="">
-							<input type="password" Name="Password" placeholder="Password" required="">
-							<input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+	
+						<form action="home/user/doregister" method="post">
+							<h3>用户注册</h3>
+							<input type="text" Name="User_name" placeholder="用户名" >							
+							<input type="password" Name="Password" placeholder="密码" >
+							<input type="password" Name="rePassword" placeholder="确认密码" >
+							<input type="text" Name="Emails" placeholder="邮箱" >
+							<input type="text" Name="Phonecode" placeholder="手机号" >
+							<input type="text" Name="Captcha" placeholder="验证码" >
+							<img src="/home/user/captcha" alt="" height='50px' onclick='this.src = this.src+="?a"'>
 							<div class="send-button wthree agileits">
-								<input type="submit" value="注册">
+								{{ csrf_field()}}
+								<input type="submit" value="提交信息">
 							</div>
 						</form>
 					</div>
@@ -230,9 +239,7 @@
 
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
-		
-
-
+	
 		<!-- Header-Slider -->
 		<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
@@ -343,7 +350,6 @@
         		items = this.items();
 
         		for (i = 0, len = items.length; i < len; i++) { 
-        			
         		}
         	}
         });

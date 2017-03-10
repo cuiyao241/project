@@ -145,7 +145,7 @@
             </div>
             <div class="mws-button-row">
 
-                <input value="添加" class="btn btn-danger" type="submit">
+                <input value="修改" class="btn btn-danger" type="submit">
                 <input value="重置" class="btn " type="reset">
             </div>
         </form>
