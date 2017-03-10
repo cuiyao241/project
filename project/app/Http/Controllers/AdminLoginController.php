@@ -70,9 +70,6 @@ class AdminLoginController extends Controller
 
 
 
-    public function add()
-    {
-        echo 12345;
-    }
+   
 
 }

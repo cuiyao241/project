@@ -31,13 +31,13 @@
 
 	} 
 
-	.color .cur{
+	.color .addcolor{
 
 		border:solid 2px red;
 		background: red;
 
 	}
-	.size .cur{
+	.size .addcolor{
 
 		border:solid 2px red;
 		background: red;
@@ -397,19 +397,29 @@
 @section('js')
 
 <script type="text/javascript">
+
+	//$(window).ready(function(){
 	
-	//颜色
-	$('.color li:gt(0)').click(function(){
+		//颜色
+		$('.color li:gt(0)').click(function(){
 
-		$(this).addClass('.cur');
+			// alert(12345);
 
-		$(this).siblings().removeClass('.cur');
+			$(this).addClass('addcolor');
 
-		var tx = 12345;
+			// $(this).css('border','solid 2px red');
 
-		console.log(tx);
+			$(this).siblings().removeClass('addcolor');
 
-	})
+			//var tx = 12345;
+
+			//console.log(tx);
+
+		})
+
+	//});
+
+
 
 	//尺寸
 	$('.size li:gt(0)').click(function(){
