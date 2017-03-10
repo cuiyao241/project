@@ -135,7 +135,7 @@ img{
 		text-align:center;
 		}
 	.cart_td_1,.cart_td_2,.cart_td_3,.cart_td_4,.cart_td_5,.cart_td_6,.cart_td_7,.cart_td_8{
-		background-color:#e2f2ff;
+		background-color:#ffffff;
 		border-bottom:solid 1px #d1ecff;
 		border-top:solid 1px #d1ecff;
 		text-align:center;
@@ -165,7 +165,7 @@ img{
 	}
 .yellow{
 	font-weight:bold;
-	color:#fe6400;
+	color:#ff6600;
 	font-size:18px;
 	line-height:40px;
 	}

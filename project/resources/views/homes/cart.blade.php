@@ -3,45 +3,64 @@
 @section('title','我的购物车')
 
 @section('content')
-<center>  
-<br>
-<div class="but_list" style="width:800px">
-    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-        <ul id="myTab" class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active" ><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true" style="color:red"><b>我的购物车</b></a></li>
-        
-    </div>
+
+<div id="navlist">
+    <ul>
+        <li class="navlist_red_left">
+        </li>
+        <li class="navlist_red">
+            1. 查看购物车
+        </li>
+        <li class="navlist_red_arrow">
+        </li>
+        <li class="navlist_gray">
+            2. 确认订单信息
+        </li>
+        <li class="navlist_gray_arrow">
+        </li>
+        <li class="navlist_gray">
+            3. 付款到支付宝
+        </li>
+        <li class="navlist_gray_arrow">
+        </li>
+        <li class="navlist_gray">
+            4. 确认收货
+        </li>
+        <li class="navlist_gray_arrow">
+        </li>
+        <li class="navlist_gray">
+            5. 评价
+        </li>
+        <li class="navlist_gray_right">
+        </li>
+    </ul>
 </div>
-</center>  
-
-<br>
-
 <div id="content">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="shopping">
         <form action="" method="post" name="myform">
             <tr>
                 <td class="title_1">
-                    <label><input id="allCheckBox" type="checkbox" value="" onclick="selectAll()"
+                    <input id="allCheckBox" type="checkbox" value="" onclick="selectAll()"
                     />
-                    <span style="font-size:15px;color:red"><b>全选</b></span></label>
+                    全选
                 </td>
                 <td class="title_2" colspan="2">
-                    <b>店铺宝贝</b>
+                    店铺宝贝
                 </td>
                 <td class="title_3">
-                    <b>获积分</b>
+                    获积分
                 </td>
                 <td class="title_4">
-                    <b>单价（元）</b>
+                    单价（元）
                 </td>
                 <td class="title_5">
-                    <b>数量</b>
+                    数量
                 </td>
                 <td class="title_6">
-                    <b>小计（元）</b>
+                    小计（元）
                 </td>
                 <td class="title_7">
-                    <b>操作</b>
+                    操作
                 </td>
             </tr>
             <tr>
@@ -55,14 +74,14 @@
                     />
                 </td>
                 <td class="cart_td_2">
-                    <img style="width:100px; height: 100px;" src="{{$v['sub_cart']->pic}}" alt="shopping" />
+                    <img style="width:100px; height: 100px;" src="/homes/images/taobao_cart_01.jpg" alt="shopping" />
                 </td>
                 <td class="cart_td_3">
                     <a href="#">
                         {{$v['sub_cart']->title}}
                     </a>
                     <br />
-                    颜色：{{$v['color']}} 尺码：{{$v['size']}}
+                    颜色：{{$v['color']}} 尺码：asd
                     <br />
                     保障：
                     <img style="width:15px" src="/homes/images/taobao_icon_01.jpg" alt="icon" />
@@ -71,15 +90,14 @@
                     5
                 </td>
                 <td class="cart_td_5">
-                    {{$v['sub_cart']->price}}
+                    138.00
                 </td>
-
                 <td class="cart_td_6">
-                    <br>
+
                     <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" alt="minus" onclick="changeNum('num_1','minus')"
                     class="hand" style="font-size:15px;"></span> 
     
-                    <input id="num_1" type="text" value="{{$v['num']}}" class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
+                    <input id="num_1" type="text" value="1" class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:white;color:red; border-radius:10px; font-size:15px;" ;
                     /> 
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" onclick="changeNum('num_1','add')"
                     class="hand" style="font-size:15px;"></span>
@@ -88,13 +106,13 @@
                 </td>
                 <td class="cart_td_8">
                     <a href="javascript:deleteRow('product1');">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        删除
                     </a>
                 </td>
             </tr>
             @endforeach
             <tr>
-                 <td  colspan="3"></td>
+                 <td  colspan="3"><a href="javascript:deleteSelectRow()"><img style="width:100px" src="/homes/images/taobao_del.jpg" alt="delete"/></a></td>
                 <td colspan="5" class="shopend">商品总价（不含运费）：<label id="total" class="yellow"></label> 元<br />可获积分 <label class="yellow" id="integral"></label> 点<br />
                 <input name=" " type="image" src="/homes/images/taobao_subtn.jpg" /></td>
             </tr>

@@ -23,6 +23,12 @@ class HomeCartController extends Controller
     	$res = array('color'=>'蓝色','size'=>'xl','num'=>'2','id'=>'14');
     	Session::push('cart',$res);
     }
+    public function getTh()
+    {	
+    	$res[] = null;
+    	$res = array('color'=>'棕色','size'=>'xxxl','num'=>'1','id'=>'16');
+    	Session::push('cart',$res);
+    }
     //加入购物车提醒
     // public function postRemind(Request $request)
     // {
@@ -37,13 +43,13 @@ class HomeCartController extends Controller
     {
     	$data = Session::get('cart');
 
-    	// echo '<pre>';
-    	// var_dump($data);
+    	
 
     	foreach ($data as $k => $v) {
     		$data[$k]['sub_cart'] = DB::table('cate_goods')->where('id',$v['id'])->first();
     	}
-
+    	// echo '<pre>';
+    	// var_dump($data);
     	return view('homes.cart.cart',['data'=>$data]);
 
     }
