@@ -162,12 +162,13 @@ class AdminUserController extends Controller
 
        if($into) {
 
-            echo '删除成功';
+            
             return redirect('/admin/user/index')->with('info', '删除成功');
         } else {
 
             return back()->with('info','删除失败');
         }
+   
 
-}
+    }
 }
