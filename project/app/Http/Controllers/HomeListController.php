@@ -20,6 +20,7 @@ class HomeListController extends Controller
         // $pro = DB::table('goods_images')->where('pid,');
 
 
+        $ding = DB::table('cate')->where('id', $id)->first();
 
 
 
@@ -28,8 +29,6 @@ class HomeListController extends Controller
 
         	$pro['size'] = explode(',', $v->size);
         	$pro['color'] =explode(',', $v->color);
-        	// $arr[] = DB::table('goods_images')->where('pid', $v->id)->get();
-        	// $pro['imgs'] = $arr;	
         	
         }
 
@@ -37,6 +36,16 @@ class HomeListController extends Controller
 
         // dd($pro);
 
-        return view('homes.lists.list', ['pro'=>$pro, 'res'=>$res]);
+        return view('homes.lists.list', ['pro'=>$pro, 'res'=>$res, 'ding'=>$ding]);
     }
+
+    
+
+    // public function postAdd(Request $request)
+    // {
+    // 	$res = $request->all();
+
+    // 	dd($res);
+    // }
+
 }

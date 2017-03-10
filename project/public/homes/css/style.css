@@ -1900,11 +1900,13 @@ h1.w3wthreeheadingaits {
 .cbp-pgoptsize .cbp-pgopttooltip span {
 	display: block;
 	text-indent: 0;
-	background: url(../images/tshirt.svg) no-repeat center center;
+	/*服装标志*/
+	/*background: url(../images/tshirt.svg) no-repeat center center;*/
+	/*border:solid 1px black;*/
 	background-size: 100%;
 	margin: 0 auto 4px;
 	text-align: center;
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: 700;
 	color: #65b3e2;
 	cursor: pointer;
