@@ -80,7 +80,7 @@
                     <br>
                     <span  class="glyphicon glyphicon-minus-sign" aria-hidden="true" alt="minus" class="hand" style="font-size:15px;cursor:pointer;"></span> 
     
-                    <input id="num_1" type="text" value="1" class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
+                    <input id="num_1" type="text" value="1" name="num[]"  class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
                     /> 
                     <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true" 
                     class="hand" style="font-size:15px;cursor:pointer;"></span>
@@ -93,6 +93,16 @@
                     </a>
                 </td>
             </tr>
+            <!-- 传值到订单页 -->
+               <!--  <input type="hidden" name="id[]" value="{{$v['sub_cart']->id}}"> -->
+                <input type="hidden" name="pic[]" value="{{$v['sub_cart']->pic}}">
+                <input type="hidden" name="title[]" value="{{$v['sub_cart']->title}}">
+                <input type="hidden" name="color[]" value="{{$v['color']}}">
+                <input type="hidden" name="size[]" value="{{$v['size']}}">
+                <input type="hidden" name="price[]" value="{{$v['sub_cart']->price}}">
+                <input type="hidden" value="2">
+                
+
             @endforeach
             <tr>
                 <label><input id="asdsd" type="radio" class="removes" value="0" 
@@ -101,23 +111,23 @@
                 <td  colspan="3"></td>
                 <td colspan="5" class="shopend">商品总价（不含运费）： <label id="total" class="yellow"> 0 </label> 元<br />可获积分 ：<label class="yellow" id="integral"></label> 10 点<br />
                 <!-- <input name=" " type="image" src="/homes/images/taobao_subtn.jpg" /> -->
-                <input type="hidden" name="pic" value="{{$v['sub_cart']->pic}}">
-                <input type="hidden" name="title" value="{{$v['sub_cart']->title}}">
-                <input type="hidden" name="color" value="{{$v['color']}}">
-                <input type="hidden" name="size" value="{{$v['size']}}">
-                <input type="hidden" name="price" value="{{$v['sub_cart']->price}}">
-                <input type="hidden" class="hid-num" name="num" value="1">
+                
                
                 
 
                 {{ csrf_field()}}
-                <input style="width:100px" type="submit" value="立即购买" />
+                <input style="width:100px" class="lijidenglu"  type="submit" value="立即购买" />
                 </td>
             </tr>
-
+   
 
         </form>
     </table>
+
+
+
+
+
 </div>
 <!-- 相关商品 -->
 <div class="w3lsnewsletter" id="w3lsnewsletter">
@@ -226,8 +236,11 @@
             };
         })
     })
+    
 
+ 
 
     </script> 
+    
 
 @endsection
