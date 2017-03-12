@@ -9,14 +9,15 @@
     #logo{padding-top:26px;padding-bottom:12px;}
     #header .wrap-box{margin-top:-67px;}
     #logo .logo{position:relative;overflow:hidden;display:inline-block;width:140px;height:35px;font-size:35px;line-height:35px;color:#f40;}
-    #logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;background:url(http://a.tbcdn.cn/tbsp/img/header/logo.png);}
+    #logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;}
 </style>
+<img src="/homes/images/banner.jpg" alt="Groovy Apparel">
 <div id="page">
     <div id="content" class="grid-c">
         <div id="address" class="address" style="margin-top: 20px;" data-spm="2">
             <form name="addrForm" id="addrForm" action="#">
+                    <h1><b>确认收货地址</b></h1>
                 <h3>
-                    确认收货地址
                     <span class="manage-address">
                         <a href="http://member1.taobao.com/member/fresh/deliver_address.htm" target="_blank"
                         title="管理我的收货地址" class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.7">

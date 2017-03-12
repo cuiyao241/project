@@ -11,24 +11,6 @@ use DB;
 class HomeCartController extends Controller
 {
 
-    public function getOne()
-    {	
-    	$res[] = null;
-    	$res = array('color'=>'红色','size'=>'xxl','num'=>'5','id'=>'13');
-    	Session::push('cart',$res);
-    }
-    // public function getTwo()
-    // {	
-    // 	$res[] = null;
-    // 	$res = array('color'=>'蓝色','size'=>'xl','num'=>'2','id'=>'14');
-    // 	Session::push('cart',$res);
-    // }
-    // public function getTh()
-    // {	
-    // 	$res[] = null;
-    // 	$res = array('color'=>'棕色','size'=>'xxxl','num'=>'1','id'=>'16');
-    // 	Session::push('cart',$res);
-    // }
     //加入购物车提醒
     public function postRemind(Request $request)
     {
@@ -55,6 +37,25 @@ class HomeCartController extends Controller
         // dd();
     	return view('homes.cart.cart',['data'=>$data]);
 
+    }
+    //删除
+    public function getDel(Request $request)
+    {
+        $id = $request->input('id');
+        $color = $request->input('color');
+        $size = $request->input('size');
+
+        $res = Session::get('cart');
+        
+        // echo '<pre>';
+        // var_dump($id);die;
+        foreach ($res as $k => $v) {
+            if ($v['id'] == $id && $v['color'] == $color && $v['size'] == $size) {
+                Session::forget('cart.'.$k);
+                return '1';
+            }
+        }
+    return '0';
     }
 
 }

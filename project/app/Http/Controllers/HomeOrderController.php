@@ -10,10 +10,13 @@ use App\Http\Controllers\Controller;
 class HomeOrderController extends Controller
 {
     //
-    public function getIndex()
+
+
+    public function postOrder(Request $request)
     {
-
-    	return view('homes.cart.order');
-
+    	$res = $request->except('_token');
+    	echo'<pre>';
+    	var_dump($res);
+    	// return view('homes.cart.order');
     }
 }
