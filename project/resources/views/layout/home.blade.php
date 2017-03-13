@@ -47,24 +47,6 @@
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 
-<!-- 关于购物车 -->
-<link href="/homes/css/myCart.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/homes/js/myCart.js"></script>
-<!-- 订单 -->
-<link rel="stylesheet" href="/homes/css/tasp.css" />
-<link href="/homes/css/orderconfirm.css" rel="stylesheet" />
-
-<style type="text/css">
-
-	#bs-megadropdown-tabs li{
-		
-		list-style:none ;
-	}
-
-
-</style>
-
-
 </head>
 <!-- //Head -->
 
@@ -91,7 +73,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>玛丽莲</span> 梦露</a> 
+					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
@@ -138,11 +120,7 @@
 										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 									<div class="clearfix"></div>
-<<<<<<< HEAD
-									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="/home/introduce/index/5">详情</a></p>
-=======
 									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 								</div> 
 							</ul>
 						</li>
@@ -180,11 +158,7 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-<<<<<<< HEAD
-					<p> 全场满 $ 199 免邮费。 <a href="/home/introduce/index/5">详情</a></p>
-=======
 					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 					<ul>
@@ -192,86 +166,79 @@
 						<li><a href="faq.html">常见问题</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog1">登录</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
-<<<<<<< HEAD
-						<li><a href="/home/list">联系我们</a></li>
-=======
 						<li><a href="contact.html">联系我们</a></li>
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 					</ul>
 				</div>
 				<div class="clearfix"></div>
 			</div>
+			
 
 			<!-- Popup-Box -->
 			<div id="popup1">
 				<div id="small-dialog1" class="mfp-hide agileinfo">
-<<<<<<< HEAD
-				 @if (session('info'))
+				@if (session('into'))
 
 	                <div class="mws-form-message error">
-	                    {{ session('info') }}
+	                    {{ session('into') }}
 	                </div>
 
 	            @endif
 					<div class="pop_up">
-<<<<<<< HEAD
 						<form action="/logined/test" method="post">
 							<h3>会员入口</h3>
-							<input type="text" Name="User_name" placeholder="ID" >
-							<input type="password" Name="Password" placeholder="Password" >
-=======
-=======
-					<div class="pop_up">
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
-						<form action="#" method="post">
-							<h3>LOGIN</h3>
-							<input type="text" Name="Userame" placeholder="Username" required="">
-							<input type="password" Name="Password" placeholder="Password" required="">
-<<<<<<< HEAD
->>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
-=======
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
+							<input type="text" Name="User_name">
+							<input type="password" Name="Password">
 							<ul class="tick w3layouts agileinfo">
 								<li>
 									<input type="checkbox" id="brand1" value="">
-									<label for="brand1"><span></span>Remember me</label>
+									<label for="brand1"><span></span>记住账号</label>
 								</li>
 								<li>
-									<a href="#">Forgot Password?</a>
+									<a href="#">忘记 PASSWORD?</a>
 								</li>
 							</ul>
 							<div class="send-button wthree agileits">
-<<<<<<< HEAD
-<<<<<<< HEAD
-								{{ csrf_field()}}							
-=======
->>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
-=======
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
+							{{ csrf_field()}}
 								<input type="submit" value="登录">
 							</div>
 						</form>
 					</div>
 				</div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			</div>
+
 	            
 					
-=======
->>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
-=======
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 				<div id="small-dialog2" class="mfp-hide agileinfo">
+				@if (session('into'))
+
+	                <div class="mws-form-message error">
+	                    {{ session('into') }}
+	                </div>
+
+	            @endif
+
+	             @if (count($errors) > 0)
+	               <div class="mws-form-message error">
+	                    <ul>
+	                        @foreach ($errors->all() as $error)
+	                            <li style='font-size:17px;list-style:none'>{{ $error }}</li>
+	                        @endforeach
+	                    </ul>
+	                </div>
+	            @endif
 					<div class="pop_up">
-						<form action="#" method="post">
-							<h3>SIGN UP</h3>
-							<input type="text" Name="Name" placeholder="Name" required="">
-							<input type="text" Name="Email" placeholder="Email" required="">
-							<input type="password" Name="Password" placeholder="Password" required="">
-							<input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+	
+						<form action="/home/user/doregister" method="post">
+							<h3>用户注册</h3>
+							<input type="text" Name="User_name" placeholder="用户名" >							
+							<input type="password" Name="Password" placeholder="密码" >
+							<input type="password" Name="rePassword" placeholder="确认密码" >
+							<input type="text" Name="Emails" placeholder="邮箱" >
+							<input type="text" Name="Phonecode" placeholder="手机号" >
+							<input type="text" Name="Captcha" placeholder="验证码" >
+							<img src="/home/user/captcha" alt="" height='50px' onclick='this.src = this.src+="?a"'>
 							<div class="send-button wthree agileits">
-								<input type="submit" value="注册">
+								{{ csrf_field()}}
+								<input type="submit" value="提交信息">
 							</div>
 						</form>
 					</div>
@@ -282,15 +249,9 @@
 
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
-		
-
-
+	
 		<!-- Header-Slider -->
-<<<<<<< HEAD
-		<!-- <div class="w3slideraits">
-=======
-		<div class="w3slideraits">
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
+<!-- 		<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
 				<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>
 				<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>
@@ -298,11 +259,7 @@
 				<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>
 				<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>
 			</div>
-<<<<<<< HEAD
 		</div> -->
-=======
-		</div>
->>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 		<!-- //Header-Slider -->
 
 	</div>
@@ -403,7 +360,6 @@
         		items = this.items();
 
         		for (i = 0, len = items.length; i < len; i++) { 
-        			
         		}
         	}
         });

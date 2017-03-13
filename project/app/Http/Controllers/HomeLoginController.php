@@ -57,7 +57,7 @@ class HomeLoginController extends Controller
 
                 } else {
 
-                    return back()->with('into','登录失败,密码错误!');
+                    return back()->with('into','密码错误!');
                 }
 
             

@@ -27,6 +27,7 @@ class HomeRegistercontroller extends Controller
 
     public function postDoregister(HomeRegisterRequest $request)
     {
+        // echo 1234;
     	// dd($request->all());
 
         $res = $request->except('_token','rePassword','Captcha');
@@ -35,7 +36,7 @@ class HomeRegistercontroller extends Controller
         $res['Password'] = Hash::make($request->input('Password'));
         // dd();
 
-        // $res['status'] = '1';
+        $res['status'] = '1';
 
         // dd($res);
 
@@ -45,10 +46,10 @@ class HomeRegistercontroller extends Controller
 
         if($data){
 
-            return redirect('home');
+            return redirect('home')->with('into','注册成功');
         } else {
 
-            return back();
+            return back()->with('into','注册失败');
         }
         // return back();
         if (Session::get('Captcha') != $res['Captcha']) {
@@ -74,5 +75,7 @@ class HomeRegistercontroller extends Controller
         $builder->output();
     }
 
-   
+
 }
+
+

@@ -60,6 +60,7 @@ Route::group([],function(){
 	//商品列表页
 	Route::controller('home/list', 'HomeListController');
 
+
 	
 });
 
