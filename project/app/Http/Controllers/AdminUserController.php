@@ -59,7 +59,7 @@ class AdminUserController extends Controller
             ]);
 
         // 表单验证
-        $res = $request->except('_token','rePassword','Profile');
+        $res = $request->except('_token','rePassword');
         // echo '<pre>';
         // var_dump($res);die;
         //判断文件上传
@@ -106,9 +106,9 @@ class AdminUserController extends Controller
      public function postUpdate(Request $request)
     {
 
-
+        var_dump($request);die;
         // 表单验证
-        $res = $request->except('_token','id','Profile');
+        $res = $request->except('_token','id');
         echo '<pre>';
         // var_dump($res);die;
         //判断文件上传
@@ -135,6 +135,7 @@ class AdminUserController extends Controller
             $pro = DB::table('user')->where('User_id',$id)->update($res);
 
             // var_dump($pro);die;
+
             if($pro) {
 
                 return redirect('admin/user/index')->with('info','添加成功');

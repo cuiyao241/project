@@ -29,7 +29,12 @@
         				</div>
         			</div>   
 
-                    
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">密码: </label>
+                        <div class="mws-form-item">
+                            <input type="text" name='Password' value="{{$res->Password}}">
+                        </div>
+                    </div> 
 
 
         			<div class="mws-form-row">
