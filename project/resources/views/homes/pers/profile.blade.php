@@ -1,0 +1,33 @@
+@extends('layout.personal')
+
+@section('title','修改头像')
+
+@section('content')
+
+  <div class="settings_box"> 
+   <strong class="settings_title">个人头像</strong> 
+   <fieldset> 
+    <div class="setAvatar"> 
+     <form id="setAvatar" method="post" action="/home/personal/proupdate"  enctype="multipart/form-data"> 
+      <div> 
+       <div class="img_submit"> 
+        <span>选择上传的图片</span> 
+        <input type="file" name="Profile" class="img_submit_in" id="img_submit" /> 
+       </div> 
+       <input type="submit" style="display:none;" id="uploadBtn" /> 
+       <iframe id="get_upload_file" name="upload_file" class="none_f" frameborder="0"> </iframe> 
+      </div> 
+      <p>建议使用正方形的图片，支持JPG、GIF、JPEG、PNG格式，8M以内</p> 
+      <img src="{{$data->Profile}}" class="original" /> 
+      <div class="clear_both"></div> 
+     <input type="hidden" name="User_id" value="20">
+     {{ csrf_field() }}
+     <input type="submit" name="save_thumbnail"  value="确 认" id="set_submit" class="ext_submit" style="margin-left:0px;"/> 
+     <span class="submit_error"></span> 
+     </form> 
+    </div> 
+   </fieldset> 
+  </div>
+
+
+@endsection

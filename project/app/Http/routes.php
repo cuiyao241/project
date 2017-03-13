@@ -61,7 +61,8 @@ Route::group(['middleware'=>'404'],function(){
 	Route::controller('home/introduce','HomeIntroduceController');
 	//商品列表页
 	Route::controller('home/list', 'HomeListController');
-
+	//个人中心
+	Route::controller('home/personal','HomePersonalController');
 	
 });
 
