@@ -15,24 +15,51 @@ class HomeOrderController extends Controller
     public function postOrder(Request $request)
     {
     	$res = $request->except('_token');
-    	$pics = $request->input('pic');
-    	$titles = $request->input('title');
+        $titles = $request->input('title');
     	$colors = $request->input('color');
     	$sizes = $request->input('size');
-    	$prices = $request->input('price');
     	$nums = $request->input('num');
+        $infos = $request->input('cartCheckBox');
 
-    	// dd($nums);
-    	// $data = [];
-    	foreach ($titles as $k => $v) {
-    		$tmp = DB::table('cate_goods')->where('title',$v)->first();
-    		$tmp->newnum = $nums[$k];
-    		$tmp->newcolor = $colors[$k];
-    		$tmp->newsize = $sizes[$k];
-    		$data[] = $tmp;	
-    	}
+
+        foreach ($infos as $k => $v) {
+
+            // dd(explode(",",$v));
+            $vValue = explode(",",$v);
+            $vId = explode(",",$v)[0];
+            $vColor = explode(",",$v)[1];
+            $vSize = explode(",",$v)[2];
+            $vNum = array_pop($vValue);
+            
+            $tmp = DB::table('cate_goods')->where('id',$vId)->first();
+            $tmp->newnum = $vNum;
+            $tmp->newcolor = $vColor;
+            $tmp->newsize = $vSize;
+            $data[] = $tmp; 
+        }
+
 	    	// dd($data);
-	  	
-    	return view('homes.cart.order',['data'=>$data]);
+	  	$address = DB::table('order_address')->where('User_name',"崔尧")->get();
+        // dd($address);
+    	return view('homes.cart.order',['data'=>$data,'address'=>$address]);
     }
+
+    public function postOrderinsert(Request $request)
+    {
+        $res = $request->except('_token');
+        $newcs = $request->input('newc');
+        $newsizes = $request->input('newsize');
+        $newnums = $request->input('newnum');
+        $pics = $request->input('pic');
+        $prices = $request->input('prices');
+        $urls = $request->input('url');
+        $tits = $request->input('tit');
+
+        // dd($tits);
+        $into = [$tits,$newcs,$newsizes,$newnums,$pics,$prices,$urls];
+
+        dd($into);
+
+    }
+
 }

@@ -52,7 +52,8 @@
             @foreach ($data as $k => $v)
             <tr id="product1">
                 <td class="cart_td_1">
-                    <input class="check" name="cartCheckBox[]"  type="checkbox" gid="{{$v['id']}}" />
+                    
+                    <input class="check" name="cartCheckBox[]" value="{{$v['id']}},{{$v['color']}},{{$v['size']}},1" type="checkbox"  gid="{{$v['id']}}" />
                 </td>
                 <td class="cart_td_2">
                     <img style="width:100px; height: 100px;" src="{{$v['sub_cart']->pic}}" alt="shopping" />
@@ -79,7 +80,7 @@
                 <td class="cart_td_6">
                     <br>
                     <span  class="glyphicon glyphicon-minus-sign" aria-hidden="true" alt="minus" class="hand" style="font-size:15px;cursor:pointer;"></span> 
-    
+                    
                     <input id="num_1" type="text" value="1" name="num[]"  class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
                     /> 
                     <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true" 
@@ -94,9 +95,10 @@
                 </td>
             </tr>
             <!-- 传值到订单页 -->
-               <!--  <input type="hidden" name="id[]" value="{{$v['sub_cart']->id}}"> -->
-                <input type="hidden" name="pic[]" value="{{$v['sub_cart']->pic}}">
+                <!-- <input type="hidden" name="id[]" value="{{$v['sub_cart']->id}}"> -->
+                
                 <input type="hidden" name="title[]" value="{{$v['sub_cart']->title}}">
+                <input type="hidden" name="pic[]" value="{{$v['sub_cart']->pic}}">
                 <input type="hidden" name="color[]" value="{{$v['color']}}">
                 <input type="hidden" name="size[]" value="{{$v['size']}}">
                 <input type="hidden" name="price[]" value="{{$v['sub_cart']->price}}">
@@ -165,6 +167,13 @@
         $(this).parents('tr').find('.cart_td_7').text(pri*pv);
         totals();
 
+        // value 传值
+        var oldVal = $(this).parents('tr').find('.check').val();
+        // console.log(pv);
+        var newVal = oldVal+','+pv;
+               
+        $(this).parents('tr').find('.check').val(newVal);
+
         
     })
     //减法
@@ -173,7 +182,7 @@
         var ne = $(this).next().val();
         // console.log(ne);
         if (ne <= 1 ) {
-            ne = 1;
+            ne = 2;
         };
         ne--;
         $(this).next().val(ne);
@@ -183,11 +192,18 @@
         //小计
         $(this).parents('tr').find('.cart_td_7').text(pri*ne);
         totals();
+
+        // value 传值
+        var oldVal = $(this).parents('tr').find('.check').val();
+    
+        var newVal = oldVal+','+ne;
+               
+        $(this).parents('tr').find('.check').val(newVal);
     })
 
     //总计
     $('.check').click(function(){
-       
+       $(this).checked = true;
         totals();
     })
 
@@ -236,8 +252,18 @@
             };
         })
     })
-    
+        //选择
+        $('.removes').click(function(){
+        // alert('asd');
 
+        $('.check').each(function(){
+         
+            this.checked = true;
+        })
+
+        totals();
+        
+    })
  
 
     </script> 
