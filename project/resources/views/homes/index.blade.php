@@ -6,6 +6,7 @@
 	<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
 				@foreach($res as $k=>$v)
+				
 				<div data-thumb="/images/slide-1-small.jpg" data-src="{{$v->pic}}"></div>				
 				@endforeach
 			</div>

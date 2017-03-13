@@ -107,7 +107,7 @@
 											<li class="heading">{{$v->title}}</li>
 
 											@foreach($v->num_cate as $ak => $av)
-											<li class="heading"><a href="">{{$av->title}}</a>
+											<li class="heading"><a href="/home/list?id={{$av->id}}">{{$av->title}}</a>
 											</li>					
 											
 											@endforeach
@@ -118,17 +118,17 @@
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
 										<p>热门推荐</p>
-										<a href="mens.html"><img src="{{$isNow['isHot'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/hots?title=热门推荐"><img src="{{$isNow['isHot'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 								
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
 										<p>新品上市</p>
-										<a href="mens.html"><img src="{{$isNow['isNew'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/news?title=新品上市"><img src="{{$isNow['isNew'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
 										<p>品牌折扣</p>
-										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/zhes?title=品牌折扣"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 									<div class="clearfix"></div>
 									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
