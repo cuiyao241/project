@@ -9,14 +9,15 @@
     #logo{padding-top:26px;padding-bottom:12px;}
     #header .wrap-box{margin-top:-67px;}
     #logo .logo{position:relative;overflow:hidden;display:inline-block;width:140px;height:35px;font-size:35px;line-height:35px;color:#f40;}
-    #logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;background:url(http://a.tbcdn.cn/tbsp/img/header/logo.png);}
+    #logo .logo .i{position:absolute;width:140px;height:35px;top:0;left:0;}
 </style>
+<img src="/homes/images/banner.jpg" alt="Groovy Apparel">
 <div id="page">
     <div id="content" class="grid-c">
         <div id="address" class="address" style="margin-top: 20px;" data-spm="2">
             <form name="addrForm" id="addrForm" action="#">
+                    <h1><b>确认收货地址</b></h1>
                 <h3>
-                    确认收货地址
                     <span class="manage-address">
                         <a href="http://member1.taobao.com/member/fresh/deliver_address.htm" target="_blank"
                         title="管理我的收货地址" class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.7">
@@ -227,28 +228,25 @@
                                 </div>
                             </td>
                         </tr>
+            @foreach ($data as $k => $v)
+        
                         <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0">
                             <td class="s-title">
-                                <a href="#" target="_blank" title="Huawei/华为 G520新款双卡双待安卓系统智能手机4.5寸四核手手机"
-                                class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.5">
-                                    <img style="width:50px" src="http://img03.taobaocdn.com/bao/uploaded/i3/18670026332876589/T1A4icFbNeXXXXXXXX_!!0-item_pic.jpg_60x60.jpg"
+                                <a href="#" target="_blank" title="asd  "
+                                class="J_MakePoint" >
+                                    <img style="width:50px" src="{{$v->pic}}"
                                     class="itempic">
-                                    <span class="title J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.5">
-                                        Huawei/华为 G520新款双卡双待安卓系统智能手机4.5寸四核手手机
+                                    <span class="title J_MakePoint" >
+                                        {{$v->title}}
                                     </span>
                                 </a>
                                 <div class="props">
                                     <span>
-                                        机身颜色: 黑
+                                        颜色: {{$v->newcolor}}
                                     </span>
+                                    　　　
                                     <span>
-                                        手机套餐: 套餐二
-                                    </span>
-                                    <span>
-                                        机身内存: 4G
-                                    </span>
-                                    <span>
-                                        版本: 中国大陆
+                                        尺寸: {{$v->newsize}}
                                     </span>
                                 </div>
                                 <a title="消费者保障服务，卖家承诺商品如实描述" href="#" target="_blank">
@@ -264,7 +262,7 @@
                             <td class="s-price">
                                 <span class='price '>
                                     <em class="style-normal-small-black J_ItemPrice">
-                                        630.00
+                                        {{$v->price}}
                                     </em>
                                 </span>
                                 <input type="hidden" name="costprice" value="630.00" class="J_CostPrice"
@@ -273,7 +271,7 @@
                             <td class="s-amount" data-point-url="">
                                 <input type="hidden" class="J_Quantity" value="1" name="19614514619_31175333266_35612993875_quantity"
                                 />
-                                1
+                                {{$v->newnum}}
                             </td>
                             <td class="s-agio">
                                 <div class="J_Promotion promotion" data-point-url="">
@@ -283,13 +281,15 @@
                             <td class="s-total">
                                 <span class='price '>
                                     <em class="style-normal-bold-red J_ItemTotal ">
-                                        630.00
+                                    {{$v->price*$v->newnum}}
                                     </em>
                                 </span>
                                 <input id="furniture_service_list_b_47285539868" type="hidden" name="furniture_service_list_b_47285539868"
                                 />
                             </td>
                         </tr>
+            @endforeach
+
                         <tr class="item-service">
                             <td colspan="5" class="servicearea" style="display: none">
                             </td>
@@ -410,7 +410,15 @@
                                         &yen;
                                     </span>
                                     <em class="style-middle-bold-red J_ShopTotal">
-                                        630.00
+                                @foreach ($data as $k => $v)
+                                    <?php 
+                                            $i=0;
+                                            $i += $v->price;
+                                    
+                                       echo $i;
+                                     ?>
+                                @endforeach
+                                        {{$i}}
                                     </em>
                                 </span>
                                 <input type="hidden" name="1704508670:2|creditcard" value="false" />

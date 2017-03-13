@@ -138,7 +138,11 @@
 										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 									<div class="clearfix"></div>
+<<<<<<< HEAD
 									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="/home/introduce/index/5">详情</a></p>
+=======
+									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 								</div> 
 							</ul>
 						</li>
@@ -176,7 +180,11 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
+<<<<<<< HEAD
 					<p> 全场满 $ 199 免邮费。 <a href="/home/introduce/index/5">详情</a></p>
+=======
+					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 					<ul>
@@ -184,7 +192,11 @@
 						<li><a href="faq.html">常见问题</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog1">登录</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
+<<<<<<< HEAD
 						<li><a href="/home/list">联系我们</a></li>
+=======
+						<li><a href="contact.html">联系我们</a></li>
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -193,6 +205,7 @@
 			<!-- Popup-Box -->
 			<div id="popup1">
 				<div id="small-dialog1" class="mfp-hide agileinfo">
+<<<<<<< HEAD
 				 @if (session('info'))
 
 	                <div class="mws-form-message error">
@@ -207,11 +220,17 @@
 							<input type="text" Name="User_name" placeholder="ID" >
 							<input type="password" Name="Password" placeholder="Password" >
 =======
+=======
+					<div class="pop_up">
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 						<form action="#" method="post">
 							<h3>LOGIN</h3>
 							<input type="text" Name="Userame" placeholder="Username" required="">
 							<input type="password" Name="Password" placeholder="Password" required="">
+<<<<<<< HEAD
 >>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
+=======
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 							<ul class="tick w3layouts agileinfo">
 								<li>
 									<input type="checkbox" id="brand1" value="">
@@ -223,20 +242,26 @@
 							</ul>
 							<div class="send-button wthree agileits">
 <<<<<<< HEAD
+<<<<<<< HEAD
 								{{ csrf_field()}}							
 =======
 >>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
+=======
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 								<input type="submit" value="登录">
 							</div>
 						</form>
 					</div>
 				</div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			</div>
 	            
 					
 =======
 >>>>>>> 920aa6c4e6d4103d4c6ab27401298c49bc8fdcb9
+=======
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 				<div id="small-dialog2" class="mfp-hide agileinfo">
 					<div class="pop_up">
 						<form action="#" method="post">
@@ -261,7 +286,11 @@
 
 
 		<!-- Header-Slider -->
+<<<<<<< HEAD
 		<!-- <div class="w3slideraits">
+=======
+		<div class="w3slideraits">
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
 				<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>
 				<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>
@@ -269,7 +298,11 @@
 				<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>
 				<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>
 			</div>
+<<<<<<< HEAD
 		</div> -->
+=======
+		</div>
+>>>>>>> c1cb510d783286d21321a6af5ae201e410e93add
 		<!-- //Header-Slider -->
 
 	</div>
