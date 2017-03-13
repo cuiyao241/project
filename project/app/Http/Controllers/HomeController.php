@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class HomeController extends Controller
 {
@@ -13,11 +14,14 @@ class HomeController extends Controller
     public function index()
     {
 
-    	// $res = DB::table('')
+    	$res = DB::table('home_adv')->where('pid', 0)->get();
 
-    	return view('homes.index');
+    	$pro = DB::table('home_adv')->where('pid', 1)->get();
+
+    	$pth = DB::table('cate_ins')->get();
+
+    	return view('homes.index', ['res'=>$res, 'pro'=>$pro, 'pth'=>$pth]);
     }
 
-    
-    
+
 }

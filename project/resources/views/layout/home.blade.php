@@ -32,11 +32,7 @@
 <!-- Header-Slider-CSS --> <link rel="stylesheet" href="/homes/css/fluid_dg.css" id="fluid_dg-css" type="text/css" media="all">
 <!-- //Custom-StyleSheet-Links -->
 
-<!-- Fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700"	   type="text/css" media="all">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700"	   type="text/css" media="all">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500" type="text/css" media="all">
-<!-- //Fonts -->
+
 
 <!-- Font-Awesome-File-Links -->
 <!-- CSS --> <link rel="stylesheet" href="/homes/css/font-awesome.css" 		 type="text/css" media="all">
@@ -88,7 +84,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>玛丽莲</span> 梦露</a> 
+					<a class="navbar-brand agileinfo" href="/home"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>

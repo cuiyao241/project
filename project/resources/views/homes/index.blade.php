@@ -5,23 +5,24 @@
 @section('content')
 	<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
-				<div data-thumb="/images/slide-1-small.jpg" data-src="/images/slide-1.jpg"></div>				
+				@foreach($res as $k=>$v)
+				<div data-thumb="/images/slide-1-small.jpg" data-src="{{$v->pic}}"></div>				
+				@endforeach
 			</div>
 		</div>
 
 	<!-- Model-Slider -->
 	<div class="agilemodel-slider">
 		<div id='film_roll_1'>
-			<div><img src="/images/model_slide-1.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-2.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-3.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-4.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-5.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-6.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-7.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-8.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-9.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-10.jpg" alt="Groovy Apparel"></div>
+
+			@foreach($pro as $ak=>$av)
+			<div>
+
+				<img src="{{$av->pic}}" alt="Groovy Apparel">
+
+			</div>
+			@endforeach
+
 		</div>
 	</div>
 	<!-- //Model-Slider -->
@@ -32,50 +33,23 @@
 		<div class="container">
 
 			<div class="wthreehome-latest-grids">
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid1">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-1.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
+
+				@foreach($pth as $k=>$v)
+					<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid1">
+						<div class="grid">
+							<figure class="effect-apollo">
+
+								<!-- <img src="/images/home-latest-1.jpg" alt="Groovy Apparel"> -->
+								<img src="{{$v->pic}}" alt="Groovy Apparel">
+								<figcaption></figcaption>
+							</figure>
+						</div>
+						<h4>{{$v->title}}</h4>
+						<h5>{{$v->content}}</h5>
+						<h6><a href="{{$v->url}}?title={{$v->title}}">Shop Now</a></h6>
 					</div>
-					<h4>DENIM TOPS</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid2">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-2.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>LEATHER JACKETS</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid3">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-3.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>WATCHES</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens_accessories.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid4">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-4.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>BEACH WEAR</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="mens.html">Shop Now</a></h6>
-				</div>
+				@endforeach
+				
 			</div>
 			<div class="clearfix"></div>
 

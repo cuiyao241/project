@@ -20,6 +20,13 @@ class AdminAdvController extends Controller
     	return view('admins.conf.adv', ['res'=>$res]);
     }
 
+    // public function getAdd()
+    // {
+
+    // }
+
+
+
     public function getDel(Request $request)
     {
     	$id = $request->input('id');

@@ -1,7 +1,7 @@
 
 @extends('layout.home')
 
-@section('title','商品的详情页')
+@section('title','商品的列表页')
 
 
 @section('content')
@@ -48,7 +48,6 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 	border:solid 1px red;
 
 }
-
 .cbp-pgitem {
     backface-visibility: hidden;
     height: 555px;
@@ -60,13 +59,14 @@ input.css-checkbox[type="checkbox"] + label.css-label {
     height:455px;
 }
 
+
 </style>
 <!-- Body -->
 <body>
 
 
 	<!-- Heading -->
-	<h1 class="w3wthreeheadingaits">{{$ding->title}}</h1>
+	<h1 class="w3wthreeheadingaits">{{$title}}</h1>
 	<!-- //Heading -->
 
 
@@ -161,28 +161,6 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 	<!-- //Men's-Product-Display -->
 
 
-
-	<!-- Copyright
-	<div class="w3lscopyrightaits">
-		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-		</div>
-		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
-			<div class="agilesocialwthree">
-				<ul class="social-icons">
-					<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="googleplus w3" title="Go to Our Google Plus Account"><i class="fa w3 fa-google-plus-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="instagram wthree" title="Go to Our Instagram Account"><i class="fa wthree fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="youtube w3layouts" title="Go to Our Youtube Channel"><i class="fa w3layouts fa-youtube-square" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div> -->
-
-
-	<!-- //Copyright -->
    <!-- Custom-JavaScript-File-Links -->
 <!-- Default-JavaScript -->
 <script src="/homes/js/jquery-2.2.3.js"></script>
