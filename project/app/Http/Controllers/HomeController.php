@@ -12,7 +12,9 @@ class HomeController extends Controller
     //前台首页
     public function index()
     {
-    	// echo '这是前台首页';
+
+    	// $res = DB::table('')
+
     	return view('homes.index');
     }
 

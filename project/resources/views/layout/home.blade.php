@@ -47,6 +47,21 @@
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 
+<!-- 关于购物车 -->
+<link href="/homes/css/myCart.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/homes/js/myCart.js"></script>
+
+
+<style type="text/css">
+
+	#bs-megadropdown-tabs li{
+		
+		list-style:none ;
+	}
+
+
+</style>
+
 </head>
 <!-- //Head -->
 
@@ -73,7 +88,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
+					<a class="navbar-brand agileinfo" href="index.html"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
@@ -171,9 +186,9 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			
 
-			<!-- Popup-Box -->
+			<!-- Popup-Box  -->
+
 			<div id="popup1">
 				<div id="small-dialog1" class="mfp-hide agileinfo">
 				@if (session('into'))
@@ -249,7 +264,9 @@
 
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
-	
+		
+
+
 		<!-- Header-Slider -->
 <!-- 		<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
@@ -360,6 +377,7 @@
         		items = this.items();
 
         		for (i = 0, len = items.length; i < len; i++) { 
+        			
         		}
         	}
         });
@@ -442,7 +460,7 @@
 
 	<!-- //Custom-JavaScript-File-Links -->
 
-
+		<!-- // <script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script> -->
 
 		<!-- Bootstrap-JavaScript --> <script src="/homes/js/bootstrap.js"></script>
 	

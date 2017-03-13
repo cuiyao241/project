@@ -5,11 +5,7 @@
 @section('content')
 	<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
-				<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>
-				<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>
-				<div data-thumb="images/slide-3-small.jpg" data-src="images/slide-3.jpg"></div>
-				<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>
-				<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>
+				<div data-thumb="/images/slide-1-small.jpg" data-src="/images/slide-1.jpg"></div>				
 			</div>
 		</div>
 
@@ -224,53 +220,6 @@
 
 	</div>
 	<!-- //Newsletter -->
-
-
-
-	<!-- Footer -->
-	<div class="agileinfofooter">
-		<div class="agileinfofooter-grids">
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
-				<ul>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="mens.html">MEN'S</a></li>
-					<li><a href="mens_accessories.html">MEN'S ACCESSORIES</a></li>
-					<li><a href="womens.html">WOMEN'S</a></li>
-					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">STORE LOCATOR</a></li>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="codes.html">CODES</a></li>
-					<li><a href="icons.html">ICONS</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid3">
-				<address>
-					<ul>
-						<li>40019 Parma Via Modena</li>
-						<li>Sant'Agata Bolognese</li>
-						<li>BO, Italy</li>
-						<li>+1 (734) 123-4567</li>
-						<li><a class="mail" href="mailto:mail@example.com">info@example.com</a></li>
-					</ul>
-				</address>
-			</div>
-			<div class="clearfix"></div>
-
-		</div>
-	</div>
-	<!-- //Footer -->
-
-
-
-
 
 
 

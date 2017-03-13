@@ -19,7 +19,9 @@ class AdminConfController extends Controller
 
     public function getEdit()
     {
-        return view('admins.conf.edit');
+        $res = DB::table('conf')->first();
+        // dd($res->description);
+        return view('admins.conf.edit', ['res'=>$res]);
     }
 
     public function postUpdate(Request $request)

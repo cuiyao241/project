@@ -43,6 +43,15 @@
 
 	}
 
+	.agileheader-topbar {
+    margin-top: -50px;
+    padding: 20px 0;
+	}
+
+	ul, li, ol, h1, dl, dd {
+    list-style: outside none none;
+	}
+
 	</style>
 
 	<!-- Single-Product-View -->
@@ -148,7 +157,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">
 							<h4 class="panel-title asd">
-								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Description <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
+								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">详细介绍 <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>

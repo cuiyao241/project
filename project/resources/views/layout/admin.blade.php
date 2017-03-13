@@ -277,6 +277,7 @@
                         <a href="#"><i class="icon-official"></i>网站管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/conf/edit"><i class="icon-add-contact"></i>网站配置</a></li>
+                            <li><a href="/admin/adv"><i class="icon-add-contact"></i>首页轮播</a></li>
                             
                         </ul>
                     </li>   

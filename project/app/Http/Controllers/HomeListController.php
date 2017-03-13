@@ -12,7 +12,7 @@ class HomeListController extends Controller
 {
     public function getIndex(Request $request)
     {
-        // echo 12345;
+
     	$id = $request->input('id');
 
         $res = DB::table('cate_goods')->where('pid',$id)->get();

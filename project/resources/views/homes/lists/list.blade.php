@@ -70,7 +70,7 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 				<li class="wthree aits w3l">
 					<div class="cbp-pgcontent" id="men-8">
 						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
-						<a href="mens_single.html">
+						<a href="/home/introduce/index/{{$v->id}}">
 							<div class="cbp-pgitem a3ls">
 								<div class="cbp-pgitem-flip">
 									<img src="{{$v->pic}}" alt="Groovy Ael">
