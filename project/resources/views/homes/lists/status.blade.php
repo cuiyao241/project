@@ -131,9 +131,9 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 								</div>
 							</li>
 							<li class="cbp-pgoptcart">
-								<form action="/home/list/add" method="post">
+								<!-- <form action="/home/list/add" method="post"> -->
 							
-								<!-- <form action="/home/cart/remind" method="post"> -->
+								<form action="/home/cart/remind" method="post">
 										<input type="hidden" class="incolor" name="color" value="">
 										<input type="hidden" class="insize" name="size" value=""> 
 										<input type="hidden" name="id" value="{{$v->id}}"> 
