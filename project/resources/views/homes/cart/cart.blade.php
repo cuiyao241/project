@@ -20,6 +20,13 @@
 <div id="content">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" id="shopping">
         <form action="/home/order/order" method="post" name="myform">
+            
+
+            <?php 
+                $q = 0; 
+             ?>
+            
+        @if(Session::get('cart'))
             <tr>
                 <td class="title_1">
                     <!-- <label><input id="allCheckBox" type="checkbox" class="remove" value="" 
@@ -49,11 +56,12 @@
                 <td colspan="8" class="line">
                 </td>
             </tr>
+
             @foreach ($data as $k => $v)
             <tr id="product1">
                 <td class="cart_td_1">
                     
-                    <input class="check" name="cartCheckBox[]" value="{{$v['id']}},{{$v['color']}},{{$v['size']}},1" type="checkbox"  gid="{{$v['id']}}" />
+                    <input class="check" checked name="cartCheckBox[]" value="{{$v['id']}},{{$v['color']}},{{$v['size']}},1" type="checkbox"  gid="{{$v['id']}}" />
                 </td>
                 <td class="cart_td_2">
                     <img style="width:100px; height: 100px;" src="{{$v['sub_cart']->pic}}" alt="shopping" />
@@ -81,8 +89,8 @@
                     <br>
                     <span  class="glyphicon glyphicon-minus-sign" aria-hidden="true" alt="minus" class="hand" style="font-size:15px;cursor:pointer;"></span> 
                     
-                    <input id="num_1" type="text" value="1" name="num[]"  class="num_input" readonly="readonly" style="width:50px;height:15px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;" ;
-                    /> 
+                    <input type="text" value="1" name="num[]"   style="width:60px;background-color:#DCDCDC;color:#cc0000; border-radius:10px; font-size:15px;text-align:center;"> 
+                   
                     <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true" 
                     class="hand" style="font-size:15px;cursor:pointer;"></span>
                 </td>
@@ -103,24 +111,37 @@
                 <input type="hidden" name="size[]" value="{{$v['size']}}">
                 <input type="hidden" name="price[]" value="{{$v['sub_cart']->price}}">
                 <input type="hidden" value="2">
+                    <?php 
+                        $q += $v['sub_cart']->price;
+                     ?>
                 
-
             @endforeach
             <tr>
+
                 <label><input id="asdsd" type="radio" class="removes" value="0" 
                     />
                     <span  style="font-size:15px;color:red"><b>全选</b></span></label>
                 <td  colspan="3"></td>
-                <td colspan="5" class="shopend">商品总价（不含运费）： <label id="total" class="yellow"> 0 </label> 元<br />可获积分 ：<label class="yellow" id="integral"></label> 10 点<br />
+                <td colspan="5" class="shopend">商品总价（不含运费）： <label id="total" class="yellow"> <?php echo $q; ?> </label> 元<br />可获积分 ：<label class="yellow" id="integral"></label> 10 点<br />
                 <!-- <input name=" " type="image" src="/homes/images/taobao_subtn.jpg" /> -->
                 
-               
-                
-
                 {{ csrf_field()}}
+           
                 <input style="width:100px" class="lijidenglu"  type="submit" value="立即购买" />
                 </td>
             </tr>
+                
+        @else
+            <tr>
+                <td colspan="8">
+                    <div class="alert alert-info" role="alert">
+                        <strong>购物车空空的!</strong> <a href="/home">快去购物吧!</a>
+                    </div>
+
+                </td>
+            </tr>
+        @endif
+
    
 
         </form>
@@ -234,6 +255,7 @@
     })
     //删除
     $('.glyphicon-trash').click(function(){
+        
 
         //获取id
         var id = $(this).parents('tr').find('.check').attr('gid');
@@ -249,11 +271,21 @@
             console.log(data);  
             if (data == '1') {
                 trs.remove();
+                totals();
+   
+                
+            }else if(data == '2'){
+                    trs.remove();
+                totals();
+
+                location.reload();
             };
         })
+     
     })
-        //选择
-        $('.removes').click(function(){
+
+    //选择
+    $('.removes').click(function(){
         // alert('asd');
 
         $('.check').each(function(){

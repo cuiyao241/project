@@ -14,7 +14,7 @@
 	<div class="panel-body panel_text">
 		<span class="glyphicon glyphicon-ok" aria-hidden="true" style="color:green;font-size:30px; margin-left:70px" > 恭喜您、商品已成功加入购物车！</span>
 		<br><br>
-		<span style="float:right;margin-right:140px;height:20px"><span class="label label-warning" style="font-size:15px"><a href="" >继续购物</a></span> 
+		<span style="float:right;margin-right:140px;height:20px"><span class="label label-warning" style="font-size:15px"><a href="javascript:history.go(-1)" >继续购物</a></span> 
 		<span class="label label-success" style="font-size:15px;"><a href="/home/cart/shopcart">去购物车结算</a></span></span>
 			
 	</div>
@@ -37,6 +37,5 @@
 		</div>
 	</div>
 @endsection
-
 
 

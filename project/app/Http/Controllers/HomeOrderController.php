@@ -14,6 +14,7 @@ class HomeOrderController extends Controller
 
     public function postOrder(Request $request)
     {
+       
     	$res = $request->except('_token');
         $titles = $request->input('title');
     	$colors = $request->input('color');
