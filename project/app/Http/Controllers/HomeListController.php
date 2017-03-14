@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Session;
 
 class HomeListController extends Controller
 {
@@ -112,6 +113,47 @@ class HomeListController extends Controller
         return $pro;
     }
 
+    public function getAjax(Request $request)
+    {
+       
+
+        $id = $request->input('id');
+
+        $totZan = $request->input('totZan');
+
+        $res['totZan'] = $totZan;
+
+        $zan = Session::get($id);
+
+        if($zan){
+
+            return 0;
+
+        } else {
+
+            $pro =  DB::table('cate_goods')->where('id', $id)->update($res);
+
+                if($pro){
+         
+                    echo 1;
+                    Session::put($id, 1);
+
+                } else {
+         
+                    echo 0;
+                }
+
+
+        }
+
+ 
+            
+
+        
+
+            
+        
+    }
 
     /**
     *   数据测试使用
