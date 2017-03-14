@@ -41,8 +41,8 @@ class AdminLoginController extends Controller
             //判断是否为管理员
             if ($user->isAdmin == 1) {
                  //密码判断
-                if($user->Password == $newPassword){
-                 // if(Hash::check($newPassword, $user->Password)){
+                // if($user->Password == $newPassword){
+                 if(Hash::check($newPassword, $user->Password)){
                     //存值
                     session(['username'=>$newName]);
                     return redirect('admin')->with('admin_logins','登录成功');
