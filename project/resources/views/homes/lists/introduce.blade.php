@@ -43,6 +43,15 @@
 
 	}
 
+	.agileheader-topbar {
+    margin-top: -50px;
+    padding: 20px 0;
+	}
+
+	ul, li, ol, h1, dl, dd {
+    list-style: outside none none;
+	}
+
 	</style>
 
 	<!-- Single-Product-View -->
@@ -148,7 +157,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">
 							<h4 class="panel-title asd">
-								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Description <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
+								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">详细介绍 <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
@@ -270,53 +279,10 @@
 	<!-- //Newsletter -->
 
 
-
-
-	<!-- Footer -->
-<!-- 	<div class="agileinfofooter">
-		<div class="agileinfofooter-grids">
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
-				<ul>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="mens.html">MEN'S</a></li>
-					<li><a href="mens_accessories.html">MEN'S ACCESSORIES</a></li>
-					<li><a href="womens.html">WOMEN'S</a></li>
-					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">STORE LOCATOR</a></li>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="codes.html">CODES</a></li>
-					<li><a href="icons.html">ICONS</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid3">
-				<address>
-					<ul>
-						<li>40019 Parma Via Modena</li>
-						<li>Sant'Agata Bolognese</li>
-						<li>BO, Italy</li>
-						<li>+1 (734) 123-4567</li>
-						<li><a class="mail" href="mailto:mail@example.com">info@example.com</a></li>
-					</ul>
-				</address>
-			</div>
-			<div class="clearfix"></div>
-
-		</div>
-	</div> -->
-	<!-- //Footer  --> <!-- w3aitssinglewthree -->
-
 @endsection
 
 	<!-- Copyright -->
-	<div class="w3lscopyrightaits">
+	<!-- <div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
 			<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
 		</div>
@@ -332,7 +298,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-	</div>
+	</div> -->
 	<!-- //Copyright -->
 
 

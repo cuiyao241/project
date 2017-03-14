@@ -37,6 +37,8 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::controller('admin/goods','AdminGoodsController');
 	//网站配置
 	Route::controller('admin/conf','AdminConfController');
+	//首页轮播
+	Route::controller('admin/adv', 'AdminAdvController');
 
 });
 
@@ -45,7 +47,7 @@ Route::controller('logined','HomeLoginController');
 
 
 //分组-前台
-Route::group([],function(){
+Route::group(['middleware'=>'404'],function(){
 
 	//前台用户
 	Route::get('home','HomeController@index');
@@ -59,13 +61,14 @@ Route::group([],function(){
 	Route::controller('home/introduce','HomeIntroduceController');
 	//商品列表页
 	Route::controller('home/list', 'HomeListController');
-
-
+	//个人中心
+	Route::controller('home/personal','HomePersonalController');
 	
 });
 
 //404
 Route::get('404',function(){
-	adort('404');
-});
 
+	abort('404');
+	
+});

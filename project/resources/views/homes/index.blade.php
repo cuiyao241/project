@@ -5,27 +5,25 @@
 @section('content')
 	<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
-				<div data-thumb="images/slide-1-small.jpg" data-src="images/slide-1.jpg"></div>
-				<div data-thumb="images/slide-2-small.jpg" data-src="images/slide-2.jpg"></div>
-				<div data-thumb="images/slide-3-small.jpg" data-src="images/slide-3.jpg"></div>
-				<div data-thumb="images/slide-4-small.jpg" data-src="images/slide-4.jpg"></div>
-				<div data-thumb="images/slide-5-small.jpg" data-src="images/slide-5.jpg"></div>
+				@foreach($res as $k=>$v)
+				
+				<div data-thumb="/images/slide-1-small.jpg" data-src="{{$v->pic}}"></div>				
+				@endforeach
 			</div>
 		</div>
 
 	<!-- Model-Slider -->
 	<div class="agilemodel-slider">
 		<div id='film_roll_1'>
-			<div><img src="/images/model_slide-1.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-2.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-3.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-4.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-5.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-6.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-7.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-8.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-9.jpg" alt="Groovy Apparel"></div>
-			<div><img src="/images/model_slide-10.jpg" alt="Groovy Apparel"></div>
+
+			@foreach($pro as $ak=>$av)
+			<div>
+
+				<img src="{{$av->pic}}" alt="Groovy Apparel">
+
+			</div>
+			@endforeach
+
 		</div>
 	</div>
 	<!-- //Model-Slider -->
@@ -36,50 +34,23 @@
 		<div class="container">
 
 			<div class="wthreehome-latest-grids">
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid1">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-1.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
+
+				@foreach($pth as $k=>$v)
+					<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid1">
+						<div class="grid">
+							<figure class="effect-apollo">
+
+								<!-- <img src="/images/home-latest-1.jpg" alt="Groovy Apparel"> -->
+								<img src="{{$v->pic}}" alt="Groovy Apparel">
+								<figcaption></figcaption>
+							</figure>
+						</div>
+						<h4>{{$v->title}}</h4>
+						<h5>{{$v->content}}</h5>
+						<h6><a href="{{$v->url}}?title={{$v->title}}">Shop Now</a></h6>
 					</div>
-					<h4>DENIM TOPS</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid2">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-2.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>LEATHER JACKETS</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid3">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-3.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>WATCHES</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="womens_accessories.html">Shop Now</a></h6>
-				</div>
-				<div class="col-md-6 wthreehome-latest-grid wthreehome-latest-grid4">
-					<div class="grid">
-						<figure class="effect-apollo">
-							<img src="/images/home-latest-4.jpg" alt="Groovy Apparel">
-							<figcaption></figcaption>
-						</figure>
-					</div>
-					<h4>BEACH WEAR</h4>
-					<h5>Lorem Ipsum Dolor Site Amet</h5>
-					<h6><a href="mens.html">Shop Now</a></h6>
-				</div>
+				@endforeach
+				
 			</div>
 			<div class="clearfix"></div>
 
@@ -94,7 +65,7 @@
 			<h1>BRACE YOURSELVES! WINTER IS COMING...</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			<div class="wthreeshop-a">
-				<a href="womens.html">SHOP WINTER COLLECTION</a>
+				<a href="home/list/all?title=商品列表">马上抢购</a>
 			</div>
 		</div>
 	</div>
@@ -224,53 +195,6 @@
 
 	</div>
 	<!-- //Newsletter -->
-
-
-
-	<!-- Footer -->
-	<div class="agileinfofooter">
-		<div class="agileinfofooter-grids">
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
-				<ul>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="mens.html">MEN'S</a></li>
-					<li><a href="mens_accessories.html">MEN'S ACCESSORIES</a></li>
-					<li><a href="womens.html">WOMEN'S</a></li>
-					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">STORE LOCATOR</a></li>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="codes.html">CODES</a></li>
-					<li><a href="icons.html">ICONS</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid3">
-				<address>
-					<ul>
-						<li>40019 Parma Via Modena</li>
-						<li>Sant'Agata Bolognese</li>
-						<li>BO, Italy</li>
-						<li>+1 (734) 123-4567</li>
-						<li><a class="mail" href="mailto:mail@example.com">info@example.com</a></li>
-					</ul>
-				</address>
-			</div>
-			<div class="clearfix"></div>
-
-		</div>
-	</div>
-	<!-- //Footer -->
-
-
-
-
 
 
 

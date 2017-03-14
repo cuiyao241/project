@@ -26,6 +26,9 @@
                     </span>
                 </h3>
                 <ul id="address-list" class="address-list">
+
+            @foreach ($address as $k => $v)
+
                     <li class="J_Addr J_MakePoint clearfix  J_DefaultAddr " data-point-url="http://log.mmstat.com/buy.1.20">
                         <s class="J_Marker marker">
                         </s>
@@ -33,16 +36,15 @@
                             寄送至
                         </span>
                         <div class="address-info">
-                            <a href="#" class="J_Modify modify J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.21">
+                            <a href="#" class="J_Modify modify J_MakePoint" >
                                 修改本地址
                             </a>
                             <input name="address" class="J_MakePoint " type="radio" value="674944241"
-                            id="addrId_674944241" data-point-url="http://log.mmstat.com/buy.1.20" ah:params="id=674944241^^stationId=0^^address=湖北民族学院（信息工程学院）  男生宿舍楼5栋102^^postCode=445000^^addressee=朱万雄^^phone=^^mobile=18727717260^^areaCode=422801"
-                            checked="checked">
+                            id="addrId_674944241" checked="checked">
                             <label for="addrId_674944241" class="user-address">
-                                湖北省 恩施土家族苗族自治州 恩施市 湖北民族学院（信息工程学院） 男生宿舍楼235栋2323102 (某某 收)
+                                {{$v->Address}} ({{$v->OrderName}} 收)
                                 <em>
-                                    18427717260
+                                   &nbsp;&nbsp;&nbsp;电话: {{$v->Phone}}
                                 </em>
                             </label>
                             <em class="tip" style="display: none">
@@ -54,33 +56,8 @@
                             </a>
                         </div>
                     </li>
-                    <li class="J_Addr J_MakePoint clearfix" data-point-url="http://log.mmstat.com/buy.1.20">
-                        <s class="J_Marker marker">
-                        </s>
-                        <span class="marker-tip">
-                            寄送至
-                        </span>
-                        <div class="address-info">
-                            <a href="#" class="J_Modify modify J_MakePoint" data-point-url="#">
-                                修改本地址
-                            </a>
-                            <input name="address" class="J_MakePoint" type="radio" value="594209677"
-                            id="addrId_594209677" data-point-url="#" ah:params="#">
-                            <label for="addrId_594209677" class="user-address">
-                                湖北省 恩施土家族苗族自治州 恩施市 某某某 (某某某 收)
-                                <em>
-                                    1342407681
-                                </em>
-                            </label>
-                            <em class="tip" style="display: none">
-                                默认地址
-                            </em>
-                            <a class="J_DefaultHandle set-default J_MakePoint" style="display: none"
-                            data-point-url="#" href="#">
-                                设置为默认收货地址
-                            </a>
-                        </div>
-                    </li>
+
+                 @endforeach   
                 </ul>
                 <ul id="J_MoreAddress" class="address-list hidden">
                 </ul>
@@ -91,95 +68,8 @@
                 </div>
             </form>
         </div>
-        <form id="J_Form" name="J_Form" action="/auction/order/unity_order_confirm.htm"
+        <form id="J_Form" name="J_Form" action="/home/order/orderinsert"
         method="post">
-            <input name='_tb_token_' type='hidden' value='IZpONoL2bm'>
-            <input type="hidden" name="action" value="order/confirmOrderAction" />
-            <input type="hidden" name="event_submit_do_confirm" value="1" />
-            <input type="hidden" id="J_InsuranceDatas" name="insurance_datas" value=""
-            />
-            <input type="hidden" id="J_InsuranceParamCheck" name="insurance_param_check"
-            value="" />
-            <input type="hidden" name="" id="J_checkCodeUrl" value="/auction/order/check_code.htm"
-            />
-            <input type="hidden" name="need_not_split_sellers" value="" />
-            <input type="hidden" name="from" value="cart" />
-            <input type="hidden" name="cnData" value="" />
-            <input type="hidden" name="shop_id" value="0" class="J_FareParam" />
-            <input type="hidden" name="cartShareTag" value="" />
-            <input type="hidden" name="flushingPictureServiceId" value="" />
-            <input type="hidden" id="J_channelUrl" name="channel" value="no-detail"
-            class="J_FareParam" />
-            <input type="hidden" name="cinema_id" value="" />
-            <input type="hidden" id="item" name="item" value="35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000"
-            />
-            <input type="hidden" id="cartId" name="cartId" value="35612993875" />
-            <input type="hidden" id="verticalParams" name="verticalParams" value=""
-            />
-            <input type="hidden" name="cross_shop_ids" value="" />
-            <input type="hidden" name="tmall_cross_shop_ids" value="NULL" />
-            <input type="hidden" name="buyer_from" value="cart" class="J_FareParam"
-            />
-            <input type="hidden" name="tbsc_channel_id" value="0" />
-            <input type="hidden" name="checkCodeIds" value="35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000"
-            />
-            <input type="hidden" id="J_OrderInfoString" name="orderInfoString" value="1704508670:2:19614514619:31175333266:"
-            />
-            <input type="hidden" id="J_OrderInfoStringForCod" name="orderInfoStringForCod"
-            value="1704508670_2,19614514619:31175333266:35612993875" />
-            <input type="hidden" name="encryptString" value="0A04F3D8F7EEDC813AFF8711BE47B9E5E96F6E86A391A4C2"
-            />
-            <input type="hidden" name="secondDivisionCode" value="422801" />
-            <input type="hidden" name="use_cod" value="false" class="J_FareParam"
-            />
-            <input type="hidden" name="1704508670:2|seq" value="b_47285539868" />
-            <input type="hidden" name="n_area" value="422801" />
-            <input type="hidden" name="n_city" value="422800" />
-            <input type="hidden" name="n_prov" value="420000" />
-            <input type="hidden" name="n_state" value="0" />
-            <input type="hidden" name="n_country" value="1" />
-            <input type="hidden" id="defaultId" name="defaultId" value="674944241"
-            />
-            <input type="hidden" name="postCode" value="445000" />
-            <input type="hidden" name="deliverAddr" value="湖北民族学院（信息工程学院）  男生宿舍楼5栋102"
-            />
-            <input type="hidden" name="addressId" value="674944241" />
-            <input type="hidden" name="deliverMobile" value="18727717260" />
-            <input type="hidden" name="deliverName" value="朱万雄" />
-            <input type="hidden" name="deliverPhone" value="" />
-            <input type="hidden" id="divisionCode" name="divisionCode" value="422801"
-            />
-            <input type="hidden" id="J_CodAction" name="CodAction" value="http://delivery.taobao.com/cod/cod_payway.htm"
-            />
-            <input type="hidden" id="event_submit_do_cod_switcher" name="event_submit_do_cod_switcher"
-            value="1" />
-            <input type="hidden" id="J_CodActionNew" name="CodActionNew" value="cod/codOrder_switcher_action"
-            />
-            <input type="hidden" name="guest_buyer" value="false" />
-            <input type="hidden" id="J_sid" name="sid" value="32457704949" />
-            <input type="hidden" id="J_gmtCreate" name="gmtCreate" value="1380270550897"
-            />
-            <input type="hidden" name="secStrNoCCode" value="6dd2fa5d614e2ced1d3189b0c2da09c0"
-            />
-            <input type="hidden" id="J_TransferWarehouseId" name="overseasWarehouseId"
-            value="" />
-            <input type="hidden" id="J_TransferWarehouseDivisionId" name="overseasWarehouseDivisionId"
-            value="" />
-            <input type="hidden" id="paramString" value="tuan_type=0&use_cod=false&shop_id=0&item=35612993875_19614514619_1_31175333266_1704508670_0_0_0_cartCreateTime~1380269540000&buyer_from=cart&isRepost=true&"
-            />
-            <input type="hidden" id="J_StepPayData" value='""' />
-            <input type="hidden" name="unity" value="1" />
-            <input type="hidden" name="buytraceid" value="" />
-            <input type="hidden" name="activity" value="" />
-            <input type="hidden" name="bankfrom" value="" />
-            <input type="hidden" name="yfx315" value="" />
-            <input type="hidden" id="J_channelUrl" name="channel" value="no-detail"
-            class="J_FareParam" />
-            <input type="hidden" id="J_actId" name="actId" value="" />
-            <input type="hidden" name="etkv" value="" />
-            <input type="hidden" name="havePremium" value="false" />
-            <input type="hidden" name="cartShareTag" value="" />
-            <input type="hidden" name="flushingPictureServiceId" value="" />
             <div>
                 <h2 class="dib">
                     <b>确认订单信息</b>
@@ -230,10 +120,10 @@
                         </tr>
             @foreach ($data as $k => $v)
         
-                        <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0">
+                        <tr class="item" data-lineid="19614514619:31175333266:35612993875" data-pointRate="0" style="border-bottom:#999 solid 1px;border-top:#999 solid 1px;">
                             <td class="s-title">
-                                <a href="#" target="_blank" title="asd  "
-                                class="J_MakePoint" >
+                                <a href="#"
+                                class="J_MakePoint"  >
                                     <img style="width:50px" src="{{$v->pic}}"
                                     class="itempic">
                                     <span class="title J_MakePoint" >
@@ -284,10 +174,21 @@
                                     {{$v->price*$v->newnum}}
                                     </em>
                                 </span>
-                                <input id="furniture_service_list_b_47285539868" type="hidden" name="furniture_service_list_b_47285539868"
-                                />
+                                
                             </td>
                         </tr>
+                        <input type="hidden" name="tit[]" value="{{$v->title}}" >
+                        <input type="hidden" name="pic[]" value="{{$v->pic}}" >
+                        <input type="hidden" name="newc[]" value="{{$v->newcolor}}" >
+                        <input type="hidden" name="newsize[]" value="{{$v->newsize}}" >
+                        <input type="hidden" name="newnum[]" value="{{$v->newnum}}" >
+                        <input type="hidden" name="prices[]" value="{{$v->price}}" >
+                        <input type="hidden" name="url[]" value="asdasd.asdasd" >
+                       
+
+
+
+
             @endforeach
 
                         <tr class="item-service">
@@ -307,8 +208,9 @@
                                                 <div class="field gbook">
                                                     <label class="label">
                                                         给卖家留言:
-                                                    </label><textarea style="width:350px;height:80px;" title="选填：对本次交易的补充说明（建议填写已经和卖家达成一致的说明）" name=""></textarea>
+                                                    </label><textarea style="width:350px;height:80px;resize:none;" title="选填：对本次交易的补充说明（建议填写已经和卖家达成一致的说明）"  name=""></textarea>
                                                 </div>
+                                                <p style="margin-left:85px;flont-size:5px">*小于100字</p>
                                             </li>
                                         </ul>
                                     </li>
@@ -350,28 +252,53 @@
                                                     />
                                                     <input type="hidden" name="1704508670:2|codPostFee" value="0" class="J_CodPostFee"
                                                     />
+                                            <?php 
+                                                $i=0;
+                                             ?>
+
+                                @foreach ($data as $k => $v)
+                                    <?php 
+                                        $i = $v->price*$v->newnum + $i;
+                                     ?>
+                                @endforeach
+                                                @if ($i>=99)
+
+                                                
                                                     <select name="1704508670:2|post" class="J_Fare">
                                                         <option data-fare="1500" value=" 2 " data-codServiceType="2" data-level=""
                                                         selected="selected">
-                                                            快递 15.00元
-                                                        </option>
-                                                        <option data-fare="2500" value=" 7 " data-codServiceType="7" data-level="">
-                                                            EMS 25.00元
-                                                        </option>
-                                                        <option data-fare="1500" value=" 1 " data-codServiceType="1" data-level="">
-                                                            平邮 15.00元
+                                                            满99免邮 0.00元
                                                         </option>
                                                     </select>
-                                                    <em tabindex="0" class="J_FareFree" style="display: none">
-                                                        免邮费
-                                                    </em>
+                                                    <li class="dib fee">
+                                                    <span class='price '>
+                                                        <em class="style-normal-bold-red J_FareSum">
+                                                            <?php 
+                                                                $pri = '0.00';
+                                                                echo $pri;    
+                                                            ?>
+                                                        </em>
+                                                    </span>
+                                                </li>
+                                                @else
+                                                    <select name="1704508670:2|post" class="J_Fare">
+                                                        <option data-fare="1500" value=" 2 " data-codServiceType="2" data-level=""
+                                                        selected="selected">
+                                                            邮费 15.00元
+                                                        </option>
+                                                    </select>                                                   
                                                 </li>
                                                 <li class="dib fee">
                                                     <span class='price '>
                                                         <em class="style-normal-bold-red J_FareSum">
-                                                            30.00
+                                                            <?php 
+                                                                $pri = '15.00';
+                                                                echo $pri;    
+                                                            ?>
+
                                                         </em>
                                                     </span>
+                                                @endif
                                                 </li>
                                             </ul>
                                         </div>
@@ -381,10 +308,8 @@
                                                     发货时间：
                                                 </li>
                                                 <li class="dib content">
-                                                    卖家承诺订单在买家付款后，72小时内
-                                                    <a href="#">
-                                                        发货
-                                                    </a>
+                                                    卖家承诺订单在买家付款后，72小时内发货   
+                                                   
                                                 </li>
                                             </ul>
                                         </div>
@@ -410,15 +335,10 @@
                                         &yen;
                                     </span>
                                     <em class="style-middle-bold-red J_ShopTotal">
-                                @foreach ($data as $k => $v)
+                                           
                                     <?php 
-                                            $i=0;
-                                            $i += $v->price;
-                                    
-                                       echo $i;
-                                     ?>
-                                @endforeach
-                                        {{$i}}
+                                        echo $i+$pri;
+                                    ?>
                                     </em>
                                 </span>
                                 <input type="hidden" name="1704508670:2|creditcard" value="false" />
@@ -444,7 +364,9 @@
                                                                 &yen;
                                                             </span>
                                                             <em class="style-large-bold-red" id="J_ActualFee">
-                                                                630.00
+                                                                <?php 
+                                                                    echo $i+$pri;
+                                                                ?>
                                                             </em>
                                                         </span>
                                                     </div>
@@ -468,11 +390,13 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <a href="#" class="back J_MakePoint" target="_top" data-point-url="">
-                                                返回购物车
-                                            </a>
-                                            <a id="J_Go" class=" btn-go" data-point-url="" tabindex="0" title="点击此按钮，提交订单。">
-                                                提交订单
+                                       
+                                            <!-- <a id="J_Go" class="btn-go" data-point-url="" tabindex="0" title="点击此按钮，提交订单。"> -->
+                {{ csrf_field()}}
+
+                                        <span style="padding-top:10px">
+                                        <input type="submit" style="width:100px;height:50px;" value="提交订单">
+                                        </span>     
                                                 <b class="dpl-button">
                                                 </b>
                                             </a>
@@ -511,7 +435,7 @@
         <div class="container">
             <div class="w3lsnewsletter-grids">
                 <div class="col-md-5 w3lsnewsletter-grid w3lsnewsletter-grid-1 subscribe">
-                    <h2>Subscribe to our Newsletter</h2>
+                    <h2>寄信给我们</h2>
                 </div>
                 <div class="col-md-7 w3lsnewsletter-grid w3lsnewsletter-grid-2 email-form">
                     <form action="#" method="post">
@@ -526,5 +450,9 @@
 @endsection
 
 @section('js')
-    
+    <script type="text/javascript">
+
+
+
+    </script>
 @endsection

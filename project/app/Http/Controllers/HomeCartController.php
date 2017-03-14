@@ -52,6 +52,9 @@ class HomeCartController extends Controller
         foreach ($res as $k => $v) {
             if ($v['id'] == $id && $v['color'] == $color && $v['size'] == $size) {
                 Session::forget('cart.'.$k);
+                if (!Session::get('cart')) {
+                    return '2';
+                }
                 return '1';
             }
         }

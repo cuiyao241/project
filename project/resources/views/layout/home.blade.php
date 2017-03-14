@@ -32,11 +32,7 @@
 <!-- Header-Slider-CSS --> <link rel="stylesheet" href="/homes/css/fluid_dg.css" id="fluid_dg-css" type="text/css" media="all">
 <!-- //Custom-StyleSheet-Links -->
 
-<!-- Fonts -->
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700"	   type="text/css" media="all">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700"	   type="text/css" media="all">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500" type="text/css" media="all">
-<!-- //Fonts -->
+
 
 <!-- Font-Awesome-File-Links -->
 <!-- CSS --> <link rel="stylesheet" href="/homes/css/font-awesome.css" 		 type="text/css" media="all">
@@ -46,6 +42,23 @@
 <!-- Supportive-Modernizr-JavaScript --><script src="/homes/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 <!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
+
+<!-- 关于购物车 -->
+<link href="/homes/css/myCart.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/homes/js/myCart.js"></script>
+<!-- 订单 -->
+<link rel="stylesheet" href="/homes/css/tasp.css" />
+<link href="/homes/css/orderconfirm.css" rel="stylesheet" />
+
+<style type="text/css">
+
+	#bs-megadropdown-tabs li{
+		
+		list-style:none ;
+	}
+
+
+</style>
 
 </head>
 <!-- //Head -->
@@ -73,7 +86,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="index.html"><span>GROOVY</span> APPAREL</a> 
+					<a class="navbar-brand agileinfo" href="/home"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
@@ -96,7 +109,7 @@
 											<li class="heading">{{$v->title}}</li>
 
 											@foreach($v->num_cate as $ak => $av)
-											<li class="heading"><a href="">{{$av->title}}</a>
+											<li class="heading"><a href="/home/list?id={{$av->id}}">{{$av->title}}</a>
 											</li>					
 											
 											@endforeach
@@ -107,17 +120,17 @@
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
 										<p>热门推荐</p>
-										<a href="mens.html"><img src="{{$isNow['isHot'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/hots?title=热门推荐"><img src="{{$isNow['isHot'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 								
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-3">
 										<p>新品上市</p>
-										<a href="mens.html"><img src="{{$isNow['isNew'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/news?title=新品上市"><img src="{{$isNow['isNew'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 
 									<div class="col-sm-3 w3layouts-nav-agile w3layouts-mens-nav-agileits w3layouts-mens-nav-agileits-2">
 										<p>品牌折扣</p>
-										<a href="mens.html"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
+										<a href="/home/list/zhes?title=品牌折扣"><img src="{{$isNow['isZhe'][$k]->pic}}" alt="Groovy Apparel"></a>
 									</div>
 									<div class="clearfix"></div>
 									<p class="promo">使用优惠码 <span>#CFFGTY56</span> 全场打折 8.8 折 <a href="#">详情</a></p>
@@ -171,9 +184,9 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			
 
-			<!-- Popup-Box -->
+			<!-- Popup-Box  -->
+
 			<div id="popup1">
 				<div id="small-dialog1" class="mfp-hide agileinfo">
 				@if (session('into'))
@@ -249,7 +262,9 @@
 
 		</div>
 		<!-- //Header-Top-Bar-(Hidden) -->
-	
+		
+
+
 		<!-- Header-Slider -->
 <!-- 		<div class="w3slideraits">
 			<div class="fluid_dg_wrap fluid_dg_emboss pattern_1 fluid_dg_white_skin" id="fluid_dg_wrap_4">
@@ -360,6 +375,7 @@
         		items = this.items();
 
         		for (i = 0, len = items.length; i < len; i++) { 
+        			
         		}
         	}
         });
@@ -442,7 +458,7 @@
 
 	<!-- //Custom-JavaScript-File-Links -->
 
-
+		<!-- // <script type="text/javascript" src="/homes/js/jquery-1.8.3.min.js"></script> -->
 
 		<!-- Bootstrap-JavaScript --> <script src="/homes/js/bootstrap.js"></script>
 	

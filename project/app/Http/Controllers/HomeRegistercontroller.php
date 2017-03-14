@@ -28,7 +28,7 @@ class HomeRegistercontroller extends Controller
     public function postDoregister(HomeRegisterRequest $request)
     {
         // echo 1234;
-    	// dd($request->all());
+        // dd($request->all());
 
         $res = $request->except('_token','rePassword','Captcha');
         // dd($res);
@@ -76,6 +76,4 @@ class HomeRegistercontroller extends Controller
     }
 
 
-}
-
-
+} 

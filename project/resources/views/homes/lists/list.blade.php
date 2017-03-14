@@ -49,6 +49,16 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 }
 
+.cbp-pgitem {
+    backface-visibility: hidden;
+    height: 555px;
+    overflow: hidden;
+    padding: 2em;
+    perspective: 1000px;
+    position: relative;
+    width: 100%;
+    height:455px;
+}
 
 </style>
 <!-- Body -->
@@ -70,7 +80,7 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 				<li class="wthree aits w3l">
 					<div class="cbp-pgcontent" id="men-8">
 						<span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
-						<a href="mens_single.html">
+						<a href="/home/introduce/index/{{$v->id}}">
 							<div class="cbp-pgitem a3ls">
 								<div class="cbp-pgitem-flip">
 									<img src="{{$v->pic}}" alt="Groovy Ael">
@@ -124,8 +134,8 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 								<!-- <form action="/home/list/add" method="post"> -->
 							
 								<form action="/home/cart/remind" method="post">
-										<input type="hidden" id="incolor" name="color" value="">
-										<input type="hidden" id="insize" name="size" value=""> 
+										<input type="hidden" class="incolor" name="color" value="">
+										<input type="hidden" class="insize" name="size" value=""> 
 										<input type="hidden" name="id" value="{{$v->id}}"> 
 										<input type="hidden" name="price" value="{{$v->price}}"> 
 										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
@@ -136,6 +146,11 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 							</li>
 						</ul>
 					</div>
+					
+
+
+
+
 					<a href="mens_single.html">
 						<div class="cbp-pginfo w3layouts">
 							<h3>{{$v->title}}</h3>
@@ -245,46 +260,37 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 		<!-- 商品选中 -->
 		<script type="text/javascript">
 
-		//获取颜色
-		$('.colors').click(function(){
+		
+			//获取颜色
+			$('.colors').click(function(){
 
-			// alert(123);
-			var tx = $(this).text();
-
-
-			$(this).addClass('one');
-
-			$('#incolor').attr('value', tx);
-
-			// console.log($('#incolor'));
+				// alert(123);
+				var tx = $(this).text();
 
 
-		})
+				$(this).addClass('one');
 
-		//获取尺寸
-			$('.sizes').click(function(){
+				$(this).siblings().removeClass('one');
 
-			// alert(123);
-			var tx = $(this).text();
+				$('.incolor').attr('value', tx);
 
+				// console.log($('#incolor'));
+			})
 
-			$(this).addClass('one');
+			//获取尺寸
+				$('.sizes').click(function(){
 
-			$('#insize').attr('value', tx);
-
-			// alert(tx);
-
-
-		})
-
-		// $('xuanzhong').click(function(){
-
-		// 	$(this).addClass('curs');
-
-		// })
+				// alert(123);
+				var tx = $(this).text();
 
 
+				$(this).addClass('one');
 
+				$(this).siblings().removeClass('one');
+
+				$('.insize').attr('value', tx);
+
+			})
 		</script>
 
 	<!-- //Custom-JavaScript-File-Links -->
