@@ -112,4 +112,17 @@ class HomeListController extends Controller
         return $pro;
     }
 
+
+    /**
+    *   数据测试使用
+    */
+
+    // public function postAdd(Request $request)
+    // {
+    //     // var_dump();
+    //     $res = $request->except('_token');
+
+    //     dd($res);
+    // }
+
 }

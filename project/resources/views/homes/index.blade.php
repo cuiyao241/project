@@ -65,7 +65,7 @@
 			<h1>BRACE YOURSELVES! WINTER IS COMING...</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			<div class="wthreeshop-a">
-				<a href="womens.html">SHOP WINTER COLLECTION</a>
+				<a href="home/list/all?title=商品列表">马上抢购</a>
 			</div>
 		</div>
 	</div>

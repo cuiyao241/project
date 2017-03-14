@@ -134,8 +134,8 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 								<!-- <form action="/home/list/add" method="post"> -->
 							
 								<form action="/home/cart/remind" method="post">
-										<input type="hidden" id="incolor" name="color" value="">
-										<input type="hidden" id="insize" name="size" value=""> 
+										<input type="hidden" class="incolor" name="color" value="">
+										<input type="hidden" class="insize" name="size" value=""> 
 										<input type="hidden" name="id" value="{{$v->id}}"> 
 										<input type="hidden" name="price" value="{{$v->price}}"> 
 										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
@@ -242,10 +242,9 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 			$(this).addClass('one');
 
-			$('#incolor').attr('value', tx);
+			$(this).siblings().removeClass('one');
 
-			// console.log($('#incolor'));
-
+			$('.incolor').attr('value', tx);
 
 		})
 
@@ -258,20 +257,13 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 			$(this).addClass('one');
 
-			$('#insize').attr('value', tx);
+			$(this).siblings().removeClass('one');
 
-			// alert(tx);
+			$('.insize').attr('value', tx);
+
 
 
 		})
-
-		// $('xuanzhong').click(function(){
-
-		// 	$(this).addClass('curs');
-
-		// })
-
-
 
 		</script>
 
