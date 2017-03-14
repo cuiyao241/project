@@ -19,16 +19,30 @@ class AdminLoginController extends Controller
 
     public function postTest(Request $request)
     {
+        // var_dump(Hash::make('admin'));die;
+        // dd($request->all());
         //获取表单信息
         $postUser = $request->except('_token');
+        //获取输入用户名
         $newName = $postUser['username']; 
+        // 获取输入密码
         $newPassword = $postUser['password'];
-
-        //通过用户名查询密码
+        
+        // var_dump($postUser);
+        // var_dump($newName);
+        // var_dump($newPassword);die;
+        //
         $user = DB::table('user')->where('User_name',$newName)->first();
+        $isAdmin = $user->isAdmin; 
+
+        if($isAdmin == 0){
+
+            return back()->with('admin_login','没有登录权限');
+        }
+        // dd($User_id);
         // var_dump($user->Password);
         // var_dump($newPassword);
-
+        // dd($user);
         // die;
         
         //用户名判断
@@ -40,11 +54,13 @@ class AdminLoginController extends Controller
 
             //判断是否为管理员
             if ($user->isAdmin == 1) {
-                 //密码判断
-                if($user->Password == $newPassword){
+                 //密码判断 
+                if(Hash::check($postUser['password'], $user->Password)){
                  // if(Hash::check($newPassword, $user->Password)){
                     //存值
+                    $User_id = $user->User_id;
                     session(['username'=>$newName]);
+                    session(['User_id'=>$User_id]);
                     return redirect('admin')->with('admin_logins','登录成功');
 
                 } else {

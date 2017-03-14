@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Hash;
 class HomeLoginController extends Controller
 {
     //
@@ -50,7 +51,7 @@ class HomeLoginController extends Controller
         } else {
 
                  //密码判断
-                if($user->Password == $newPassword){
+                if(Hash::check($postUser['Password'], $user->Password)){
                    
 
                     return redirect('home')->with('into','登录成功');

@@ -66,7 +66,7 @@
                 
                 <?php 
                     $newName = session('username');
-                    
+                    $User_id = session('User_id'); 
                     //通过session值查询数据
                     $res = DB::table('user')->where('User_name',$newName)->first();
 
@@ -199,10 +199,11 @@
                 <div id="mws-user-functions">
                     <div id="mws-username">
                         Hello, {{$newName}}
+
                     </div>
-                    <ul>
-                        <li><a href="#">修改头像</a></li>
-                        <li><a href="#">修改密码</a></li>
+                    <ul>    
+                        <li><a href="/admin/user/edit/{{$User_id}}">修改头像</a></li>
+                        <li><a href="/admin/user/pwdedit/{{$newName}}">修改密码</a></li>
                         <li><a href="/login/close">退出</a></li>
                     </ul>
                 </div>

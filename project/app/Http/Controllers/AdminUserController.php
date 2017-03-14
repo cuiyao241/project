@@ -12,7 +12,7 @@ class AdminUserController extends Controller
 {
     public function getIndex(Request $request)
     {
-        // search 搜索用户名 num 每页的条数
+        // search 搜索关键字 num 每页的条数
         $res = DB::table('user')->
         where('User_name','like','%'.$request->input('search').'%')->
         paginate($request->input('num',10));
@@ -33,7 +33,7 @@ class AdminUserController extends Controller
         //后台用户的数据添加
     public function postInsert(Request $request)
     {
-        
+        // dd($request->all());
         // 表单验证
         $this->validate($request,[
 
@@ -60,10 +60,13 @@ class AdminUserController extends Controller
 
         // 表单验证
         $res = $request->except('_token','rePassword');
+        // dd($res);
         // echo '<pre>';
-        // var_dump($res);die;
+        // var_dump($res);die;/
         //判断文件上传
         // $names = 12345;
+
+
         if($request->hasFile('Profile')){
             //自定义上传的文件名
             $names = rand(1111,9999).time();
@@ -82,10 +85,12 @@ class AdminUserController extends Controller
         //哈希加密密码
         $res['Password'] = Hash::make($request->input('Password'));
 
-
-
+        $pro = DB::table('user')->first();
+        // $a = $pro->isAdmin;
+        // dd($pro);
         //用户的添加
         $pro = DB::table('user')->insert($res);
+
         //判断结果
         if($pro){
 
@@ -97,7 +102,8 @@ class AdminUserController extends Controller
     }
 
     public function getEdit($id)
-    {
+    {   
+        // dd($id);
         $res = DB::table('user')->where('User_id','=',$id)->first();
         // var_dump($res);die;
         return view('admins/user/edit',['res'=>$res]);
@@ -106,7 +112,7 @@ class AdminUserController extends Controller
      public function postUpdate(Request $request)
     {
 
-        var_dump($request);die;
+        // var_dump($request);die;
         // 表单验证
         $res = $request->except('_token','id');
         echo '<pre>';
@@ -146,6 +152,79 @@ class AdminUserController extends Controller
             }
         }
 
+
+
+    }
+
+    public function getPwdedit($newName)
+    {
+       $res = DB::table('user')->where('User_name','=',$newName)->first();
+       // var_dump($res);die;
+       return view('admins/user/pwdedit',['res'=>$res]);
+    }
+
+    public function postPwdupdate(Request $request)
+    {
+        
+       
+    	// dd($request->all());
+        $res = $request->except('_token');
+        // dd($res);
+        //获取用户名
+        $User_name = $res['User_name'];
+        // dd($User_name);
+        // dd($res);
+        //获取数据库中的一条User_name
+        $pth = DB::table('user')->where('User_name', $User_name)->first();
+        // echo '<pre>';
+        // var_dump($pth);die;
+
+        
+      
+        if (!Hash::check($res['Password'], $pth->Password)){
+
+        	return back()->with('into','原密码错误');
+
+        } else if(Hash::check($res['newPassword'], $res['rePassword'])){
+
+        	return back()->with('into','俩次密码不一致');
+
+        } else {
+
+        	// $pto = $request->except('_token', 'Password', 'rePassword');
+            // $res['rePassword'] = Hash::make($request->rePassword);
+
+            // dd($res);
+            //newPassword赋值给Password字段
+            // var_dump($res['Password']);
+            // var_dump($res['rePassword']);
+            // var_dump($res['newPassword']);
+            // // die;
+        	$pto['Password'] = Hash::make($res['newPassword']);
+            // dd($pto);
+        	$exc = DB::table('user')->where('User_name', $res['User_name'])->update($pto);
+
+        	if(!$exc){
+
+        		return back()->with('info','修改失败');
+
+        	} else {
+
+        		return redirect('/admin')->with('info','修改成功');
+        	}
+
+        	// $id = $res['id'];
+        	// DB::table('user')->where('User_id', $id)->update(['Password'=>$res['newPassword']]);
+        }
+
+
+
+        
+        
+        // dd($id);
+        // DB::table('user')->where('');
+
+        
     }
 
 
@@ -172,4 +251,6 @@ class AdminUserController extends Controller
    
 
     }
+
+
 }
