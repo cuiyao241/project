@@ -39,6 +39,8 @@ Route::group(['middleware'=>'Login'],function(){
 	Route::controller('admin/conf','AdminConfController');
 	//首页轮播
 	Route::controller('admin/adv', 'AdminAdvController');
+	//友情链接
+	Route::controller('admin/friends', 'AdminFriendsController');
 
 });
 

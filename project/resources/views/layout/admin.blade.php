@@ -276,10 +276,20 @@
 
                      <!-- 关于配置 -->
                      <li>
-                        <a href="#"><i class="icon-official"></i>网站管理</a>
+                        <a href="#"><i class="icon-cog-2"></i>网站管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/conf/edit"><i class="icon-add-contact"></i>网站配置</a></li>
-                            <li><a href="/admin/adv"><i class="icon-add-contact"></i>首页轮播</a></li>
+                            <li><a href="/admin/conf/edit"><i class="icon-settings"></i>　网站配置</a></li>
+                            <li><a href="/admin/adv"><i class="icon-pictures"></i>　首页轮播</a></li>
+                            
+                        </ul>
+                    </li>
+
+                    <!-- 关于友情链接 -->
+                     <li>
+                        <a href="#"><i class="icon-unlink"></i>友链管理</a>
+                        <ul class='closed'>
+                            <li><a href="/admin/friends"><i class="icon-network"></i>　浏览友链</a></li>
+                            <li><a href="/admin/friends/add"><i class="icon-github-4"></i>　添加友链</a></li>
                             
                         </ul>
                     </li>   
