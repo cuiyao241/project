@@ -242,11 +242,60 @@
 							</h4>
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-							<h3>"Excellent Quality & Fitting!"</h3>
-							<h4>Léon, Certified Buyer.</h4>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-							<span>5 Stars</span>
-							<a href="#" class="next">Next Review &rarr;</a>
+							<h3>"买家评价 !"</h3>
+							<h4><span>5.00分</span></h4>
+
+								
+
+							<div>
+								<p>
+									<p>
+										<b>全部评价（57）</b>
+										<b>晒图（10）</b>
+									</p>
+                    				
+									<label><input type="radio" name="paixu"> 默认排序</label>&nbsp;&nbsp;&nbsp;
+									<label><input type="radio" name="paixu" />时间排序</label>
+								</p>
+							</div>	
+							<div class="liuyan">
+
+								<div style="float:left">
+									<img src="/upload/99051488819477.jpg" style="width:60px;height:60px">
+								</div>
+
+								<div style="margin-left:115px;">
+									<p>趟***性  2017年03月15日 </p>
+									<p>宝贝不错.看了很久.决定在这家下单.质量挺不错的.挺舒服的.比较凉快.细节也不错.码子合适.物流也很快.喜欢的不用犹豫.可以下手.</p>
+									<p>
+										<b>
+	                                        尺码:M
+	                                    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	                                    <b>
+	                                        颜色:红色
+	                                    </b>
+									</p>
+									<p>
+										<ul class="list clearfix">
+	                                        <li>
+	                                            <div class="img-box">
+	                                                
+	                                                    <img src="/upload/99051488819477.jpg" style="width:40px">
+	                                                
+	                                            </div>
+	                                        </li>
+	                                        
+	                                    </ul>
+									</p>
+								</div>
+								
+							</div>						
+							
+
+							<div class="clear" style="background:#999"></div>
+
+
+							<!-- <a href="#" class="next">Next Review &rarr;</a> -->
 						</div>
 					</div>
 
@@ -296,70 +345,6 @@
 	</div>
 	<!-- //Newsletter -->
 
-
-
-	<!-- Footer -->
-	<!-- <div class="agileinfofooter">
-		<div class="agileinfofooter-grids">
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
-				<ul>
-					<li><a href="about.html">ABOUT</a></li>
-					<li><a href="mens.html">MEN'S</a></li>
-					<li><a href="mens_accessories.html">MEN'S ACCESSORIES</a></li>
-					<li><a href="womens.html">WOMEN'S</a></li>
-					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">STORE LOCATOR</a></li>
-					<li><a href="faq.html">FAQs</a></li>
-					<li><a href="codes.html">CODES</a></li>
-					<li><a href="icons.html">ICONS</a></li>
-					<li><a href="contact.html">CONTACT</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid3">
-				<address>
-					<ul>
-						<li>40019 Parma Via Modena</li>
-						<li>Sant'Agata Bolognese</li>
-						<li>BO, Italy</li>
-						<li>+1 (734) 123-4567</li>
-						<li><a class="mail" href="mailto:mail@example.com">info@example.com</a></li>
-					</ul>
-				</address>
-			</div>
-			<div class="clearfix"></div>
-
-		</div>
-	</div> -->
-	<!-- //Footer -->
-
-
-
-	<!-- Copyright -->
-	<!-- <div class="w3lscopyrightaits">
-		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>Copyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://www.17sucai.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-		</div>
-		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
-			<div class="agilesocialwthree">
-				<ul class="social-icons">
-					<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="googleplus w3" title="Go to Our Google Plus Account"><i class="fa w3 fa-google-plus-square" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="instagram wthree" title="Go to Our Instagram Account"><i class="fa wthree fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="youtube w3layouts" title="Go to Our Youtube Channel"><i class="fa w3layouts fa-youtube-square" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div> -->
-	<!-- //Copyright -->
 
 @endsection
 
