@@ -23,7 +23,7 @@ class HomeCartController extends Controller
 
     	//把数据存入到数据库
     	Session::push('cart',$res);
-        dd($res);
+        // dd($res);
 
     	return view('homes.cart.remind');
     }
