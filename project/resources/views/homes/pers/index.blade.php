@@ -11,17 +11,17 @@
                   {{ csrf_field() }}
                  <div class="form-list">
                     <label class="account-label">用户名</label>
-                    <input name="User_name" type="text"  placeholder="{{$data->User_name}}" disabled>
+                    <input name="User_name" type="text"  >
                     <strong></strong>
                   </div>
                   <div class="form-list">
                     <label class="account-label">邮箱</label>
-                    <input  name="Emails" type="text"  placeholder="{{$data->Emails}}" disabled>
+                    <input  name="Emails" type="text"  >
                     <strong></strong>
                   </div>
                   <div class="form-list">
                     <label class="account-label">真实姓名</label>
-                    <input  name="TrueName" type="text" value="{{$data->TrueName}}">
+                    <input  name="TrueName" type="text" value="">
                     <strong></strong>
                   </div>
                   <!--[if IE 8]>

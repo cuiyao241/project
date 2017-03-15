@@ -131,6 +131,17 @@ class HomePersonalController extends Controller
 
             return back()->with('info','修改失败');
         }
+    } 
+
+
+
+
+    //全部订单
+    public function getOrder()
+    {
+        // $data = DB::table('user')->where('User_id',$id)->first();
+        // dd($data);
+        return view('homes.pers.order');
     }   
 
 }
