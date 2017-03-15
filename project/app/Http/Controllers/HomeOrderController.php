@@ -39,8 +39,9 @@ class HomeOrderController extends Controller
             $data[] = $tmp; 
         }
 
+        $User_name = session('User_name');
 	    	// dd($data);
-	  	$address = DB::table('order_address')->where('User_name',"崔尧")->get();
+	  	$address = DB::table('order_address')->where('User_name',$User_name )->get();
         // dd($address);
     	return view('homes.cart.order',['data'=>$data,'address'=>$address]);
     }

@@ -8,121 +8,42 @@
         {{ session('info') }}
     </div>
 @endif
+
 <div class="mu_content_wrap">
         <div class="order-title">
             <ul class="order-title-column clearfix">
-                <li class="goods">用户</li>
-                <li class="aftersale">收货人姓名</li>
-                <li class="price">电话</li>
-                <li class="quantity">是否为默认地址</li>
-                <li class="other">操作</li>
+                <li class="goods" style="width:10%">用户</li>
+                <li class="aftersale" style="width:10%">收货人姓名</li>
+                <li class="price" style="width:15%">电话</li>
+                <li class="quantity" style="width:40%">收货地址</li>
+                <li class="other" style="width:15%">操作</li>
             </ul>
         </div>
         <div id="orderWrap">
-        	<ul class="order-title-column clearfix">
-                <li class="goods">用户</li>
-                <li class="aftersale">收货人姓名</li>
-                <li class="price">电话</li>
-                <li class="quantity">是否为默认地址</li>
-                <li class="other">操作</li>
-            </ul>
+        @foreach ($data as $k => $v )
+        	<ul class="order-title-column clearfix" >
+                <li style="border:1px solid #ccc;width:10%;height:20px" >{{$data[$k]->User_name}}</li>
+                <li style="border:1px solid #ccc;width:10%;height:20px">{{$data[$k]->OrderName}}</li>
+                <li style="border:1px solid #ccc;width:15%;height:20px">{{$data[$k]->Phone}}</li>
+                <li style="border:1px solid #ccc;width:40%;height:20px">{{$data[$k]->Address}}</li>
+                <li style="border:1px solid #ccc;width:15%;height:20px">
+                <a href="/home/address/edit/{{$data[$k]->Address_id}}">[修改]</a> 
+                <a href="/home/address/delete/{{$data[$k]->Address_id}}">[删除]</a> @if($data[$k]->default)
+                 	[已默认] 
+                @else 
+                	<a href="/home/address/default?Address_id={{$data[$k]->Address_id}}&User_name={{$data[$k]->User_name}}">　[默认]</a> 
+                @endif
+                </li>
+            </ul> 
+         @endforeach 
+         		<br>
+         		<form action="/home/address/add" method="post">
+         			<input type="hidden" value="{{$data[$k]->User_name}}" name="User_name">
+         			{{ csrf_field()}}
+         			<input type="submit" value="增添新地址" style="float:right;margin-right:151px">
+         		</form>
+                	
         </div>
 </div>
-       <table width="1014" border="1" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-    <td>商品图</td>
-    <td>商品信息</td>
-    <td>订单</td>
-    <td>单价</td>
-    <td>数量</td>
-    <td>总价</td>
-    <td>状态</td>
-    <td>操作</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</tbody></table> 
-@endsection
 
-@section('js')
-<script type="text/javascript">
-
-//     //全局变量
-//     var NU = false;
-//     var BU = false;
-    
-
-
-//     //真实姓名
-//     //获取焦点
-//     $('input[name=TrueName]').focus(function(){
-
-//       $(this).addClass('cur');
-//     })
-//     //失去焦点
-//     $('input[name=TrueName]').blur(function(){
-//       //获取输入姓名的值
-//       var nv = $(this).val();
-
-//       //正则表达式
-//       var reg = /[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*/;
-//       //检测
-//       var nvs = reg.test(nv);
-
-//       if(!nvs){
-
-//         $(this).css('border','solid 1px red');
-//         $(this).next().text(' *姓名格式错误').css('color','red');
-//         NU = false;
-//       } else {
-
-//         $(this).css('border','solid 1px green');
-//         $(this).next().text(' √').css('color','green');
-//         NU = true;
-
-//       }
-//     })
-
-
-//     //生日
-//   $('input[name=birthday]').focus(function(){
-
-//     $(this).addClass('cur');
-//     $(this).css('border','solid 1px #999');
-//     $(this).next().text(' *日期格式1997-01-01').css('color','black');
-//   })
-
-//   //失去焦点
-//   $('input[name=birthday]').blur(function(){
-//     //获取值
-//     var bv = $(this).val();
-//     //正则表达式
-//     var reg = /^((?:19|20)\d\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
-//     //检测
-//     var bvs = reg.test(bv);
-//     if(!bvs) {
-
-//       $(this).css('border','solid 1px red');
-//       $(this).next().text(' *日期格式错误').css('color','red');
-
-//       BU = false;
-//     } else {
-
-//       $(this).css('border','solid 1px green');
-//       $(this).next().text(' √').css('color','green');
-
-//       BU = true;
-//     }
-
-//   })
-
-// </script>
 @endsection

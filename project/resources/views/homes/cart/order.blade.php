@@ -3,6 +3,15 @@
 @section('title','订单结算页')
 
 @section('content')
+
+<?php 
+    $User_name = session('User_name');
+ ?>
+
+    @if(!$User_name)
+        请登录
+    @else
+    
 <style>
     #page{width:auto;}
     #comm-header-inner,#content{width:950px;margin:auto;}
@@ -437,6 +446,9 @@
             </div>
         </div>
     </div>
+
+    @endif
+    
 @endsection
 
 @section('js')
