@@ -64,8 +64,8 @@
                                     <label class="mws-form-label">登陆权限: </label>
                                     <div class="mws-form-item clearfix">
                                         <ul class="mws-form-list inline">
-                                            <li><input type="radio" name='isAdmin' value="1"> <label>是</label></li>
-                                            <li><input type="radio" name='isAdmin' value="0"> <label>否</label></li>                          
+                                            <li><input type="radio" name='isAdmin' value=1> <label>是</label></li>
+                                            <li><input type="radio" name='isAdmin' value=0> <label>否</label></li>                          
                                         </ul>
                                     </div>
                                 </div>

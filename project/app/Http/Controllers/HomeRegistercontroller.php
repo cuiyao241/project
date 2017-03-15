@@ -36,7 +36,7 @@ class HomeRegistercontroller extends Controller
         $res['Password'] = Hash::make($request->input('Password'));
         // dd();
 
-        $res['status'] = '1';
+        $res['Status'] = '1';
 
         // dd($res);
 

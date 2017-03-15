@@ -41,6 +41,7 @@ class HomeLoginController extends Controller
         $user = DB::table('user')->where('User_name',$newName)->first();
         $Status = $user->Status;
         $User_name = $user->User_name;
+        $Profile = $user->Profile;
         // $User_id = $user->User_id;
 
         // var_dump($user->Password);die;
@@ -55,11 +56,13 @@ class HomeLoginController extends Controller
 
         } else {
 
+
                  //密码判断
                 if(Hash::check($postUser['Password'], $user->Password)){
                    
                 	session(['Status'=>$Status]);
                 	session(['User_name'=>$User_name]);
+                	session(['Profile'=>$Profile]);
 
                 	// Session::put('Status',$status);
                     // Session::put('User_name',$User_name);
@@ -84,6 +87,7 @@ class HomeLoginController extends Controller
     {
         session(['Status'=>null]);
         session(['User_name'=>null]);
+        session(['Profile']);
         // session(['User_id'=>null]);
         return redirect('home');
     }

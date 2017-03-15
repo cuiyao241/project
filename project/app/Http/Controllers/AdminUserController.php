@@ -60,44 +60,49 @@ class AdminUserController extends Controller
 
         // 表单验证
         $res = $request->except('_token','rePassword');
+
         // dd($res);
         // echo '<pre>';
-        // var_dump($res);die;/
+        // var_dump($res);die;
         //判断文件上传
         // $names = 12345;
 
 
-        if($request->hasFile('Profile')){
-            //自定义上传的文件名
-            $names = rand(1111,9999).time();
-            // dd($names);
-            //获取上传文件的后缀
-            $suffix = $request->file('Profile')->getClientOriginalExtension();
+        // if($request->hasFile('Profile')){
+        //     //自定义上传的文件名
+        //     $names = rand(1111,9999).time();
+        //     // dd($names);
+        //     //获取上传文件的后缀
+        //     $suffix = $request->file('Profile')->getClientOriginalExtension();
 
-            $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
+        //     $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
 
-              //把上传的图片存储到数据库中
-            $res['profile'] = '/upload/'.$names.'.'.$suffix;
-        }
+        //       //把上传的图片存储到数据库中
+        //     $res['profile'] = '/upload/'.$names.'.'.$suffix;
+        // }
 
       
-
-        //哈希加密密码
+  
+        // var_dump($rec);die;
+        // 哈希加密密码
         $res['Password'] = Hash::make($request->input('Password'));
 
-        $pro = DB::table('user')->first();
-        // $a = $pro->isAdmin;
-        // dd($pro);
-        //用户的添加
+   
+        // echo '<pre>';
+        // var_dump($res);die;
+        // 用户的添加
         $pro = DB::table('user')->insert($res);
 
+        // echo '<pre>';
+        // var_dump($pro);die;
+ 
         //判断结果
         if($pro){
 
             return redirect('/admin/user/index')->with('info','添加成功');
         } else {
 
-            return back()->with('info','添加失败');
+            return back()->with('info','添加失败');die;
         }
     }
 

@@ -19,6 +19,7 @@
 	// $User_name = Session::get('User_name');
 	$Status = session('Status');
 	$User_name = session('User_name');
+	$Profile = session('Profile');
 	// var_dump($User_name);die;	
 		//通过session 查一条Status
 
@@ -192,19 +193,19 @@
 					<ul>
 						<li><a href="stores.html">商店定位</a></li>
 						<li><a href="faq.html">常见问题</a></li>
-						<li><a class="popup-with-zoom-anim" href="#small-dialog1">登录</a></li>
-						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
-						<li><a href="contact.html">联系我们</a></li>
+						<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
+						<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
+						<li><a href="contact.html">联系大哥</a></li>
 					</ul>
 				@else
 					欢迎{{$User_name}}登陆
 
-					<img src="/upload/84771489325392.jpg" style="width:50px;height:50px" alt="">
+					<img src="{{$Profile}}" style="width:50px;height:50px" alt="">
 					
 					
 					<a href="/home/personal/index">个人中心</a>
 
-					<a href="logined/close">退出</a>
+					<a href="/logined/close">退出</a>
 					
 				@endif
 				</div>

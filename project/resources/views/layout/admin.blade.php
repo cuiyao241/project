@@ -204,7 +204,7 @@
                     <ul>    
                         <li><a href="/admin/user/edit/{{$User_id}}">修改头像</a></li>
                         <li><a href="/admin/user/pwdedit/{{$newName}}">修改密码</a></li>
-                        <li><a href="/login/close">退出</a></li>
+                        <li><a href="/home/login/close">退出</a></li>
                     </ul>
                 </div>
             </div>
