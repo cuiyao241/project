@@ -39,7 +39,7 @@ class HomeLoginController extends Controller
 
         //通过用户名查询密码	
         $user = DB::table('user')->where('User_name',$newName)->first();
-        $status = $user->Status;
+        $Status = $user->Status;
         $User_name = $user->User_name;
         // $User_id = $user->User_id;
 
@@ -58,11 +58,12 @@ class HomeLoginController extends Controller
                  //密码判断
                 if(Hash::check($postUser['Password'], $user->Password)){
                    
-                	// session(['Status'=>$status]);
-                	// session(['User_name'=>$User_name]);
+                	session(['Status'=>$Status]);
+                	session(['User_name'=>$User_name]);
 
-                	Session::put('Status',$status);
-                    Session::put('User_name',$User_name);
+                	// Session::put('Status',$status);
+                    // Session::put('User_name',$User_name);
+                    // Session::put('User_id',$User_id);
                 	// dd($status);
                 	// $_SESSION['Status'] = $status;
 
@@ -81,9 +82,11 @@ class HomeLoginController extends Controller
 
     public function getClose()
     {
-        session(['status'=>null]);
-        
+        session(['Status'=>null]);
+        session(['User_name'=>null]);
+        // session(['User_id'=>null]);
         return redirect('home');
+    }
 
-}
+
 }

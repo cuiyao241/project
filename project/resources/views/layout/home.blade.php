@@ -15,12 +15,14 @@
 
 	// $status = Session::get('Status');
 
-	$status = Session::get('Status');
-	$User_name = Session::get('User_name');
+	// $status = Session::get('Status');
+	// $User_name = Session::get('User_name');
+	$Status = session('Status');
+	$User_name = session('User_name');
 	// var_dump($User_name);die;	
 		//通过session 查一条Status
 
-	// dd($data);
+	// dd($status);
 	// dd($isNow);
 ?>
 <!DOCTYPE html>
@@ -185,7 +187,7 @@
 					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
-				@if ($status != 1)
+				@if (!$Status)
 
 					<ul>
 						<li><a href="stores.html">商店定位</a></li>
@@ -195,14 +197,14 @@
 						<li><a href="contact.html">联系我们</a></li>
 					</ul>
 				@else
-					欢迎登陆
+					欢迎{{$User_name}}登陆
 
 					<img src="/upload/84771489325392.jpg" style="width:50px;height:50px" alt="">
 					
 					
 					<a href="/home/personal/index">个人中心</a>
 
-					<a href="/logined/close">退出</a>
+					<a href="logined/close">退出</a>
 					
 				@endif
 				</div>

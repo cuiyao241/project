@@ -30,5 +30,16 @@ class HomeMiddleware
             return redirect('404');
 
         }
+        //获取
+    // $status = session('status');
+
+    // if($status){
+
+    //     return redirect('home');
+    // } else {
+
+    //     return back();
+    // }
+
     }
 }
