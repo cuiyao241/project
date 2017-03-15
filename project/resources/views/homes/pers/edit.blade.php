@@ -1,17 +1,18 @@
 @extends('layout.personal')
 
-@section('title','我的信息')
+@section('title','修改信息')
 
 @section('content')
+
 @if (session('info'))
     <div class="alert alert-success">
         {{ session('info') }}
     </div>
 @endif
             <div class="settings_box">
-              <strong class="settings_title">我的信息</strong>
+              <strong class="settings_title">修改信息</strong>
               <fieldset class="setPersonal">
-                <form id="setPersonForm" method="post"  action="/home/personal/update">
+                <form method="post"  action="/home/personal/update">
                   {{ csrf_field() }}
                    <div class="form-list">
                     <label class="account-label">用户名</label>
@@ -25,18 +26,15 @@
                   </div>
                   <div class="form-list">
                     <label class="account-label">真实姓名</label>
-                    <input  name="TrueName" type="text" value="{{$data->TrueName}}">
+                    <input  name="TrueName" type="text" value="{{$data->TrueName}}" required>
+                    <strong></strong>
+                  </div>
+                  <div class="form-list">
+                    <label class="account-label">昵称</label>
+                    <input  name="nickname" type="text" value="{{$data->nickname}}" required>
                     <strong></strong>
                   </div>
 
-                  <!--[if IE 8]>
-                    <div class="gender">
-                      <label class="account-label">性别</label>
-                      <input name="gender" style="margin-top:7px" id="female" type="radio" value="2" />
-                      <lable for="female">女</lable>
-                      <input name="gender" id="male" type="radio" value="1" />
-                      <lable for="male">男</lable></div>
-                  <![endif]-->
                   <div class="gender">
                     <label class="account-label">性别</label>
                     <input type="radio" class="regular-radio" value="0" id="female" name="Sex" @if($data->Sex=="0") checked @endif>
@@ -61,7 +59,7 @@
                   </div>
                   <input type="submit" value="确 认" id="submit" class="ext_submit">
                   <span class="submitError"></span>
-                  <input type="hidden" name="User_id" value="{{$data->User_id}}">
+                  <input type="hidden" name="User_name" value="{{$data->User_name}}">
                 </form>
               </fieldset>
             </div>
@@ -74,8 +72,7 @@
     //全局变量
     var NU = false;
     var BU = false;
-    
-
+    var PU = false;
 
     //真实姓名
     //获取焦点
@@ -103,6 +100,36 @@
         $(this).css('border','solid 1px green');
         $(this).next().text(' √').css('color','green');
         NU = true;
+
+      }
+    })
+
+    //昵称
+    //获取焦点
+    $('input[name=nickname]').focus(function(){
+      // alert('123');
+      $(this).addClass('cur');
+    })
+    //失去焦点
+    $('input[name=nickname]').blur(function(){
+      //获取输入昵称的值
+      var pv = $(this).val();
+
+      //正则表达式
+      var reg = /^[\u4E00-\u9FA5A-Za-z0-9]{2,10}$/;
+      //检测
+      var pvs = reg.test(pv);
+
+      if(!pvs){
+
+        $(this).css('border','solid 1px red');
+        $(this).next().text(' *昵称格式错误').css('color','red');
+        PU = false;
+      } else {
+
+        $(this).css('border','solid 1px green');
+        $(this).next().text(' √').css('color','green');
+        PU = true;
 
       }
     })

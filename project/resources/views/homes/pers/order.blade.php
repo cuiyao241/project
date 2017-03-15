@@ -20,18 +20,43 @@
         <div id="orderWrap"></div>
     </div>
 
-	<table width="1014" border="0" cellspacing="0" cellpadding="0">
-  <tr align="center" valign="middle">
-    <td width="15%"><img src="/upload/12691488972037.jpg" width="60%" height="10%" style="padding-left:10px;"/></td>
-    <td width="17%" align="left">商品名商品名商品名商品名商品名商品名</td>
-    <td width="11%" align="center">订单号</td>
-    <td width="11%" align="center">单价</td>
-    <td width="7%" align="center">数量</td>
-    <td width="13%" align="center">总价</td>
-    <td width="13%" align="center">已付款<br/><span>已发货</span></td>
-    <td width="13%" align="center"><a href="allinfo/313">确认收货</a></td>
-  </tr>
+<table width="1014" border="0" cellspacing="0" cellpadding="0" >
+    @foreach ($data as $k => $v )
+      <tr align="center" valign="middle" bgcolor="#FFF7FB" style="border-top:dotted 1px 	#ff3366;border-bottom:dotted 1px 	#ff3366; font-size:13px;">
+        <td width="15%"><img src="{{$data[$k]->pic}}" width="100px;" height="80px;" style="margin:10px;"/></td>
+        <td width="17%" align="left" style="border-right: 1px dotted #ccc;
+"><a href="{{$data[$k]->GoodsUrl}}" target="view_window">{{$data[$k]->GoodsName}}</a></td>
+        <td width="12%" align="center" style="border-right: 1px dotted #ccc;">{{$data[$k]->Order_id}}</td>
+        <td width="11%" align="center" style="border-right: 1px dotted #ccc;"> {{$data[$k]->GoodsFee}} </td>
+        <td width="8%" align="center" style="border-right: 1px dotted #ccc;">{{$data[$k]->GoodsNum}}</td>
+        <td width="12%" align="center" style="border-right: 1px dotted #ccc;">{{$data[$k]->TotalPrice}}</td>
+        <td width="12%" align="center" style="border-right: 1px dotted #ccc;"> 
+            @if($data[$k]->IsPayment == '0') 
+                                [未付款] <br>
+                            @else
+                                [已付款] <br>
+                            @endif
 
+                            @if($data[$k]->IsConsignment == '0') 
+                                [未发货]
+                            @else
+                                [已发货]
+                            @endif
+                        </td>
+        <td width="12%" align="center">
+            
+        <form action="/home/personal/ordok" method="post">
+            {{ csrf_field()}}
+            @if($data[$k]->IsConfirm == '0') 
+             <input type="submit" value="确认收货">
+             @else
+                [已收货]
+             @endif
+             <input type="hidden" name="Order_id" value="{{$data[$k]->Order_id}}">
+        </form>
+        </td>
+      </tr>
+    @endforeach 
 </table>
 
 

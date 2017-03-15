@@ -12,25 +12,22 @@ use Hash;
 class HomePersonalController extends Controller
 {
 
+    //个人中心首页
      public function getIndex()
     {
-        // $id = $request->only('id');
-        // $data = DB::table('user')->where('User_id',20)->first();
-        return view('homes.pers.index');
+        $User_name = session('User_name');
+        // dd($User_name);
+        $data = DB::table('user')->where('User_name',$User_name)->first();
+        return view('homes.pers.index',['data'=>$data]);
     }
-    // public function postIndex(Request $request)
-    // {
-    //     $data = $request->except('_token');
-    //     // dd($data);
-       
-    // }
 
     
     //修改个人信息
-    public function getEdit(Request $request)
+    public function getEdit()
     {
-        $id = $request->only('id');
-        $data = DB::table('user')->where('User_id',69)->first();
+        $User_name = session('User_name');
+    
+        $data = DB::table('user')->where('User_name',$User_name)->first();
         // dd($data);
         return view('homes.pers.edit',['data'=>$data]);
     }
@@ -38,21 +35,30 @@ class HomePersonalController extends Controller
     public function postUpdate(Request $request)
     {
         $data = $request->except('User_id','_token');
-        // dd($data);
-        $id = $request->input('User_id');
-        $res = DB::table('user')->where('User_id',$id)->update($data);
+       
+        $User_name = $request->input('User_name');
+
+        $res = DB::table('user')->where('User_name',$User_name)->update($data);
+         // dd($res);
         if($res){
-            return back()->with('info','修改成功');
+            return redirect("/home/personal/index");
         }else{
             return back()->with('info','修改失败');
 
         }
+        // if ($data) {
+    //         return redirect("/home/address");
+    //     } else {
+    //         return redirect("/home/address");
+    //     }
     }
 
     //修改头像
-     public function getProedit($id)
+     public function getProedit()
     {
-        $data = DB::table('user')->where('User_id',$id)->first();
+        $User_name = session('User_name');
+
+        $data = DB::table('user')->where('User_name',$User_name)->first();
         // dd($id);
         return view('homes.pers.profile',['data'=>$data]);
     }
@@ -61,8 +67,8 @@ class HomePersonalController extends Controller
     {   
 
         $data = $request->except('_token');
-        $id = $request->input('User_id');
-        // dd($id);
+        $User_name = $request->input('User_name');
+        
         if($request->hasFile('Profile')){
             //自定义上传的文件名
             $names = rand(1111,9999).time();
@@ -75,7 +81,8 @@ class HomePersonalController extends Controller
               //把上传的图片存储到数据库中
             $res['profile'] = '/upload/'.$names.'.'.$suffix;
         }
-         $pro = DB::table('user')->where('User_id',$id)->update($res);
+
+         $pro = DB::table('user')->where('User_name',$User_name)->update($res);
 
         if($pro){
             return back()->with('info','修改成功');
@@ -84,11 +91,12 @@ class HomePersonalController extends Controller
         }
     }
 
-
     //修改密码
-    public function getPwdedit($id)
+    public function getPwdedit()
     {
-        $data = DB::table('user')->where('User_id',$id)->first();
+        $User_name = session('User_name');
+
+        $data = DB::table('user')->where('User_name',$User_name)->first();
         // dd($data);
         return view('homes.pers.Setpassword',['data'=>$data]);
     }
@@ -111,11 +119,11 @@ class HomePersonalController extends Controller
         ]);
         $res = $request->except('_token','rePassword','oldPassword');
         
-        $id = $request->input('User_id');
+        $User_name = $request->input('User_name');
 
         $opwd = $request->input('oldPassword');
 
-        $data = DB::table('user')->where('User_id',$id)->first();
+        $data = DB::table('user')->where('User_name',$User_name)->first();
 
         $pwd = $data->Password;
         // dd($pwd);
@@ -124,24 +132,55 @@ class HomePersonalController extends Controller
              //哈希加密密码
              $res['Password'] = Hash::make($request->input('Password'));
              // dd($res);
-             $pro = DB::table('user')->where('User_id',$id)->update($res);
+             $pro = DB::table('user')->where('User_name',$User_name)->update($res);
 
-              return back()->with('info','修改成功');
+            return redirect("/home");
          } else {
 
-            return back()->with('info','修改失败');
+            return back()->with('info','修改失败,请重新修改!');
         }
     } 
-
-
 
 
     //全部订单
     public function getOrder()
     {
-        // $data = DB::table('user')->where('User_id',$id)->first();
+        $User_name = session('User_name');
+
+        $data = DB::table('orderinfo')
+            ->join('cate_goods','orderinfo.GoodsName','=','cate_goods.title')
+            ->select('orderinfo.*','cate_goods.pic')
+            ->where('UserName',$User_name)
+            ->get();
+                        
         // dd($data);
-        return view('homes.pers.order');
+        return view('homes.pers.order',['data'=>$data]);
+
     }   
+    public function postOrdok(Request $request)
+    {
+        $Order_id = $request->input('Order_id');
+        // dd($Order_id);
+        $res = DB::table('orderinfo')->where('Order_id',$Order_id)->update(['IsConfirm'=>1]);
+        if ($res) {
+            return back();
+        } else {
+            return back();
+        }
+
+    }
+
+    public static function message(){
+        $User_name = session('User_name');
+        $data = DB::table('user')->where('User_name',$User_name)->first();
+        // dd($data);
+        // $username = $data->nickname;
+        // $Profile = $data->Profile;
+        return $data;
+    }
+
+
 
 }
+
+

@@ -20,10 +20,10 @@
       <p>建议使用正方形的图片，支持JPG、GIF、JPEG、PNG格式，8M以内</p> 
       <img src="{{$data->Profile}}" class="original" /> 
       <div class="clear_both"></div> 
-     <input type="hidden" name="User_id" value="20">
      {{ csrf_field() }}
-     <input type="submit" name="save_thumbnail"  value="确 认" id="set_submit" class="ext_submit" style="margin-left:0px;"/> 
+     <input type="submit" name="save_thumbnail"  value="确 认"  class="ext_submit" style="margin-left:0px;"/> 
      <span class="submit_error"></span> 
+     <input type="hidden" name="User_name" value="{{$data->User_name}}">
      </form> 
     </div> 
    </fieldset> 

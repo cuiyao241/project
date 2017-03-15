@@ -5,14 +5,14 @@
 @section('content')
 
 @if (session('info'))
-    <div class="alert alert-success">
+    <div class="alert alert-success" style="margin-left:186px;width:1013px;height:30px;text-align:center;font-size:17px;color:red;background-color:pink;">
         {{ session('info') }}
     </div>
 @endif
   <div class="settings_box"> 
    <strong class="settings_title">用户密码</strong> 
    <fieldset class="setPersonal"> 
-    <form  method="post"  action="/home/personal/pwdupdate/69"> 
+    <form  method="post"  action="/home/personal/pwdupdate"> 
       {{ csrf_field() }}
       @if (count($errors) > 0)
          <div class="mws-form-message error">
@@ -27,7 +27,7 @@
       <label class="account-label">旧密码</label> 
  
       <!-- for disable autocomplete on chrome --> 
-      <input  class="l_ipt" name="oldPassword" type="password" value="" /> 
+      <input  class="l_ipt" name="oldPassword" type="password" value="" required/> 
       <strong></strong> 
      </div> 
 
@@ -35,17 +35,17 @@
       <label class="account-label">新密码</label> 
   
       <!-- for disable autocomplete on chrome --> 
-      <input autocomplete="off" class="l_ipt" name="Password" type="password" value="" /> 
+      <input autocomplete="off" class="l_ipt" name="Password" type="password" value="" required/> 
       <strong></strong> 
      </div> 
      <div class="form-list"> 
       <label class="account-label">确认密码</label> 
       <input style="display:none" />
       <!-- for disable autocomplete on chrome --> 
-      <input autocomplete="off" class="l_ipt"  name="rePassword" type="password" value="" /> 
+      <input autocomplete="off" class="l_ipt"  name="rePassword" type="password" value="" required/> 
       <strong class="setPasswordErrorMessageLine"></strong> 
      </div> 
-    <input type="hidden" name="User_id" value="{{$data->User_id}}">
+    <input type="hidden" name="User_name" value="{{$data->User_name}}">
      <input type="submit" value="确 认" id="submit" class="ext_submit" /> 
      <span class="submit_error"></span> 
     </form> 
@@ -61,6 +61,15 @@
  //全局变量
   var PU = false;
   var RPU = false;
+  var OPW = false;
+
+  //旧密码
+  $('input[name=oldPassword]').focus(function(){
+    $(this).css('border','solid 1px #999');
+    $(this).next().text(' *请输入旧密码').css('color','black');
+    $(this).addClass('cur');
+  })
+
 
   //密码
   //获取焦点
