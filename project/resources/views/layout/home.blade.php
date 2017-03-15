@@ -9,31 +9,29 @@
 
 	$isNow = AdminCateController::getIsNow();
 
-	// $status = session('status');
 
-	// $User_name = session('User_name');
-
-	// $status = Session::get('Status');
-
-	// $status = Session::get('Status');
-	// $User_name = Session::get('User_name');
 	$Status = session('Status');
 	$User_name = session('User_name');
 	$Profile = session('Profile');
 	// var_dump($User_name);die;	
 	$links = DB::table('link')->get();
+
+	$conf = DB::table('conf')->first();
+
+	// dd($conf);
 ?>
 <!DOCTYPE html>
 <html lang="zxx"> 
 <!-- Head -->
 <head>
 
-<title>@yield('title')</title>
+<title>@yield("$conf->title")</title>
 
 <!-- Meta-Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keywords" content="">
+<meta name="keywords" content="{{$conf->keywords}}"/>
+<meta name="description" content="{{$conf->description}}" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Meta-Tags -->
 
@@ -103,6 +101,8 @@
 					</ul>
 				</div>
 				<div id="bs-megadropdown-tabs" class="navbar-collapse collapse">
+
+
 					<ul class="nav navbar-nav">
 
 					@foreach($data as $k => $v)
@@ -151,9 +151,16 @@
 
 					@endforeach	
 					</ul>	
+	
+					<!-- LOGO -->
+					<div>
+						<img src="{{$conf->logo}}" style="width:270px;height:30px;margin-top:15px;margin-left:20px;" alt="LOGO">
+					</div>
+
+
 
 					
-						<li class="wthreesearch">
+						<li class="wthreesearch" style="padding:10px;margin:-42px -75px">
 							<form action="" method="post">
 								<input type="search" name="Search" placeholder="Search for a Product" required="">
 								<button type="submit" class="btn btn-default search" aria-label="Left Align">
@@ -335,7 +342,8 @@
 	<!-- Copyright -->
 	<div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version 1.2.1</p>
+			<p>{{$conf->copyright}}</p>
+			<!-- <p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version 1.2.1</p> -->
 		</div>
 		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
 			<div class="agilesocialwthree">
