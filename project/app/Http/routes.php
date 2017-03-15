@@ -63,6 +63,9 @@ Route::group(['middleware'=>'404'],function(){
 	Route::controller('home/list', 'HomeListController');
 	//个人中心
 	Route::controller('home/personal','HomePersonalController');
+	//收货地址
+	Route::controller('home/address','HomeAddressController');
+	
 	
 });
 
