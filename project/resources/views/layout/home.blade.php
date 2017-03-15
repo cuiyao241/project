@@ -184,31 +184,31 @@
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
 					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
 				</div>
-				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
-				@if (!$Status)
+					<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
+						@if (!$Status)
 
-					<ul>
-						<li><a href="stores.html">商店定位</a></li>
-						<li><a href="faq.html">常见问题</a></li>
-						<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
-						<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
-						<li><a href="contact.html">联系大嫂</a></li>
-					</ul>
-				@else
+							<ul>
+								<li><a href="stores.html">商店定位</a></li>
+								<li><a href="faq.html">常见问题</a></li>
+								<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
+								<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
+								<li><a href="contact.html">联系大嫂</a></li>
+							</ul>
+							@else
+							<div>
+								<img src="/upload/78061489506622.jpg" style="width:50px; height:50px; float:left"   alt="" >
+								
+								<div ><p style="float:right">欢迎 <font size="4" color="red">{{$User_name}}</font>登陆</p> <br>
+				
+								<p style="float:right"><a href="/home/personal/index"><font size="3" color=green>个人中心</font></a></p>
+								
 
-					
-
-					欢迎 <font size="4" color="red">{{$User_name}}</font> 登陆
-	
-					<a href="/home/personal/index"><font size="3" color=green>个人中心</font></a>
-					
-
-					<a href="/logined/close"><font size="2" color=blue>退出</a>
-					
-				@endif
-				</div>
-				<div class="clearfix"></div>
-			</div>
+								<p><a href="/logined/close"><font size="2" color=blue>退出</a></div></p>
+								
+							
+							@endif
+							</div>
+					</div>
 
 			<!-- Popup-Box  -->
 
