@@ -119,39 +119,38 @@ class HomeListController extends Controller
 
         $id = $request->input('id');
 
+        // dd($id);
+
         $totZan = $request->input('totZan');
 
-        $res['totZan'] = $totZan;
+        $res['totZan'] = $totZan+1;
 
-        $zan = Session::get($id);
 
-        if($zan){
+
+        $arr =[];
+
+        if(Session::has("foo.$id")){
 
             return 0;
-
-        } else {
+        }else{
 
             $pro =  DB::table('cate_goods')->where('id', $id)->update($res);
 
-                if($pro){
-         
-                    echo 1;
-                    Session::put($id, 1);
+            if($pro){
+     
+                echo 1;
+                // Session::put("$id", 5);
+                Session::push("foo.$id",'value');
 
-                } else {
-         
-                    echo 0;
-                }
 
+            } else {
+     
+                echo 0;
+            }       
 
         }
 
- 
-            
-
-        
-
-            
+             
         
     }
 
@@ -167,4 +166,9 @@ class HomeListController extends Controller
     //     dd($res);
     // }
 
+    public function getAdd()
+    {
+        dd(Session::all());
+        // Session::flush();
+    }
 }

@@ -15,9 +15,15 @@ class HomeCartController extends Controller
     public function postRemind(Request $request)
     {
     	$res = $request->except('_token');
+
+        $res['size'] = !empty($res['size']) ? $res['size'] : 'X';
+
+        $res['color'] = !empty($res['color']) ? $res['color'] : '白';
+
+
     	//把数据存入到数据库
     	Session::push('cart',$res);
-        // dd($res);
+        dd($res);
 
     	return view('homes.cart.remind');
     }

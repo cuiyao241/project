@@ -94,8 +94,8 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 								<div style="text-aligin:center">
 								
 								<input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3">
-								<label for="checkboxG8" class="css-label zan"></label>
-								<span class="zans" name="{{$v->id}}">{{$v->totZan}}</span>
+								<label for="checkboxG8" class="css-label zans"></label>
+								<span name="{{$v->id}}">{{$v->totZan}}</span>
 
 								</div>
 							</li>
@@ -265,15 +265,7 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 		})
 
 		//获取赞值
-		// $('.zans').click(function(){
-
-		// 	var tx = $(this).text();
-
-		// 	alert(tx);
-
-		// })
-
-		$('.zan').click(function(){
+		$('.zans').click(function(){
 
 			var tx = $(this).next().text();
 
@@ -281,26 +273,24 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 			var id = $(this).next().attr('name');
 
+
 			var tot = $(this);
 
 			$.get('/home/list/ajax', {totZan:ts, id:id}, function(data){
 
-
 				if(data == 1){
 
 					tot.next().text(ts);
-					// tot.removeClass('zan'); 
 					
-
-
 				} else {
 
 					tot.next().text(tx);
 				}
-
 			})
 
 		})
+
+		
 
 
 		</script>
