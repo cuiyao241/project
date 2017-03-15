@@ -21,7 +21,7 @@
 	$User_name = session('User_name');
 	$Profile = session('Profile');
 	// var_dump($User_name);die;	
-
+	$links = DB::table('link')->get();
 ?>
 <!DOCTYPE html>
 <html lang="zxx"> 
@@ -314,46 +314,17 @@
 	<!-- Footer -->
 	<div class="agileinfofooter">
 		<div class="agileinfofooter-grids">
+			@foreach($links as $k => $v)      
+				<span style="margin-right:20px"><a href="{{ $v->link_Website }}" target="view_window"><span style="font-size:15px;color:black" target="view_window">{{ $v->link_Name }}</span></a></span>
+			@endforeach
 
-			<div class="col-md-3 agileinfofooter-grid agileinfofooter-grid1">
-				<ul>
-					<li><a href="about.html">帮助中心</a></li>
-					<li><a href="mens.html">账户管理</a></li>
-					<li><a href="mens_accessories.html">购物指南</a></li>
-					<li><a href="womens.html">订单操作</a></li>
-				</ul>
-			</div>
+		</div>
 
-			<div class="col-md-3 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">服务支持</a></li>
-					<li><a href="faq.html">售后政策</a></li>
-					<li><a href="codes.html">自助服务</a></li>
-					<li><a href="icons.html">相关下载</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-3 agileinfofooter-grid agileinfofooter-grid2">
-				<ul>
-					<li><a href="stores.html">线下门店</a></li>
-					<li><a href="faq.html">服装之家</a></li>
-					<li><a href="codes.html">服务网点</a></li>
-					<li><a href="icons.html">零售网点</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-3 agileinfofooter-grid agileinfofooter-grid3">
-				<address>
-					<ul>
-						<li>地址</li>
-						<li>帕尔马路摩德纳街道404号</li>
-						<li>100-5678-8888</li>
-						<li><a class="mail" href="mailto:mail@example.com">cuiyao241@163.com</a></li>
-					</ul>
-				</address>
-			</div>
-
-			<div class="clearfix"></div>
+				
+			<span style="color:black;margin-right:20px">地址: 帕尔马路摩德纳街道404号</span>
+			<span style="color:black;margin-right:20px">电话: 100-5678-8888</span>
+			<span style="color:black;margin-right:20px">邮箱: cuiyao241@163.com</span>
+		
 
 		</div>
 	</div>
@@ -364,7 +335,7 @@
 	<!-- Copyright -->
 	<div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version 1.0.0<a target="_blank" href="http://www.17sucai.com/"></a></p>
+			<p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version 1.2.1</p>
 		</div>
 		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
 			<div class="agilesocialwthree">
