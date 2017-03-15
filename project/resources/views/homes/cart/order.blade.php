@@ -18,45 +18,32 @@
             <form name="addrForm" id="addrForm" action="#">
                     <h1><b>确认收货地址</b></h1>
                 <h3>
-                    <span class="manage-address">
-                        <a href="http://member1.taobao.com/member/fresh/deliver_address.htm" target="_blank"
-                        title="管理我的收货地址" class="J_MakePoint" data-point-url="http://log.mmstat.com/buy.1.7">
+                   <!--  <span class="manage-address">
+                        <a href="#"
+                        title="管理我的收货地址" class="J_MakePoint" >
                             管理收货地址
                         </a>
-                    </span>
+                    </span> -->
                 </h3>
                 <ul id="address-list" class="address-list">
-
+            
             @foreach ($address as $k => $v)
 
-                    <li class="J_Addr J_MakePoint clearfix  J_DefaultAddr " data-point-url="http://log.mmstat.com/buy.1.20">
-                        <s class="J_Marker marker">
-                        </s>
-                        <span class="marker-tip">
-                            寄送至
-                        </span>
+                    <li class="J_Addr J_MakePoint clearfix  J_DefaultAddr " >                       
                         <div class="address-info">
-                            <a href="#" class="J_Modify modify J_MakePoint" >
-                                修改本地址
-                            </a>
-                            <input name="address" class="J_MakePoint " type="radio" value="674944241"
-                            id="addrId_674944241" checked="checked">
-                            <label for="addrId_674944241" class="user-address">
-                                {{$v->Address}} ({{$v->OrderName}} 收)
+                            <label class="user-address">
+                            <input name="address" class="J_MakePoint "  type="radio" value="{{$v->Address_id}}" id="addrId_674944241" @if($v->default) checked @endif >
+                            <input type="hidden"  class="aname" value="{{$v->User_name}}" >
+                                {{$v->Address}} ({{$v->OrderName}} 收) 
                                 <em>
                                    &nbsp;&nbsp;&nbsp;电话: {{$v->Phone}}
                                 </em>
-                            </label>
-                            <em class="tip" style="display: none">
-                                默认地址
-                            </em>
-                            <a class="J_DefaultHandle set-default J_MakePoint" href="/auction/update_address_selected_status.htm?addrid=674944241"
-                            style="display: none" data-point-url="http://log.mmstat.com/buy.1.18">
-                                设置为默认收货地址
-                            </a>
+                              </label> 
                         </div>
                     </li>
-
+                    <?php 
+                        $User_name = $v->User_name;
+                     ?>
                  @endforeach   
                 </ul>
                 <ul id="J_MoreAddress" class="address-list hidden">
@@ -177,20 +164,24 @@
                                 
                             </td>
                         </tr>
-                        <input type="hidden" name="tit[]" value="{{$v->title}}" >
-                        <input type="hidden" name="pic[]" value="{{$v->pic}}" >
-                        <input type="hidden" name="newc[]" value="{{$v->newcolor}}" >
-                        <input type="hidden" name="newsize[]" value="{{$v->newsize}}" >
-                        <input type="hidden" name="newnum[]" value="{{$v->newnum}}" >
-                        <input type="hidden" name="prices[]" value="{{$v->price}}" >
-                        <input type="hidden" name="url[]" value="asdasd.asdasd" >
-                       
+            <input type="hidden" name="tit[]" value="{{$v->title}}" >
+            <input type="hidden" name="pic[]" value="{{$v->pic}}" >
+            <input type="hidden" name="newc[]" value="{{$v->newcolor}}" >
+            <input type="hidden" name="newsize[]" value="{{$v->newsize}}" >
+            <input type="hidden" name="newnum[]" value="{{$v->newnum}}" >
+            <input type="hidden" name="prices[]" value="{{$v->price}}" >
+            <input type="hidden" name="url[]" value="http://lamp.com/home/introduce/index/{{$v->id}}" >
+            <input type="hidden" name="TotalPrice[]" value="{{$v->price*$v->newnum}}" >
+            
 
-
-
+            
 
             @endforeach
-
+            
+            <input type="hidden" name="User_name"  value="<?php echo $User_name; ?>" >
+            <input type="hidden" name="ReceiverAddress" class="ReceiverAddress" value="" >
+            <input type="hidden" name="ReceiverPhone" class="ReceiverPhone" value="" >
+            <input type="hidden" name="ReceiverName" class="ReceiverName" value="" >
                         <tr class="item-service">
                             <td colspan="5" class="servicearea" style="display: none">
                             </td>
@@ -206,9 +197,9 @@
                                         <ul class="wrap">
                                             <li>
                                                 <div class="field gbook">
-                                                    <label class="label">
+                                                    <span style="color:#999999;">
                                                         给卖家留言:
-                                                    </label><textarea style="width:350px;height:80px;resize:none;" title="选填：对本次交易的补充说明（建议填写已经和卖家达成一致的说明）"  name=""></textarea>
+                                                    </span><textarea style="width:350px;height:80px;resize:none;" title="选填：对本次交易的补充说明（建议填写已经和卖家达成一致的说明）"  name="Leave"></textarea>
                                                 </div>
                                                 <p style="margin-left:85px;flont-size:5px">*小于100字</p>
                                             </li>
@@ -221,7 +212,7 @@
                                                     店铺优惠：
                                                 </li>
                                                 <li class="dib sel">
-                                                    <div class="J_ShopPromo J_Promotion promotion clearfix" data-point-url="http://log.mmstat.com/buy.1.16">
+                                                    <div class="J_ShopPromo J_Promotion promotion clearfix" >
                                                     </div>
                                                 </li>
                                                 <li class="dib fee">
@@ -241,7 +232,7 @@
                                                 <li class="dib title">
                                                     运送方式：
                                                 </li>
-                                                <li class="dib sel" data-point-url="http://log.mmstat.com/jsclick?cache=*&tyxd=wlysfs">
+                                                <li class="dib sel" >
                                                     <input type="hidden" name="1704508670:2|actualPaidFee" value="0" class="J_ActualPaidFee"
                                                     />
                                                     <input type="hidden" name="1704508670:2|codAllowMultiple" value="true"
@@ -309,7 +300,6 @@
                                                 </li>
                                                 <li class="dib content">
                                                     卖家承诺订单在买家付款后，72小时内发货   
-                                                   
                                                 </li>
                                             </ul>
                                         </div>
@@ -370,13 +360,13 @@
                                                             </em>
                                                         </span>
                                                     </div>
-                                                    <ul>
+                                                    <ul >
                                                         <li>
                                                             <em>
                                                                 寄送至:
                                                             </em>
                                                             <span id="J_AddrConfirm" style="word-break: break-all;">
-                                                                湖北省 恩施土家族苗族自治州 恩施市 湖北民族学院（信息工程学院） 男生宿舍楼235栋1234202
+                                                                
                                                             </span>
                                                         </li>
                                                         <li>
@@ -384,7 +374,7 @@
                                                                 收货人:
                                                             </em>
                                                             <span id="J_AddrNameConfirm">
-                                                                某某某 18124317260
+                                                                
                                                             </span>
                                                         </li>
                                                     </ul>
@@ -450,9 +440,52 @@
 @endsection
 
 @section('js')
-    <script type="text/javascript">
+<script type="text/javascript">
+    //获取单选框元素对象
+   $('input:radio').each(function(){
+
+      var ck = this.checked; 
+      // console.log(ck);
+          if(ck){
+           var oldAdd = $('.aname').val();
+           // console.log(oldAdd);
+                $.get('/home/order/ajaxorder',{aname:oldAdd},function(data){
+                    // console.log(data[0]);
+
+                    $('#J_AddrConfirm').text(data[0].Address);
+                    $('#J_AddrNameConfirm').text(data[0].OrderName+' '+data[0].Phone);
+                    
+                    $('.ReceiverAddress').val(data[0].Address);
+                    $('.ReceiverPhone').val(data[0].Phone);
+                    $('.ReceiverName').val(data[0].OrderName);
+                    
+                })
+          }
+      //给每个对象加一个点击事件
+      $(this).click(function(){
+        // alert('asd');
+            var oldAdds = $(this).val();
+         // console.log(oldAdds);
+            $.get('/home/order/ajaxordertwo',{aid:oldAdds},function(data){
+                
+                // console.log(data[0]);
+                $('#J_AddrConfirm').text(data[0].Address);
+                $('#J_AddrNameConfirm').text(data[0].OrderName+' '+data[0].Phone);
+                $('.ReceiverAddress').val(data[0].Address);
+                $('.ReceiverPhone').val(data[0].Phone);
+                $('.ReceiverName').val(data[0].OrderName);
+
+                // console.log(len);
+           
+            // $('input[name=aid]').val(va);
+            })
+      })
+
+
+   });
 
 
 
-    </script>
+</script>
+
 @endsection

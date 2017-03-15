@@ -93,15 +93,16 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 								<div style="text-aligin:center">
 								
-								<input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3"><label for="checkboxG8" class="css-label"></label>
-								<span>2445</span>
+								<input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3">
+								<label for="checkboxG8" class="css-label zan"></label>
+								<span class="zans" name="{{$v->id}}">{{$v->totZan}}</span>
+
 								</div>
 							</li>
 
-<!-- 							<li class="cbp-pgoptfav">
+						<!-- 	<li class="cbp-pgoptfav">
 								此处为衣服的等级
 								<span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
-
 							</li> -->
 
 
@@ -136,7 +137,7 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 								<form action="/home/cart/remind" method="post">
 										<input type="hidden" class="incolor" name="color" value="">
 										<input type="hidden" class="insize" name="size" value=""> 
-										<input type="hidden" name="id" value="{{$v->id}}"> 
+										<input type="hidden" name="id" class="inid" value="{{$v->id}}"> 
 										<input type="hidden" name="price" value="{{$v->price}}"> 
 										<button type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
 										<span class="w3-agile-line"></span>
@@ -249,7 +250,7 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 		})
 
 		//获取尺寸
-			$('.sizes').click(function(){
+		$('.sizes').click(function(){
 
 			// alert(123);
 			var tx = $(this).text();
@@ -261,9 +262,46 @@ input.css-checkbox[type="checkbox"] + label.css-label {
 
 			$('.insize').attr('value', tx);
 
+		})
 
+		//获取赞值
+		// $('.zans').click(function(){
+
+		// 	var tx = $(this).text();
+
+		// 	alert(tx);
+
+		// })
+
+		$('.zan').click(function(){
+
+			var tx = $(this).next().text();
+
+			var	ts = parseInt(tx)+1;
+
+			var id = $(this).next().attr('name');
+
+			var tot = $(this);
+
+			$.get('/home/list/ajax', {totZan:ts, id:id}, function(data){
+
+
+				if(data == 1){
+
+					tot.next().text(ts);
+					// tot.removeClass('zan'); 
+					
+
+
+				} else {
+
+					tot.next().text(tx);
+				}
+
+			})
 
 		})
+
 
 		</script>
 

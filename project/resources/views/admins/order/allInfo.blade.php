@@ -12,6 +12,10 @@
 		text-decoration:none;
 	    color: black;
 		}
+	a{
+		text-decoration:none;
+	    color: black;
+	}
 	</style>
 
 	<div class="mws-panel grid_8" style="margin-top:20px">
@@ -82,96 +86,98 @@
 	                        </td>
 	                        
 	                        <td class="  sorting_1">
-	                            邮编:
+	                            消费用户:
 	                        </td>
 	                        <td class=" ">
-	                       		{{ $v->ReceiverPostCode}}
+	                       		{{ $v->UserName}}
 	                        </td>
 	                    </tr>
+
 	                    <tr class="even">
 	                        <td class="  sorting_1">
 	                            商品:
 	                        </td>
 	                        <td class=" ">
-	                        	波斯比亚碎花裙
+	                        	{{ $v->GoodsName}}
 	                        </td>
 	                        
 	                         <td class="  sorting_1">
-	                            收货地址
+	                            收件人:
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->ReceiverAddress}}
+	                        	{{ $v->ReceiverName}}
+	                        </td>
 	                    </tr>
 	                    <tr class="odd">
 	                        <td class="  sorting_1" >
-	                            价格:
+	                            单价:
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->GoodsFee}}
+	                        	{{ $v->GoodsFee}} 元
 	                        </td>
 	                        
 	                        <td class="  sorting_1">
-	                            下单时间:
+	                            收货人电话:
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->OrderDate}}
+	                        	{{ $v->ReceiverPhone}}
 	                        </td>
 	                    </tr>
 	                    <tr class="even">
 	                        <td class="  sorting_1">
-	                           类别:
+	                           尺寸:
 	                        </td>
 	                        <td class=" ">
-	                        	西装
+	                        	{{ $v->GoodsSize}}
 	                        </td>
 
 	                        <td class="  sorting_1">
-	                            引用URL:
+	                           收货人地址:
 	                        </td>
-	                        <td class=" ">
-	                       		{{ $v->GoodsUrl}}
+	                        <td class=" " >
+	                       		{{ $v->ReceiverAddress}}
 	                        </td>
 	                       
 	                    </tr>
+	                    
 	                    <tr class="odd">
 	                        <td class="  sorting_1">
 	                            颜色:
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->Color}}
+	                        	{{ $v->GoodsColor}}
 	                        </td>
 								
 	                        <td class="  sorting_1">
-	                            数量:
+	                            下单时间:
 	                        </td>
 	                        <td class=" " >
-	                        	{{ $v->Number}}
-	                        	
+	                       		{{ $v->OrderDate}}
 	                        </td>
 	                        
 	                    </tr>
 	                    <tr class="even">
 	                        <td class="  sorting_1">
-	                            姓名:
+	                            数量:
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->ReceiverName}}
+	                        	{{ $v->GoodsNum}} 件
 	                        </td>
 
 	                        <td class="  sorting_1">
-	                            
+	                            商品链接:
 	                        </td>
 	                        <td class=" ">
-	                        	
+	                        	<a href="{{ $v->GoodsUrl}}" target="view_window">{{ $v->GoodsUrl}}</a> <span style="color:#999;font-size:15px;">*请点击查看</span>
 	                        </td>
 	                        
 	                    </tr>
 	                    <tr class="odd">
 	                        <td class="  sorting_1">
-	                            留言:
+	                            总价
 	                        </td>
 	                        <td class=" ">
-	                        	{{ $v->Leave}}
+	                        	{{ $v->GoodsFee}} * {{ $v->GoodsNum}} = {{ $v->TotalPrice}} 元
 	                        </td>
 
 	                        <td class="  sorting_1">
@@ -182,8 +188,19 @@
 	                        </td>
 	                        
 	                    </tr>
-
 	                    <tr class="even">
+	                        <td class="  sorting_1">
+	                           	留言:
+	                        </td>
+	                        <td class=" " colspan="3">
+	                        	{{ $v->Leave}}
+	                        </td>
+
+	                        
+	                        
+	                    </tr>
+
+	                    <tr class="odd">
 	                    	<td class="  sorting_1">
 	                            操作:
 	                        </td>

@@ -31,69 +31,27 @@
                 <div class="pcenter_userhead_content">
                   <div class="header_info">
                     <div class="header_avatar">
-                      <a href="setAvatar.html#">
-                        <img style="width: 100%" src="http://s2.mogucdn.com/new1/v1/bdefaultavatar/03.jpg" alt="">
-                        <p>修改头像</p>
+                      <a href="/home/personal/proedit/20">
+                        <img style="width: 100%" src="{{$data->Profile}}" alt="">
+                       <p>修改头像</p>
                         <div class="header_info_mask"></div>
                       </a>
                     </div>
                   </div>
-                  <div class="username">阿猫来了</div></div>
+                  <div class="username">{{$data->User_name}}</div>
+                </div>
               </div>
               <ul class="pcenter_navBar_ul">
-                <li>
-                  <a class="menu_order disable-a">我的订单
-                    <!-- <em class="little-triangle"></em> <em class="little-triangle-hover"></em> --></a>
-                  <ul>
-                    <li>
-                      <a class="" href="orderlist.html">全部订单</a></li>
-                    <li>
-                      <a class="" href="order_unshipped.html#">待付款</a></li>
-                    <li>
-                      <a class="" href="order_unshipped.html#" target="_blank">待收货</a></li>
-                    <li>
-                      <a class="" href="order_received.html#" target="_blank">待评价</a></li>
-                    <li>
-                      <a class="" href="order_DELETED.html#" target="_blank">退款退货</a></li>
-                    <li>
-                      <a class="" href="order_DELETED.html#" target="_blank">订单回收站</a></li>
-                  </ul>
-                </li>
-               
-                <li>
-                  <a class="menu_order menu_footprint" href="footprint.html">我的足迹
-                    <em class="little-triangle"></em>
-                    <em class="little-triangle-hover"></em>
-                  </a>
-                </li>
-                <li>
-                  <a class="menu_order" href="address.html#">收货地址
-                    <em class="little-triangle"></em>
-                    <em class="little-triangle-hover"></em>
-                  </a>
-                </li>
-                <!-- <li> <a class="disable-a">退款维权</a> <ul> <li><a class="menu_refund" href="undefined/refund/list/">我的投诉</a></li> <li><a class="menu_complain" href="undefined/complainnew/list/">我的举报</a></li> </ul></li> -->
+
                 <li>
                   <a class="disable-a">账号管理</a>
                   <ul>
                     <li>
                       <a class="menu_setPersonal" href="/home/personal/edit">我的信息</a></li>
                     <li>
-                      <a class="menu_setAvatar" href="/home/personal/proedit/20">个人头像</a></li>
+                      <a class="menu_setAvatar" href="/home/personal/proedit/20">修改头像</a></li>
                        <li>
-                      <a class="menu_setPassword" href="/home/personal/pwdedit/20">修改密码</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a class="disable-a">安全中心</a>
-                  <ul>
-                    
-                    <li>
-                      <a class="menu_payPassword" href="payPassword.html#">支付密码</a></li>
-                    <li>
-                      <a class="menu_bindmobile" href="bindMobile.html#">手机绑定</a></li>
-                    <li>
-                      <a class="menu_loginEqm" href="loginEqm.html#">登录设备</a></li>
+                      <a class="menu_setPassword" href="/home/personal/pwdedit/69">修改密码</a></li>
                   </ul>
                 </li>
               </ul>
@@ -183,22 +141,16 @@
                 <a href="mycart.html" target="_blank">
                   <span class="cart-num biu-cart-num"></span>购物车</a>
               </div>
-              <div class="biu-service">
-                <a class="biu-open-im">
-                  <span class="service-num biu-service-num"></span>消息</a>
-              </div>
-              <div class="biu-coupon">
-                <a href="coupon.html#" target="_blank">
-                  <span class="coupon-num biu-coupon-num"></span>优惠券</a>
-              </div>
               <div class="biu-mark">
-                <a href="mylike.html" target="_blank">收藏</a></div>
-     
+                <a href="mylike.html" target="_blank">收藏</a>
+              </div>
+              
             </div>
             <div class="biu-go2top"></div>
+            
           </div>
           <script type="text/javascript" src="/homes/mls/pc/jsmin/jquery.js?1.12.4"></script>
-          <script src="/homes/mls/pc/~page/pcenter/common/navbar+page/account/common/calender+page/account/setPersonal/setPersonal+page/account/common/area+page/account/common/job+base"></script>
+          
   
         @section('js')
     

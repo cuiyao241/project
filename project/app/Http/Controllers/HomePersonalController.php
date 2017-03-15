@@ -14,15 +14,23 @@ class HomePersonalController extends Controller
 
      public function getIndex()
     {
+        // $id = $request->only('id');
+        // $data = DB::table('user')->where('User_id',20)->first();
         return view('homes.pers.index');
     }
+    // public function postIndex(Request $request)
+    // {
+    //     $data = $request->except('_token');
+    //     // dd($data);
+       
+    // }
 
     
     //修改个人信息
     public function getEdit(Request $request)
     {
         $id = $request->only('id');
-        $data = DB::table('user')->where('User_id',20)->first();
+        $data = DB::table('user')->where('User_id',69)->first();
         // dd($data);
         return view('homes.pers.edit',['data'=>$data]);
     }
@@ -86,58 +94,43 @@ class HomePersonalController extends Controller
     }
   
     public function postPwdupdate(Request $request)
-    {
-
-        $id = $request->input('User_id');
-        $res = $request->except('_token','rePassword','Profile');
+    {   
 
         // 表单验证
         $this->validate($request,[
 
-           'Password' => 'required|regex:/^\w{5,12}$/',
+            'oldPassword'=>'required',
+            'Password' => 'required|regex:/^\w{5,12}$/',
             'rePassword'=>'required|same:Password',
             ],[      
+            'oldPassword.required' => '旧密码不能为空',
             'Password.required' => '密码不能为空',
             'Password.regex' => '密码格式不正确',
             'rePassword.required' => '确认密码不能为空',
             'rePassword.same' => '俩次密码不一致',
-         ]);
-
-         //哈希加密密码
-        $res['Password'] = Hash::make($request->input('Password'));
-
-        $pro = DB::table('user')->where('User_id',$id)->update($res);
-
-        if($pro){
-            return back()->with('info','修改成功');
-       
-        }else{
-            return back()->with('info','修改失败');
-
-        }
-    }
-
-
-    
-    // public function checkUser()
-    // {
-    //     // var_dump($_GET);
-    //     $tv = $_GET['name'];
-
-    //     $pdo = new PDO('mysql:host=localhost;dbname=pass;charset=utf8','root','');
-
-    //     $sql = "select * from user where username='{$tv}'";
-
-    //     $stmt = $pdo->query($sql);
-
-    //     $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        ]);
+        $res = $request->except('_token','rePassword','oldPassword');
         
-    //     if($res){
+        $id = $request->input('User_id');
 
-    //         echo 1;
-    //     } else {
+        $opwd = $request->input('oldPassword');
 
-    //         echo 0;
-    //     }
-    // }
+        $data = DB::table('user')->where('User_id',$id)->first();
+
+        $pwd = $data->Password;
+        // dd($pwd);
+        if (Hash::check($opwd, $pwd)) {
+
+             //哈希加密密码
+             $res['Password'] = Hash::make($request->input('Password'));
+             // dd($res);
+             $pro = DB::table('user')->where('User_id',$id)->update($res);
+
+              return back()->with('info','修改成功');
+         } else {
+
+            return back()->with('info','修改失败');
+        }
+    }   
+
 }

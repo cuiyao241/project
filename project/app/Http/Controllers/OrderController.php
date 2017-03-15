@@ -60,7 +60,7 @@ class OrderController extends Controller
         // echo '<pre>';
         // var_dump($res);
         $Order_id = $request->Order_id;
-        // echo $Order_id;
+        // dd($Order_id);
 
         $update = DB::table('orderinfo')->where('Order_id',$Order_id)->update($res);
         //判断是否修改成功

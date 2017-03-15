@@ -45,7 +45,7 @@
     
 
 
-    	<form action="/admin/conf/update" method="post" enctype="multipart/form-data" class="mws-form">
+    	<form action="/admin/adv/update" method="post" enctype="multipart/form-data" class="mws-form">
     		
 			@if (count($errors) > 0)
 			    <div class="mws-form-message error">
@@ -96,7 +96,7 @@
                             <div class="fu" style="width:400px" >
                                 <img src="{{$v->pic}}" width="400" class="lunbo"  alt="" style="margin-bottom:20px">
                                 <input type="hidden" name="id" value="{{$v->id}}">
-                                排序：<input type="text" value="{{$v->tid}}" placeholder="{{$v->tid}}">
+                                排序：<input type="text" name="tid[]" value="{{$v->tid}}" placeholder="{{$v->tid}}">
                             </div>
 
                         @endforeach
@@ -114,7 +114,8 @@
                    
                     <div class="mws-form-item" style="margin-top:20px">
                         <!-- <div style="position: relative;width:55%" class="fileinput-holder"> -->
-                            <input type="file" readonly="readonly" class="large" multiple name='logo' placeholder="图片尺寸：220*320">
+                        
+                            <input type="file" readonly="readonly" class="large" multiple name='lunbo[]' placeholder="图片尺寸：220*320">
                             <a id="adds">
                             <span style="display:block; overflow: hidden; position: absolute; top: 0; right: 0; cursor: pointer;" type="button" class="fileinput-btn btn">添加图片</span></a>
                             <!-- </div> -->
@@ -151,7 +152,7 @@
 
             var tx = $(this);
 
-            $.get('adv/del', {id, id}, function(data){
+            $.get('adv/del', {id: id}, function(data){
 
                 if(data){
 

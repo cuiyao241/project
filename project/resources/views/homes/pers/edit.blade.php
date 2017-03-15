@@ -13,9 +13,14 @@
               <fieldset class="setPersonal">
                 <form id="setPersonForm" method="post"  action="/home/personal/update">
                   {{ csrf_field() }}
+                   <div class="form-list">
+                    <label class="account-label">用户名</label>
+                    <input name="User_name" type="text"  placeholder="{{$data->User_name}}" disabled>
+                    <strong></strong>
+                  </div>
                   <div class="form-list">
-                    <label class="account-label">注册邮箱</label>
-                    <input id="register_mail" name="register_mail" autocomplete="off" class="l_ipt input_disable" type="text" placeholder="{{$data->Emails}}" disabled>
+                    <label class="account-label">邮箱</label>
+                    <input  name="Emails" type="text"  placeholder="{{$data->Emails}}" disabled>
                     <strong></strong>
                   </div>
                   <div class="form-list">
@@ -23,11 +28,7 @@
                     <input  name="TrueName" type="text" value="{{$data->TrueName}}">
                     <strong></strong>
                   </div>
-                  <div class="form-list">
-                    <label class="account-label">用户名</label>
-                    <input id="nickname" name="User_name" type="text" value="{{$data->User_name}}" >
-                    <strong></strong>
-                  </div>
+
                   <!--[if IE 8]>
                     <div class="gender">
                       <label class="account-label">性别</label>
@@ -38,10 +39,10 @@
                   <![endif]-->
                   <div class="gender">
                     <label class="account-label">性别</label>
-                    <input type="radio" class="regular-radio" value="0" id="female" name="Sex">
+                    <input type="radio" class="regular-radio" value="0" id="female" name="Sex" @if($data->Sex=="0") checked @endif>
                     <label class="regular-radio-label" for="female"></label>
                     <span>男</span>
-                    <input type="radio" class="regular-radio" value="1" id="male" name="Sex">
+                    <input type="radio" class="regular-radio" value="1" id="male" name="Sex" @if($data->Sex=="1") checked @endif>
                     <label for="male" class="regular-radio-label"></label>
                     <span>女</span>
                     <strong></strong>
@@ -73,10 +74,8 @@
     //全局变量
     var NU = false;
     var BU = false;
+    
 
-    var TU = false;
-    var CU = false;
-    var RPU = false;
 
     //真实姓名
     //获取焦点
@@ -108,60 +107,6 @@
       }
     })
 
-    // //用户名
-    // //获取焦点
-    // $('input[name=User_name]').focus(function(){
-
-    //   // $(this).css('border','solid 2px blue');
-    //   $(this).addClass('cur');
-    // })
-
-    // //失去焦点
-    // $(':text:eq(2)').blur(function(){
-
-    //   //获取文本框里面的值
-    //   var tv = $(this).val();
-    //   //正则表达式
-    //   var reg = /^\S{5,12}$/;
-    //   //检测
-    //   var che = reg.test(tv);
-
-    //   var tu = $(this);
-    //   //判断
-    //   if(!che){
-    //     $('#text').text(' *用户名格式不正确');
-    //     $('#text').css('color','red');
-    //     $(this).css('border','solid 2px red');
-
-    //     TU = false;
-
-    //   } else {
-    //     //发送ajax
-    //     $.get('checkUser.php',{name:tv},function(data){
-
-    //       // console.log(data);
-    //       if(data == '1'){
-    //         //用户名已存在
-    //         $('#text').text(' *用户名已存在').css('color','red');
-    //         tu.css('border','solid 1px red');
-
-    //         TU = false;
-
-    //       } else {
-
-    //         $('#text').text(' √').css('color','green');
-    //         tu.css('border','solid 1px green');
-
-    //         TU = true;
-
-    //       }
-
-    //     })
-        
-    //   }
-    // })
-
-    //
 
     //生日
   $('input[name=birthday]').focus(function(){

@@ -7,21 +7,21 @@
             <div class="settings_box">
               <strong class="settings_title">我的信息</strong>
               <fieldset class="setPersonal">
-                <form id="setPersonForm" method="post"  action="/home/personal/update">
+                <form id="setPersonForm" method="post"  action="">
                   {{ csrf_field() }}
+                 <div class="form-list">
+                    <label class="account-label">用户名</label>
+                    <input name="User_name" type="text"  placeholder="{{$data->User_name}}" disabled>
+                    <strong></strong>
+                  </div>
                   <div class="form-list">
-                    <label class="account-label">注册邮箱</label>
-                    <input id="register_mail" name="register_mail" autocomplete="off" class="l_ipt input_disable" type="text"  disabled>
+                    <label class="account-label">邮箱</label>
+                    <input  name="Emails" type="text"  placeholder="{{$data->Emails}}" disabled>
                     <strong></strong>
                   </div>
                   <div class="form-list">
                     <label class="account-label">真实姓名</label>
-                    <input  name="TrueName" type="text" value="" >
-                    <strong></strong>
-                  </div>
-                  <div class="form-list">
-                    <label class="account-label">用户名</label>
-                    <input id="nickname" name="User_name" type="text" value="" >
+                    <input  name="TrueName" type="text" value="{{$data->TrueName}}">
                     <strong></strong>
                   </div>
                   <!--[if IE 8]>
