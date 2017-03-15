@@ -52,7 +52,14 @@
                       <a class="menu_setAvatar" href="/home/personal/proedit/20">修改头像</a></li>
                        <li>
                       <a class="menu_setPassword" href="/home/personal/pwdedit/69">修改密码</a></li>
+
                   </ul>
+                </li>
+                <li> 
+                    <a class="menu_pcenter" href="/home/address"> 收货地址
+                    <em class="little-triangle"></em>
+                    <em class="little-triangle-hover"></em> 
+                    </a> 
                 </li>
               </ul>
             </div> 
