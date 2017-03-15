@@ -50,7 +50,8 @@
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
                 <!-- <img src="/admins/images/mws-logo.png" alt="mws admin"> -->
-                <span id='logo' style="color:red;font-size:20px;"><b>假装有一个LOGO</b></span>
+                <span id='logo' style="color:red;font-size:20px;"><h3 id="site-description" class="logo">For Laravel Artist</h3></span>
+                
             </div>
         </div>
         

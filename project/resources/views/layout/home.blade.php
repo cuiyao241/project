@@ -21,10 +21,7 @@
 	$User_name = session('User_name');
 	$Profile = session('Profile');
 	// var_dump($User_name);die;	
-		//通过session 查一条Status
 
-	// dd($status);
-	// dd($isNow);
 ?>
 <!DOCTYPE html>
 <html lang="zxx"> 
@@ -195,17 +192,18 @@
 						<li><a href="faq.html">常见问题</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
-						<li><a href="contact.html">联系大哥</a></li>
+						<li><a href="contact.html">联系大嫂</a></li>
 					</ul>
 				@else
-					欢迎{{$User_name}}登陆
 
-					<img src="{{$Profile}}" style="width:50px;height:50px" alt="">
 					
-					
-					<a href="/home/personal/index">个人中心</a>
 
-					<a href="/logined/close">退出</a>
+					欢迎 <font size="4" color="red">{{$User_name}}</font> 登陆
+	
+					<a href="/home/personal/index"><font size="3" color=green>个人中心</font></a>
+					
+
+					<a href="/logined/close"><font size="2" color=blue>退出</a>
 					
 				@endif
 				</div>
@@ -269,18 +267,19 @@
 	
 						<form action="/home/user/doregister" method="post">
 							<h3>用户注册</h3>
-							<input type="text" Name="User_name" placeholder="用户名" >							
-							<input type="password" Name="Password" placeholder="密码" >
-							<input type="password" Name="rePassword" placeholder="确认密码" >
-							<input type="text" Name="Emails" placeholder="邮箱" >
-							<input type="text" Name="Phonecode" placeholder="手机号" >
-							<input type="text" Name="Captcha" placeholder="验证码" >
+							<input type="text" Name="User_name" placeholder="请输入5~12位用户名" >							
+							<input type="password" Name="Password" placeholder="请输入5~10位密码" >
+							<input type="password" Name="rePassword" placeholder="请输入确认密码" >
+							<input type="text" Name="Emails" placeholder="请输入邮箱" >
+							<input type="text" Name="Phonecode" placeholder="请输入手机号" >
+							<input type="text" Name="Captcha" placeholder="请输入验证码" >
 							<img src="/home/user/captcha" alt="" height='50px' onclick='this.src = this.src+="?a"'>
 							<div class="send-button wthree agileits">
 								{{ csrf_field()}}
 								<input type="submit" value="提交信息">
 							</div>
 						</form>
+
 					</div>
 				</div>
 			</div>
