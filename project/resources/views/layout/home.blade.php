@@ -3,11 +3,22 @@
 	namespace App\Http\Controllers;
 
 	use DB;
+	use Session;
 
 	$data = AdminCateController::getCateDiGuiMessage(0);
 
 	$isNow = AdminCateController::getIsNow();
 
+	// $status = session('status');
+
+	// $User_name = session('User_name');
+
+	// $status = Session::get('Status');
+
+	$status = Session::get('Status');
+	$User_name = Session::get('User_name');
+	// var_dump($User_name);die;	
+		//通过session 查一条Status
 
 	// dd($data);
 	// dd($isNow);
@@ -174,6 +185,8 @@
 					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
 				</div>
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
+				@if ($status != 1)
+
 					<ul>
 						<li><a href="stores.html">商店定位</a></li>
 						<li><a href="faq.html">常见问题</a></li>
@@ -181,6 +194,17 @@
 						<li><a class="popup-with-zoom-anim" href="#small-dialog2">注册</a></li>
 						<li><a href="contact.html">联系我们</a></li>
 					</ul>
+				@else
+					欢迎登陆
+
+					<img src="/upload/84771489325392.jpg" style="width:50px;height:50px" alt="">
+					
+					
+					<a href="/home/personal/index">个人中心</a>
+
+					<a href="/logined/close">退出</a>
+					
+				@endif
 				</div>
 				<div class="clearfix"></div>
 			</div>

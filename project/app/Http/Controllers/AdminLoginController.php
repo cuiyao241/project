@@ -33,12 +33,12 @@ class AdminLoginController extends Controller
         // var_dump($newPassword);die;
         //
         $user = DB::table('user')->where('User_name',$newName)->first();
-        $isAdmin = $user->isAdmin; 
+        // dd($user);
 
-        if($isAdmin == 0){
+        // if($isAdmin == 0){
 
-            return back()->with('admin_login','没有登录权限');
-        }
+        //     return back()->with('admin_login','没有登录权限');
+        // }
         // dd($User_id);
         // var_dump($user->Password);
         // var_dump($newPassword);
@@ -60,6 +60,7 @@ class AdminLoginController extends Controller
                     //存值
                     $User_id = $user->User_id;
                     session(['username'=>$newName]);
+                    $isAdmin = $user->isAdmin;
                     session(['User_id'=>$User_id]);
                     return redirect('admin')->with('admin_logins','登录成功');
 
