@@ -68,6 +68,11 @@ class AdminGoodsController extends Controller
         
         $parent = DB::table('cate')->where('id', $id)->first();
 
+        // dd($parent);
+        // echo '<pre>';
+        // var_dump($res[0]->isHot);
+        // die;
+
         //商品列表页
         return  view('admins.good.lists',['request'=>$request,
             'res'=>$res,'parent'=>$parent]);
@@ -99,7 +104,7 @@ class AdminGoodsController extends Controller
 
         //表单验证
         $this->validate($request,[
-                'title' => 'required|regex:/^\S{1,32}$/',
+                'title' => 'required|regex:/^\S{1,255}$/',
                 'color' => 'required|regex:/^\S{1,32}$/',
                 'price'=>'required|regex:/^\w{1,10}$/',
                 'size'=> 'required|',
@@ -147,7 +152,7 @@ class AdminGoodsController extends Controller
                     $exc['pid'] = $goodpid;
                     $exc['pic'] = '/upload/'.$names.'.'.$suffix;
 
-                    
+                    // dd($exc);
                     DB::table('goods_images')->insert($exc);
 
                 }
@@ -293,8 +298,8 @@ class AdminGoodsController extends Controller
 
             }
 
-
-            //数据的添加
+            // dd($res);
+            //数据的修改
             $pro = DB::table('cate_goods')->where('id', $id)->update($res);
 
             //判断结果

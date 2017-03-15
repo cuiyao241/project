@@ -3,6 +3,33 @@
 @section('title','商品的详情页')
 
 @section('content')
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta-Tags -->
+
+<!-- Custom-Stylesheet-Links -->
+<!-- Bootstrap-CSS -->	<link rel="stylesheet" href="/homes/css/bootstrap.css"	 type="text/css" media="all">
+<!-- Index-Page-CSS -->	<link rel="stylesheet" href="/homes/css/style.css"		 type="text/css" media="all">
+<!-- FlexSlider-CSS -->	<link rel="stylesheet" href="/homes/css/flexslider.css" type="text/css" media="all">
+<!-- //Custom-Stylesheet-Links -->
+
+
+<!-- Font-Awesome-File-Links -->
+<!-- CSS --> <link rel="stylesheet" href="homes/css/font-awesome.css" 		 type="text/css" media="all">
+<!-- TTF --> <link rel="stylesheet" href="homes/fonts/fontawesome-webfont.ttf" type="text/css" media="all">
+<!-- //Font-Awesome-File-Links -->
+
+</head>
+<!-- //Head -->
+
+
+
+<!-- Body -->
+<body>
+
 <style type="text/css">
 	.color li{
 		border:1px solid #e5e5e5;
@@ -43,16 +70,9 @@
 
 	}
 
-	.agileheader-topbar {
-    margin-top: -50px;
-    padding: 20px 0;
-	}
+</style>
 
-	ul, li, ol, h1, dl, dd {
-    list-style: outside none none;
-	}
 
-	</style>
 
 	<!-- Single-Product-View -->
 	<div class="w3aitssinglewthree">
@@ -60,24 +80,26 @@
 
 			<div class="products">
 			<div class="single-page">
+
 				<div class="single-page-row" id="detail-21">
 					<div class="col-md-6 single-top-left">
 						<div class="flexslider">
 							<ul class="slides">
 
-							@foreach($das as $k=>$v)
-								<li data-thumb="{{$v->pic}}" >
+								@foreach($das as $k=>$v)
+
+								<li data-thumb="{{$v->pic}}">
 									<div class="thumb-image detail_images"> <img src="{{$v->pic}}" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
 								</li>
-
-							@endforeach
+							
+								@endforeach
 							</ul>
 						</div>
 					</div>
 
 					<div class="col-md-6 single-top-right">
 						<h1 class="item_name">{{$res->title}}</h1>
-						<!-- <p>This item will be delivered within 5-10 working days.</p> -->
+						<p>This item will be delivered within 5-10 working days.</p>
 						<div class="rating">
 							<span class="starRating">
 								<input id="rating5" type="radio" name="rating" value="5">
@@ -103,10 +125,6 @@
 						</div>
 						<p class="single-price-text">一段描述</p>
 
-						
-
-						<!-- <p class="single-price-text"> </p> -->
-
 
 						<ul class="color">
 							<li style="border-style:none;color:#1abc9c">颜色：</li>	
@@ -114,11 +132,9 @@
 							<li>{{$v}}</li>
 							@endforeach				
 						</ul>
-
-						<div class="clear"></div>
 						
-						<br><br>
-						
+						<br>
+						<br>
 						<ul class="size">
 							<li style="border-style:none;color:#1abc9c">尺寸：</li>
 							@foreach($goods['size'] as $ak => $av)
@@ -144,7 +160,9 @@
 							<h4>分享本店</h4>
 							<ul class="social-icons">
 								<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
-								
+								<li><a href="#" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="googleplus w3" title="Go to Our Google Plus Account"><i class="fa w3 fa-google-plus-square" aria-hidden="true"></i></a></li>
+								<li><a href="#" class="instagram wthree" title="Go to Our Instagram Account"><i class="fa wthree fa-instagram" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -279,7 +297,49 @@
 	<!-- //Newsletter -->
 
 
-@endsection
+
+	<!-- Footer -->
+	<!-- <div class="agileinfofooter">
+		<div class="agileinfofooter-grids">
+
+			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid1">
+				<ul>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="mens.html">MEN'S</a></li>
+					<li><a href="mens_accessories.html">MEN'S ACCESSORIES</a></li>
+					<li><a href="womens.html">WOMEN'S</a></li>
+					<li><a href="womens_accessories.html">WOMEN'S ACCESSORIES</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid2">
+				<ul>
+					<li><a href="stores.html">STORE LOCATOR</a></li>
+					<li><a href="faq.html">FAQs</a></li>
+					<li><a href="codes.html">CODES</a></li>
+					<li><a href="icons.html">ICONS</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-4 agileinfofooter-grid agileinfofooter-grid3">
+				<address>
+					<ul>
+						<li>40019 Parma Via Modena</li>
+						<li>Sant'Agata Bolognese</li>
+						<li>BO, Italy</li>
+						<li>+1 (734) 123-4567</li>
+						<li><a class="mail" href="mailto:mail@example.com">info@example.com</a></li>
+					</ul>
+				</address>
+			</div>
+			<div class="clearfix"></div>
+
+		</div>
+	</div> -->
+	<!-- //Footer -->
+
+
 
 	<!-- Copyright -->
 	<!-- <div class="w3lscopyrightaits">
@@ -301,16 +361,14 @@
 	</div> -->
 	<!-- //Copyright -->
 
+@endsection
 
-
-	<!-- Custom-JavaScript-File-Links -->
-
-<!-- Default-JavaScript -->
-<script src="/homes/js/jquery-2.2.3.js"></script>
+<!-- Default-JavaScript --><script src="/homes/js/jquery-2.2.3.js"></script>
 <script src="/homes/js/modernizr.custom.js"></script>
+
 	<!-- Custom-JavaScript-File-Links -->
 
-	<!-- cart-js -->
+			<!-- cart-js -->
 	<script src="/homes/js/minicart.js"></script>
 	<script>
         w3l.render();
@@ -326,8 +384,7 @@
         	}
         });
     </script>  
-	<!-- //cart-js --> 
-
+	<!-- //cart-js -->
 
 		<!-- Dropdown-Menu-JavaScript -->
 			<script>
@@ -381,7 +438,10 @@
 
 	<!-- //Custom-JavaScript-File-Links -->
 
+
+
 		<!-- Bootstrap-JavaScript --> <script src="/homes/js/bootstrap.js"></script>
+
 
 @section('js')
 
@@ -429,6 +489,3 @@
 </script>
 
 @endsection
-
-
-

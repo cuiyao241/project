@@ -17,18 +17,16 @@ class HomeIntroduceController extends Controller
     	$das = DB::table('goods_images')->where('pid',$id)->get();
 
 
-    	$goods['color'] = (explode(',', $res->color));
+    	$goods['color'] = explode(',', $res->color);
 
-
-
-    	$goods['size'] = (explode(',', $res->size));
+    	$goods['size'] = explode(',', $res->size);
 
     	// dd(explode('，', $res->color));
 
     	//同类商品
     	$pro = DB::table('cate_goods')->where('pid', $res->pid)->get();
 
-    	// dd($pro);
+    	// dd($das);
    
     	return view('homes.lists.introduce',['res'=>$res, 'das'=>$das, 'goods'=>$goods, 'pro'=>$pro]);
     }

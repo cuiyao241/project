@@ -227,7 +227,18 @@
                     
                    
                     <td class=" ">
-                        [新品][特价]
+                        @if($v->pid == 0)
+                        
+                            [顶类]
+
+                        @else
+
+                            [子类]
+
+                        @endif
+                        
+                        
+
                     </td>
                    
                      @if(!in_array($v->id, $value))

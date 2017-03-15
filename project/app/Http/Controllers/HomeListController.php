@@ -19,12 +19,17 @@ class HomeListController extends Controller
 
     	$id = $request->input('id');
 
-        $res = DB::table('cate_goods')->where('pid',$id)->get();
+        $res = DB::table('cate_goods')
+            ->where('pid',$id)
+            ->where('status',1)
+            ->get();
 
 
         $ding = DB::table('cate')->where('id', $id)->first();
 
         $pro = $this->func($res);
+
+        
 
         return view('homes.lists.list', ['pro'=>$pro, 'res'=>$res, 'ding'=>$ding]);
     }
@@ -38,7 +43,10 @@ class HomeListController extends Controller
 
         $title = $request->input('title');
 
-        $res = DB::table('cate_goods')->where('isHot', 1)->get();
+        $res = DB::table('cate_goods')
+            ->where('isHot', 1)
+            ->where('status',1)
+            ->get();
 
         $pro = $this->func($res);
         
@@ -55,7 +63,10 @@ class HomeListController extends Controller
 
         $title = $request->input('title');
 
-        $res = DB::table('cate_goods')->where('isNew', 1)->get();
+        $res = DB::table('cate_goods')
+            ->where('isNew', 1)
+            ->where('status',1)
+            ->get();
 
         $pro = $this->func($res);        
 
@@ -71,7 +82,10 @@ class HomeListController extends Controller
 
         $title = $request->input('title');
 
-        $res = DB::table('cate_goods')->where('isZhe', 1)->get();
+        $res = DB::table('cate_goods')
+        ->where('isZhe', 1)
+        ->where('status',1)
+        ->get();
 
         $pro = $this->func($res);        
 
@@ -166,9 +180,9 @@ class HomeListController extends Controller
     //     dd($res);
     // }
 
-    public function getAdd()
-    {
-        dd(Session::all());
+    // public function getAdd()
+    // {
+        // dd(Session::all());
         // Session::flush();
-    }
+    // }
 }

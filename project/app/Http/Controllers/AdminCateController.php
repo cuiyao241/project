@@ -263,12 +263,7 @@ class AdminCateController extends Controller
 
     }
 
-    // public function getTest($id)
-    // {
-    //     $a = self::getQqq($id);
 
-    //     dd($a);
-    // }
 
     public static function getIsNow()
     {

@@ -289,7 +289,23 @@
 
                     </td>
                     <td class=" ">
-                        [新品][特价]
+                        @if($v->isNew)
+
+                            [新品]
+
+                        @endif
+
+                        
+                        @if($v->isHot)
+                            [热销]
+                        @endif
+
+                        @if($v->isZhe)
+                            [特价]
+                        @endif
+
+
+
                     </td>
                     <td class=" ">
                         @if($v->status)

@@ -181,10 +181,7 @@
                     rowspan="1" colspan="1" style="width: 211px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                         商品名称
                     </th>
-                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                    rowspan="1" colspan="1" style="width: 140px;" aria-label="Browser: activate to sort column ascending">
-                        类型 pid
-                    </th>
+                   
                     
                     
                     
@@ -206,13 +203,10 @@
                     </td>
                     <td class="  sorting_1">
 
-                         <a href="/admin/goods/index?id={{$v->id}}" style='color:green'>{{$v->title}}</a>
+                         <span style='color:green'>{{$v->title}}</span>
                         
                     </td>
-                    <td class=" ">
-                        @if($v->pid == 0) |-- @else {{$v->pid }} @endif
-                        
-                    </td>
+                   
                    
                     
                    
