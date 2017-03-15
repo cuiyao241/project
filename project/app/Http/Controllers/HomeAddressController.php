@@ -13,9 +13,9 @@ class HomeAddressController extends Controller
     //
     public function getIndex()
     {
-    	$User_name = Session::get('User_name');
-    	echo $User_name;
-        // return  view('homes.pers.address',['User_name'=>$User_name]);
+    	// $newName = session('username');
+    	// echo $User_name;
+        return  view('homes.pers.address');
 
     } 
 }

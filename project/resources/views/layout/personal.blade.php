@@ -32,13 +32,13 @@
                   <div class="header_info">
                     <div class="header_avatar">
                       <a href="/home/personal/proedit/20">
-                        <img style="width: 100%" src="{{$data->Profile}}" alt="">
+                        <img style="width: 100%" src="" alt="">
                        <p>修改头像</p>
                         <div class="header_info_mask"></div>
                       </a>
                     </div>
                   </div>
-                  <div class="username">{{$data->User_name}}</div>
+                  <div class="username"></div>
                 </div>
               </div>
               <ul class="pcenter_navBar_ul">
