@@ -342,8 +342,8 @@
 	<!-- Copyright -->
 	<div class="w3lscopyrightaits">
 		<div class="col-md-8 w3lscopyrightaitsgrid w3lscopyrightaitsgrid1">
-			<p>{{$conf->copyright}}</p>
-			<!-- <p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version 1.2.1</p> -->
+			<!-- <p>{{$conf->copyright}}</p> -->
+			<p>Copyright ©2017 Gaoda Powered By CuiYao.HaoXiaoBin.LiZiHao.WangJianXin Version {{$conf->copyright}}</p>
 		</div>
 		<div class="col-md-4 w3lscopyrightaitsgrid w3lscopyrightaitsgrid2">
 			<div class="agilesocialwthree">
