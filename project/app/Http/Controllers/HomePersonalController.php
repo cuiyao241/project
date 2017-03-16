@@ -46,11 +46,7 @@ class HomePersonalController extends Controller
             return back()->with('info','修改失败');
 
         }
-        // if ($data) {
-    //         return redirect("/home/address");
-    //     } else {
-    //         return redirect("/home/address");
-    //     }
+
     }
 
     //修改头像

@@ -21,13 +21,9 @@
             <div id="com-topbar">
               <div class="inner">
                 <ul>
-                  <li class="drop">
-                    <a href="" target="_blank">
-                      <em class="collect"></em>我的收藏</a>
-                  </li>
 
                   <li class="drop cart-wrapper">
-                    <a target="_blank" href="" class="my-cart">
+                    <a target="_blank" href="/home/cart/shopcart" class="my-cart">
                       <em class="cart"></em>我的购物车
                     </a>
                   </li>

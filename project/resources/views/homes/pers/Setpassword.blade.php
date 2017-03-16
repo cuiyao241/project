@@ -5,7 +5,7 @@
 @section('content')
 
 @if (session('info'))
-    <div class="alert alert-success" style="margin-left:186px;width:1013px;height:30px;text-align:center;font-size:17px;color:red;background-color:pink;">
+    <div class="alert alert-success" style="margin-left:186px;width:1013px;height:30px;text-align:center;font-size:15px;color:red;background-color:pink;">
         {{ session('info') }}
     </div>
 @endif
@@ -136,6 +136,10 @@
     }
   })
 
+   setTimeout(function(){
+         $('.alert-success').slideUp(1000);
+   },1000)
+
 </script>
-@show
+@endsection
 

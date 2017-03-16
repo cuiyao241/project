@@ -67,8 +67,8 @@ Route::group(['middleware'=>'404'],function(){
 	Route::controller('home/personal','HomePersonalController');
 	//收货地址
 	Route::controller('home/address','HomeAddressController');
-	
-	
+	//忘记密码
+	Route::controller('home/forgetpwd','HomeforgetpwdController');
 });
 
 //404

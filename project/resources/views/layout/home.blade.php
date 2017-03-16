@@ -58,6 +58,7 @@
 <!-- 订单 -->
 <link rel="stylesheet" href="/homes/css/tasp.css" />
 <link href="/homes/css/orderconfirm.css" rel="stylesheet" />
+<link type="text/css" href="/homes/css/css1.css" rel="stylesheet" />
 
 <style type="text/css">
 
@@ -180,7 +181,7 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-					<p> 全场满 $ 199 免邮费。 <a href="payment.html">详情</a></p>
+					<p> 全场满 $ 199 免邮费。</p>
 				</div>
 					<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 						@if (!$Status)
@@ -230,7 +231,7 @@
 									<label for="brand1"><span></span>记住账号</label>
 								</li>
 								<li>
-									<a href="#">忘记 PASSWORD?</a>
+									<a href="/home/forgetpwd">忘记 PASSWORD?</a>
 								</li>
 							</ul>
 							<div class="send-button wthree agileits">
