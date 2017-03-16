@@ -158,12 +158,35 @@
 
 						<div class="agilesocialwthree">
 							<h4>分享本店</h4>
-							<ul class="social-icons">
+
+							<div class="bdsharebuttonbox" data-tag="share_1">
+							<p>分享一下：</p>
+									<a class="bds_mshare" data-cmd="mshare"></a>
+									<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+									<a class="bds_tsina" data-cmd="tsina"></a>
+									<a class="bds_baidu" data-cmd="baidu"></a>
+									<a class="bds_renren" data-cmd="renren"></a>
+									<a class="bds_tqq" data-cmd="tqq"></a>
+									<a class="bds_more" data-cmd="more">　更多</a>
+									<a class="bds_count" data-cmd="count"></a>
+							</div>
+
+							<script>
+								with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+							</script>	
+							</div>	
+
+
+
+
+
+
+							<!-- <ul class="social-icons">
 								<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
 								<li><a href="#" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
 								<li><a href="#" class="googleplus w3" title="Go to Our Google Plus Account"><i class="fa w3 fa-google-plus-square" aria-hidden="true"></i></a></li>
 								<li><a href="#" class="instagram wthree" title="Go to Our Instagram Account"><i class="fa wthree fa-instagram" aria-hidden="true"></i></a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -250,29 +273,40 @@
 							<div>
 								<p>
 									<p>
-										<b>全部评价（57）</b>
+										<b>全部评价（{{count($post)}}）</b>
 										<b>晒图（10）</b>
 									</p>
                     				
-									<label><input type="radio" name="paixu"> 默认排序</label>&nbsp;&nbsp;&nbsp;
-									<label><input type="radio" name="paixu" />时间排序</label>
+									
 								</p>
 							</div>	
-							<div class="liuyan">
 
+							@for($i = 0; $i < count($post); $i++)
+
+							<div class="liuyan">
+							
+							<?php
+
+								$users = DB::table('user')->where('User_name', $post[$i]->UserName)->first();
+								// var_dump($users->nickname);
+							?>	
 								<div style="float:left">
-									<img src="/upload/99051488819477.jpg" style="width:60px;height:60px">
+									<img src="/upload/99051488819477.jpg" style="width:60px;height:60px"><br>
+	                                <b>{{$users->nickname}}</b>
+
 								</div>
 
 								<div style="margin-left:115px;">
-									<p>趟***性  2017年03月15日 </p>
-									<p>宝贝不错.看了很久.决定在这家下单.质量挺不错的.挺舒服的.比较凉快.细节也不错.码子合适.物流也很快.喜欢的不用犹豫.可以下手.</p>
+
+							
+									<p>{{date('Y-m-d H:i:s', $post[$i]->addtime)}} </p>
+									<p>{{$post[$i]->content}}</p>
 									<p>
 										<b>
-	                                        尺码:M
+	                                        尺码:{{$posts[$i]->GoodsSize}}
 	                                    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                                    <b>
-	                                        颜色:红色
+	                                        颜色:{{$posts[$i]->GoodsColor}}
 	                                    </b>
 									</p>
 									<p>
@@ -281,7 +315,7 @@
 	                                            <div class="img-box">
 	                                                
 	                                                    <img src="/upload/99051488819477.jpg" style="width:40px">
-	                                                
+
 	                                            </div>
 	                                        </li>
 	                                        
@@ -294,6 +328,7 @@
 
 							<div class="clear" style="background:#999"></div>
 
+							@endfor
 
 							<!-- <a href="#" class="next">Next Review &rarr;</a> -->
 						</div>
