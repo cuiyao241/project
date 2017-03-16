@@ -198,7 +198,7 @@
 								
 								<div style="float:right; margin-top:-9px"><p>欢迎 <font size="4" color="red">{{$User_name}}</font>登陆</p> <br>
 					
-								<p style="float:right"><a href="/home/personal/index"><font size="3" color=green>个人中心</font></a>  |  <a href="/logined/close"><font size="3" color=blue>退出</a></p></div>
+								<p style="float:right"><a href="/home/personal/index"><font size="3" color=green>个人中心</font></a>  |  <a href="/logined/close"><font size="3" color=blue>退出</font></a></p></div>
 								
 
 								
