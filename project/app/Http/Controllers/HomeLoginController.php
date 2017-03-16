@@ -42,7 +42,8 @@ class HomeLoginController extends Controller
         $Status = $user->Status;
         $User_name = $user->User_name;
         $Profile = $user->Profile;
-
+        $nickName = $user->nickName;
+        
         // $User_id = $user->User_id;
 
         // var_dump($user->Password);die;
@@ -64,7 +65,7 @@ class HomeLoginController extends Controller
                 	session(['Status'=>$Status]);
                 	session(['User_name'=>$User_name]);
                 	session(['Profile'=>$Profile]);
-
+                    session(['nickName'=>$nickName]);
                 	// Session::put('Status',$status);
                     // Session::put('User_name',$User_name);
                     // Session::put('User_id',$User_id);

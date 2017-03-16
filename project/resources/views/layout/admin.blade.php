@@ -1,8 +1,10 @@
 <?php 
+    
+    namespace App\Http\Controllers;
 
-use DB;
+    use DB;
 
-
+    $conf = DB::table('conf')->first();
 
  ?>
 <!DOCTYPE html>
@@ -58,7 +60,7 @@ use DB;
             <div id="mws-logo-wrap">
                 <!-- <img src="/admins/images/mws-logo.png" alt="mws admin"> -->
  
-                <img src="/upload/44111488985064.jpg" style="width:60px; height:60px; color:red;font-size:20px;" alt="">
+                <img src="{{$conf->logo}}" style="width:200px; height:58px; color:red;font-size:20px;" alt="">
                 
             </div>
         </div>
