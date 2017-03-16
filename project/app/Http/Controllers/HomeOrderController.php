@@ -44,6 +44,12 @@ class HomeOrderController extends Controller
         $User_name = session('User_name');
 	    	// dd($data);
 	  	$address = DB::table('order_address')->where('User_name',$User_name )->get();
+
+        if(!$address)
+        {
+            return view('homes.cart.noAddress');
+        }
+
         // dd($address);
     	return view('homes.cart.order',['data'=>$data,'address'=>$address]);
     }
