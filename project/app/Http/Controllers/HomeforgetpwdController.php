@@ -29,29 +29,33 @@ class HomeforgetpwdController extends Controller
             return view('homes.user.forgettwo',['res'=>$res]);
         }else{
 
-            return back();
+            return back()->with('into','用户名错误');
         }
     }
 
-     public function getVertwo()
-    {
-        return view('homes.user.forgetone');
-    }
+    //  public function getVertwo()
+    // {
+    //     return view('homes.user.forgetone');
+    // }
 
 
     public function postForgettwo(Request $request)
     {
 
-       $res = $request->all();
-       $res['token'] = str_random(50);
+       $data = $request->all();
+       $data['token'] = str_random(50);
        // dd($res);
-       $data = DB::table('user')->where('User_name',$res['User_name'])->first();
-       // dd($data);
-       if($res['Emails'] == $data->Emails){
-             $User_name = $data->User_name;
+       $res = DB::table('user')->where('User_name',$data['User_name'])->first();
+       // echo '<pre>';
+       // var_dump($data);
+       if($data['Emails'] == $res->Emails){
+             $User_name = $res->User_name;
              //发送邮件
-            $this->getSendmail($User_name,$res['token'],$res['Emails']);
+            $this->getSendmail($User_name,$data['token'],$data['Emails']);
 
+       }else{
+
+         return view('homes.user.forgettwo',['res'=>$res])->with('into','邮箱错误');
        }
     }
 

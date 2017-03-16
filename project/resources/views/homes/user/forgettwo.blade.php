@@ -37,7 +37,7 @@
 
        <dl class="sel-yzyx">
         <dt>验证邮箱：</dt>
-        <dd><input type="text" value="" name="Emails"  style="color:black;"/></dd>
+        <dd><input type="email" value="" name="Emails"  style="color:black;"/></dd>
         <div class="clears"></div>
        </dl>
       {{ csrf_field()}}

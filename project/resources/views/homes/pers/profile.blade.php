@@ -3,7 +3,11 @@
 @section('title','修改头像')
 
 @section('content')
-
+@if (session('info'))
+    <div class="alert alert-success" style="margin-left:186px;width:1013px;height:30px;text-align:center;font-size:15px;color:red;background-color:pink;">
+        {{ session('info') }}
+    </div>
+@endif
   <div class="settings_box"> 
    <strong class="settings_title">个人头像</strong> 
    <fieldset> 
@@ -30,4 +34,11 @@
   </div>
 
 
+@endsection
+@section('js')
+<script type="text/javascript">
+    setTimeout(function(){
+         $('.alert-success').slideUp(1000);
+   },1000)
+   </script>
 @endsection

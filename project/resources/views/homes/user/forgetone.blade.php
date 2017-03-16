@@ -18,7 +18,17 @@
        <div class="liutext"><em>4</em><br /><strong>完成</strong></div>
       </div>
      </div><!--for-liucheng/-->
+
 	<form action="/home/forgetpwd/username" method="post"  class="forget-pwd">
+                @if (count($errors) > 0)
+         <div class="alert alert-danger" role="alert" >
+              <ul>
+          @foreach ($errors->all() as $error)
+                   <strong>{{ $error }}</strong> 
+          @endforeach
+              </ul>
+          </div>
+          @endif
        <dl>
         <dt>账户名：</dt>
         <dd><input name="User_name" style="color:black;" type="text" /></dd>
