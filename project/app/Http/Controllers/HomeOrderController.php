@@ -41,7 +41,12 @@ class HomeOrderController extends Controller
             $data[] = $tmp; 
         }
 
+
         $User_name = session('User_name');
+        if(!$User_name)
+        {
+            return view('homes.cart.noLogin');
+        }
 	    	// dd($data);
 	  	$address = DB::table('order_address')->where('User_name',$User_name )->get();
 

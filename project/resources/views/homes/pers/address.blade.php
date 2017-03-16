@@ -19,9 +19,7 @@
                 <li class="other" style="width:15%">操作</li>
             </ul>
         </div>
-    @if(!$data)
-    
-    @else
+  
         <div id="orderWrap">
         @foreach ($data as $k => $v )
         	<ul class="order-title-column clearfix" >
@@ -39,10 +37,10 @@
                 </li>
             </ul> 
          @endforeach 
-    @endif
+ 
     <?php 
         $User_name = session('User_name');
-     ?>
+     ?> 
          		<br>
          		<form action="/home/address/add" method="post">
          			<input type="hidden" value="{{$User_name}}" name="User_name">
