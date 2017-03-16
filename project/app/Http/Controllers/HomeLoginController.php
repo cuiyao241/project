@@ -21,7 +21,7 @@ class HomeLoginController extends Controller
     public function postTest(Request $request)
     {
 
-        dd($request->all());
+        // dd($request->all());
         // echo 1234;
         // die;
 
@@ -40,13 +40,14 @@ class HomeLoginController extends Controller
 
         //通过用户名查询密码	
         $user = DB::table('user')->where('User_name',$newName)->first();
-        $Status = $user->Status;
+        
         // dd($user);
         if(!$user){
 
             return back()->with('into','请输入有效字段');
 
         }
+        $Status = $user->Status;
         $User_name = $user->User_name;
         $Profile = $user->Profile;
         $nickname = $user->nickname;
