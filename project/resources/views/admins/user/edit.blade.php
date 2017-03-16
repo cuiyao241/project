@@ -25,14 +25,14 @@
         			<div class="mws-form-row">
         				<label class="mws-form-label">会员名: </label>
         				<div class="mws-form-item">
-        					<input type="text" name='User_name' value="{{$res->User_name}}">
+        					<input type="text" name='User_name' value="{{$res->User_name}}" required>
         				</div>
         			</div>   
 
         			<div class="mws-form-row">
         				<label class="mws-form-label">邮箱: </label>
         				<div class="mws-form-item">
-        					<input type="text" name='Emails' value="{{$res->Emails}}">
+        					<input type="text" name='Emails' value="{{$res->Emails}}" required>
         				</div>
         			</div>   
 
