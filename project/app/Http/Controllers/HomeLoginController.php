@@ -42,6 +42,7 @@ class HomeLoginController extends Controller
         $Status = $user->Status;
         $User_name = $user->User_name;
         $Profile = $user->Profile;
+
         // $User_id = $user->User_id;
 
         // var_dump($user->Password);die;
@@ -55,7 +56,7 @@ class HomeLoginController extends Controller
             return back()->with('into','用户不存在');
 
         } else {
-
+        		// if($newName){
 
                  //密码判断
                 if(Hash::check($postUser['Password'], $user->Password)){
@@ -79,7 +80,7 @@ class HomeLoginController extends Controller
                     return back()->with('into','密码错误!');
                 }
 
-            
+            // }
         }
     }
 
@@ -87,7 +88,7 @@ class HomeLoginController extends Controller
     {
         session(['Status'=>null]);
         session(['User_name'=>null]);
-        session(['Profile']);
+        session(['Profile'=>null]);
         // session(['User_id'=>null]);
         return redirect('home');
     }
