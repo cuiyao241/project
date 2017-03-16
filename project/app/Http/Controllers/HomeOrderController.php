@@ -10,8 +10,6 @@ use DB;
 class HomeOrderController extends Controller
 {
     //
-
-
     public function postOrder(Request $request)
     {
        
@@ -22,6 +20,10 @@ class HomeOrderController extends Controller
     	$nums = $request->input('num');
         $infos = $request->input('cartCheckBox');
 
+        if(!$infos)
+        {
+            return view('homes.cart.ifcheckbox');
+        }
 
         foreach ($infos as $k => $v) {
 
@@ -46,6 +48,7 @@ class HomeOrderController extends Controller
     	return view('homes.cart.order',['data'=>$data,'address'=>$address]);
     }
 
+    //插入订单
     public function postOrderinsert(Request $request)
     {
         $res = $request->except('_token');
@@ -85,24 +88,25 @@ class HomeOrderController extends Controller
 
         for ($i=0; $i < $cou; $i++) { 
             // var_dump($ids[$i][5]);
-            DB::table('orderinfo')->insert([
-                'UserName'=>$User_name,
-                'ReceiverName'=>$ReceiverName,
-                'ReceiverPhone'=>$ReceiverPhone,
-                'ReceiverAddress'=>$ReceiverAddress,
-                'GoodsName'=>$ids[$i][0],
-                'GoodsNum'=>$ids[$i][3],
-                'GoodsSize'=>$ids[$i][2],
-                'GoodsColor'=>$ids[$i][1],
-                'GoodsFee'=>$ids[$i][5],
-                'TotalPrice'=>$ids[$i][7],
-                'OrderDate'=>$time,
-                'Leave'=>$Leave,
-                'GoodsUrl'=>$ids[$i][6]
-                ]);
+            $Order_id[] = DB::table('orderinfo')->insertGetId([
+                            'UserName'=>$User_name,
+                            'ReceiverName'=>$ReceiverName,
+                            'ReceiverPhone'=>$ReceiverPhone,
+                            'ReceiverAddress'=>$ReceiverAddress,
+                            'GoodsName'=>$ids[$i][0],
+                            'GoodsNum'=>$ids[$i][3],
+                            'GoodsSize'=>$ids[$i][2],
+                            'GoodsColor'=>$ids[$i][1],
+                            'GoodsFee'=>$ids[$i][5],
+                            'TotalPrice'=>$ids[$i][7],
+                            'OrderDate'=>$time,
+                            'Leave'=>$Leave,
+                            'GoodsUrl'=>$ids[$i][6]
+                            ]);
+        
+
         }
-       
-        return view('homes.cart.orderSuccess');
+        return view('homes.cart.orderSuccess',['Order_id'=>$Order_id]);
     }
 
     public function getAjaxorder(Request $request)
@@ -115,6 +119,7 @@ class HomeOrderController extends Controller
             
         
     }
+
     public function getAjaxordertwo(Request $request)
     {
         $aid = $request->input('aid');
@@ -123,6 +128,27 @@ class HomeOrderController extends Controller
             
         return $res;
             
+        
+    }
+
+    //手动支付
+     public function postPay(Request $request)
+    {
+        // echo 'asd';
+
+        // $aid = $request->input('aid');
+        $Order_id = $request->input('Order_id');
+        // dd($Order_id);
+        $cou = count($Order_id);
+        // dd($cou);
+
+        for ($i=0; $i < $cou; $i++) { 
+        
+        DB::table('orderinfo')->where('Order_id',$Order_id[$i])->update(['IsPayment'=>1]);
+        
+        }
+
+        return view('homes.cart.payok');
         
     }
 
