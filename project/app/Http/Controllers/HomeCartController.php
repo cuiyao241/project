@@ -31,6 +31,10 @@ class HomeCartController extends Controller
     //购物车
     public function getShopcart()
     {
+        if(!Session::get('cart')){
+            return view('homes.cart.cart');
+        }
+        
     	$data = Session::get('cart');
 
     	
