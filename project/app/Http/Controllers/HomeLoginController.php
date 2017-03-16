@@ -21,6 +21,7 @@ class HomeLoginController extends Controller
     public function postTest(Request $request)
     {
 
+        dd($request->all());
         // echo 1234;
         // die;
 
