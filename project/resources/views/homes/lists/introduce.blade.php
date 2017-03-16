@@ -1,3 +1,14 @@
+<?php
+	namespace App\Http\Controllers;
+	use Session;
+	Use DB;
+	$username = Session::get('User_name');
+
+	$profile = Session::get('Profile');
+
+	$nickname = Session::get('nickname');
+	// dd($nickname);
+?>
 @extends('layout.home')
 
 @section('title','商品的详情页')
@@ -176,11 +187,6 @@
 							</script>	
 							</div>	
 
-
-
-
-
-
 							<!-- <ul class="social-icons">
 								<li><a href="#" class="facebook w3ls" title="Go to Our Facebook Page"><i class="fa w3ls fa-facebook-square" aria-hidden="true"></i></a></li>
 								<li><a href="#" class="twitter w3l" title="Go to Our Twitter Account"><i class="fa w3l fa-twitter-square" aria-hidden="true"></i></a></li>
@@ -243,11 +249,11 @@
 
 							@foreach($pro as $k=>$v)
 								<div class="ac-img" style="width:24%;text-align:center;margin-top:10px;">
-									<a href="#"><img src="{{$v->pic}}" width="230px" height="320px" alt="Groovy Apparel"></a>
+									<a href="/home/introduce/index/{{$v->id}}"><img src="{{$v->pic}}" width="230px" height="320px" alt="Groovy Apparel"></a>
 									<br>
-									<a href="#" class="title">{{$v->title}}</a>
+									<a href="/home/introduce/index/{{$v->id}}" class="title">{{$v->title}}</a>
 									<br>
-									<a href="#" style="margin-left:3px">￥{{$v->price}}</a>
+									<a href="/home/introduce/index/{{$v->id}}" style="margin-left:3px">￥{{$v->price}}</a>
 								</div>
 
 							@endforeach
@@ -274,7 +280,7 @@
 								<p>
 									<p>
 										<b>全部评价（{{count($post)}}）</b>
-										<b>晒图（10）</b>
+										<!-- <b>晒图（10）</b> -->
 									</p>
                     				
 									
@@ -285,14 +291,23 @@
 
 							<div class="liuyan">
 							
-							<?php
+								<?php
 
-								$users = DB::table('user')->where('User_name', $post[$i]->UserName)->first();
-								// var_dump($users->nickname);
-							?>	
+									$users = DB::table('user')->where('User_name', $post[$i]->UserName)->first();
+
+									$user = DB::table('post')->where('id',5)->first();
+								// echo '<pre>';
+								// var_dump($users);
+								?>	
 								<div style="float:left">
-									<img src="/upload/99051488819477.jpg" style="width:60px;height:60px"><br>
-	                                <b>{{$users->nickname}}</b>
+									<img src="{{$profile}}" style="width:60px;height:60px">
+									<br>
+
+									@if($users)
+	                                	<b>{{$users->nickname}}</b>
+	                                @else
+	                                	<b>{{$user->UserName}}</b>
+	                                @endif
 
 								</div>
 
@@ -300,21 +315,24 @@
 
 							
 									<p>{{date('Y-m-d H:i:s', $post[$i]->addtime)}} </p>
-									<p>{{$post[$i]->content}}</p>
 									<p>
+										@if($posts)
 										<b>
 	                                        尺码:{{$posts[$i]->GoodsSize}}
 	                                    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	                                    <b>
 	                                        颜色:{{$posts[$i]->GoodsColor}}
 	                                    </b>
+	                                    @endif
 									</p>
+									<p>{!!$post[$i]->content!!}</p>
+
 									<p>
 										<ul class="list clearfix">
 	                                        <li>
 	                                            <div class="img-box">
 	                                                
-	                                                    <img src="/upload/99051488819477.jpg" style="width:40px">
+	                                                    <img src="{{$post[$i]->pic}}" style="width:40px">
 
 	                                            </div>
 	                                        </li>
@@ -326,13 +344,63 @@
 							</div>						
 							
 
-							<div class="clear" style="background:#999"></div>
+							<hr style="width:100%;background:#999"></hr>
 
 							@endfor
 
 							<!-- <a href="#" class="next">Next Review &rarr;</a> -->
+							@if($username)
+							<div style="float:left">		
+							<img src="{{$profile}}" style="width:60px;height:60px" alt="">
+							<br>
+							
+	                        <b>{{$nickname}}</b>
+	                        </div>
+
+
+							<div class="mws-form-row" style="margin-left:115px">
+
+			                    <label class="mws-form-label">留下您宝贵意见:</label>
+
+			                    <form action="/home/introduce/liuyan" method="post" enctype="multipart/form-data">
+				                    <div class="mws-form-item">
+				              
+				                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/ueditor.config.js"></script>
+				                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/ueditor.all.min.js"> </script>
+
+				                        <script type="text/javascript" charset="utf-8" src="/admins/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+				                        <script type="text/javascript">
+
+				                            var ue = UE.getEditor('editor');
+				                        </script>
+
+				                        <script id="editor" type="text/plain" style="width:700px;height:300px;"name='content'>
+				                        </script>
+
+				                    </div>
+
+				                    <input type="hidden" name="GoodsName" value="{{$res->title}}">
+				                    <input type="hidden" name="UserName" value="{{$username}}">
+				                    <input type="hidden" name="addtime" value="{{time()}}">
+
+
+								 	{{ csrf_field()}}
+									
+				                    <input type="submit" class="butt" value="留言" style="width:240px">
+			                    </form>
+
+			                </div>
+
+			                @else
+								<a  class="next" id="pinglun">去评论 &rarr;</a>
+
+			                @endif
+								
 						</div>
+
 					</div>
+
 
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingFour">
@@ -505,6 +573,17 @@
 
 
 	})
+
+	$('#pinglun').click(function(){
+
+		alert('请登录！');
+	})
+
+	// $('.butt').click(function(){
+
+	
+	// 	return false;
+	// })
 
 </script>
 

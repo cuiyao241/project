@@ -22,9 +22,6 @@ class HomeIntroduceController extends Controller
 
     	$goods['size'] = explode(',', $res->size);
 
-        // //查询商品订单ID
-
-        // $posts = DB::select('select post.*,orderinfo.GoodsColor,orderinfo.GoodsSize from post join orderinfo on post.UserName = orderinfo.UserName and post.GoodsName = orderinfo.GoodsName');
 
         //查询留言信息
         $post = DB::table('post')->where('GoodsName', $res->title)->get();
@@ -86,5 +83,22 @@ class HomeIntroduceController extends Controller
 
         }
     	
+    }
+
+
+    public function postLiuyan(Request $request)
+    {
+        // dd($request->all());
+
+       $res = $request->except('_token');
+
+
+      $insert =  DB::table('post')->insert($res);
+
+      // dd($insert);
+      if($insert){
+
+        return redirect('/home');
+      }
     }
 }
