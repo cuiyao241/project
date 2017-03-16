@@ -25,7 +25,16 @@
 	
 </div>
 </center>
-	<span class="label label-success" style="font-size:20px;float:right; margin-right:200px"><a href="/home">返回首页</a></span></span>
+	<span class="label label-success" style="font-size:20px;float:right; margin-right:200px;margin-bottom:10px"><a href="/home">返回首页</a></span>
+	<form action="/home/order/pay" method="post">
+@foreach ($Order_id as $k => $v)
+
+		<input type="hidden" value="{{$v}}" name="Order_id[]">
+	
+@endforeach	
+		{{ csrf_field()}}
+		<input type="submit" value="人工支付">
+	</form>
 @endsection
 
 @section('js')
