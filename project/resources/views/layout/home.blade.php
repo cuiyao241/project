@@ -96,7 +96,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="/home" target="view_window"><span>玛丽莲</span> 梦露</a> 
+					<a class="navbar-brand agileinfo" href="/home"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
@@ -187,11 +187,11 @@
 						@if (!$Status)
 
 							<ul>
-								<li><a href="stores.html">商店定位</a></li>
-								<li><a href="faq.html">常见问题</a></li>
+								<li><a href=https://www.tmall.com/?ali_trackid=2:mm_26632258_3504122_55934697:1489674481_2k8_634983535&upsid=7e0e4f19f3826f21c16c2e66abc4189e&clk1=7e0e4f19f3826f21c16c2e66abc4189e target="view_window">商店定位</a></li>
+								<li><a href=http://wenku.baidu.com/link?url=kV4fSyYs0tw-bhBpp6FofoaxPCFok4eAWN4YmuZdK4bfJLCqsImzA8musITLDGuhDWVpbDc80v4lNxlB7A6Uje7BlfjujL6K2vRz5wlnEZG target="view_window">常见问题</a></li>
 								<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
 								<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
-								<li><a href="https://www.baidu.com">关于我们</a></li>
+								<li><a href=https://www.baidu.com/link?url=bkXW07ir04KTK2oDTMfCf1Mcn29kIaLJKLhj6mBne0vsOAUMg_Xl08k9HVrLzPw9mY_nTeVi9iQ-w-d0N3yu0ITZLW3Llix5cCkSez5XjaomiV27VmYsZfzZqPh4FQcSdlLNjSVVhyLKPKNkkgI1gxZj_73tga1uK-zgrAhyxgfkqVJSrT2QnguaZmXOLWn94rbT0HQwxBoDLi0MNYITHc4XKhkeq2KVOIqmiWi24yLSWNPlEVzgBBoAOYg6RdTbEiGR7yFCPXWxyBU3QiMSAIFQe6VVTzfG3Ugjx2uAAA_&click_t=1489674397629&s_info=1423_740&wd=&eqid=e3bd05a300005e270000000258caa094 target="view_window">关于我们</a></li>
 							</ul>
 							@else
 							<div style="width:200px; margin-left:380px">
