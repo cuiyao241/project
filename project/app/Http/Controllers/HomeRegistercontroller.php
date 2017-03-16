@@ -38,6 +38,7 @@ class HomeRegistercontroller extends Controller
 
         $res['Status'] = '1';
 
+        $res['nickName'] = $request->input('User_name');
         // dd($res);
 
         $data = DB::table('user')->insert($res);
