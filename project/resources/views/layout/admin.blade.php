@@ -1,3 +1,10 @@
+<?php 
+
+use DB;
+
+
+
+ ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -50,7 +57,8 @@
             <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
             <div id="mws-logo-wrap">
                 <!-- <img src="/admins/images/mws-logo.png" alt="mws admin"> -->
-                <span id='logo' style="color:red;font-size:20px;"><h3 id="site-description" class="logo">For Laravel Artist</h3></span>
+ 
+                <img src="/upload/44111488985064.jpg" style="width:60px; height:60px; color:red;font-size:20px;" alt="">
                 
             </div>
         </div>
