@@ -60,10 +60,10 @@
         
             <!-- Notifications -->
             <div id="mws-user-notif" class="mws-dropdown-menu">
-                <a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i class="icon-exclamation-sign"></i></a>
+                <a href="#" data-toggle="dropdown" class=""><i class=""></i></a>
                 
                 <!-- Unread notification count -->
-                <span class="mws-dropdown-notif">35</span>
+                <span class=""></span>
                 
                 <?php 
                     $newName = session('username');
@@ -127,10 +127,10 @@
             
             <!-- Messages -->
             <div id="mws-user-message" class="mws-dropdown-menu">
-                <a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i class="icon-envelope"></i></a>
+                <a href="#" data-toggle="dropdown" class=""><i class=""></i></a>
                 
                 <!-- Unred messages count -->
-                <span class="mws-dropdown-notif">35</span>
+                <span class=""></span>
                 
                 <!-- Messages dropdown -->
                 <div class="mws-dropdown-box">
@@ -205,7 +205,7 @@
                     <ul>    
                         <li><a href="/admin/user/edit/{{$User_id}}">修改头像</a></li>
                         <li><a href="/admin/user/pwdedit/{{$newName}}">修改密码</a></li>
-                        <li><a href="/home/login/close">退出</a></li>
+                        <li><a href="/login/close">退出</a></li>
                     </ul>
                 </div>
             </div>

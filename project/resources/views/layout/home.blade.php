@@ -190,7 +190,7 @@
 								<li><a href="faq.html">常见问题</a></li>
 								<li><a class="popup-with-zoom-anim" href="#small-dialog1">亲! 请登录</a></li>
 								<li><a class="popup-with-zoom-anim" href="#small-dialog2">免费注册</a></li>
-								<li><a href="contact.html">联系大嫂</a></li>
+								<li><a href="https://www.baidu.com">关于我们</a></li>
 							</ul>
 							@else
 							<div style="width:200px; margin-left:380px">

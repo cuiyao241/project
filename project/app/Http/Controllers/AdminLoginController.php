@@ -82,6 +82,8 @@ class AdminLoginController extends Controller
     public function getClose()
     {
         session(['username'=>null]);
+        session(['idAdmin'=>null]);
+        session(['User_id'=>null]);
         return redirect('login');
     }
 
