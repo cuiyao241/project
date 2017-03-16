@@ -87,7 +87,7 @@ class AdminUserController extends Controller
         // 哈希加密密码
         $res['Password'] = Hash::make($request->input('Password'));
 
-   
+        $res['Status'] = '1';
         // echo '<pre>';
         // var_dump($res);die;
         // 用户的添加
