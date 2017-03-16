@@ -96,7 +96,7 @@
 						<span class="icon-bar">2</span>
 						<span class="icon-bar">3</span>
 					</button>
-					<a class="navbar-brand agileinfo" href="/home"><span>玛丽莲</span> 梦露</a> 
+					<a class="navbar-brand agileinfo" href="/home" target="view_window"><span>玛丽莲</span> 梦露</a> 
 					<ul class="w3header-cart">
 						<li class="wthreecartaits"><span class="my-cart-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><span class="badge badge-notify my-cart-badge"></span></span></li>
 					</ul>
