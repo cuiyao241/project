@@ -68,18 +68,18 @@ class AdminUserController extends Controller
         // $names = 12345;
 
 
-        // if($request->hasFile('Profile')){
-        //     //自定义上传的文件名
-        //     $names = rand(1111,9999).time();
-        //     // dd($names);
-        //     //获取上传文件的后缀
-        //     $suffix = $request->file('Profile')->getClientOriginalExtension();
+        if($request->hasFile('Profile')){
+            //自定义上传的文件名
+            $names = rand(1111,9999).time();
+            // dd($names);
+            //获取上传文件的后缀
+            $suffix = $request->file('Profile')->getClientOriginalExtension();
 
-        //     $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
+            $request->file('Profile')->move('./upload/',$names.'.'.$suffix);
 
-        //       //把上传的图片存储到数据库中
-        //     $res['profile'] = '/upload/'.$names.'.'.$suffix;
-        // }
+              //把上传的图片存储到数据库中
+            $res['profile'] = '/upload/'.$names.'.'.$suffix;
+        }
 
       
   
