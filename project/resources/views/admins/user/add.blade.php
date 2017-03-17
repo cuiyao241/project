@@ -25,7 +25,7 @@
         			<div class="mws-form-row">
         				<label class="mws-form-label">会员名: </label>
         				<div class="mws-form-item">
-        					<input type="text" name='User_name'>
+        					<input type="text" name='User_name' placeholder="请输入5~12位用户名">
         				</div>
         			</div>   
 
@@ -33,14 +33,14 @@
                     <div class="mws-form-row">
                         <label class="mws-form-label">密码: </label>
                         <div class="mws-form-item">
-                            <input type="password" name='Password'>
+                            <input type="password" name='Password' placeholder="请输入5~10位密码">
                         </div>
                     </div> 
                     
                     <div class="mws-form-row">
                         <label class="mws-form-label">确认密码:</label>
                         <div class="mws-form-item">
-                            <input type="password" name='rePassword'>
+                            <input type="password" name='rePassword' placeholder="请输入确认密码">
                         </div>
                     </div>
 
@@ -48,14 +48,14 @@
         			<div class="mws-form-row">
         				<label class="mws-form-label">邮箱: </label>
         				<div class="mws-form-item">
-        					<input type="text" name='Emails'>
+        					<input type="text" name='Emails' placeholder="请输入邮箱">
         				</div>
         			</div>   
 
         			<div class="mws-form-row">
         				<label class="mws-form-label">手机号: </label>
         				<div class="mws-form-item">
-        					<input type="text" name='Phonecode'>
+        					<input type="text" name='Phonecode' placeholder="请输入验证码">
         				</div>
         			</div>   
     
