@@ -91,9 +91,7 @@
                 <ul id="J_MoreAddress" class="address-list hidden">
                 </ul>
                 <div class="address-bar">
-                    <a href="#" class="new J_MakePoint" id="J_NewAddressBtn">
-                        使用新地址
-                    </a>
+                   
                 </div>
             </form>
         </div>

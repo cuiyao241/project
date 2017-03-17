@@ -24,8 +24,10 @@
 <html lang="zxx"> 
 <!-- Head -->
 <head>
+	
+<title>@yield('title')</title>
 
-<title>@yield("$conf->title")</title>
+
 
 <!-- Meta-Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -181,7 +183,7 @@
 		<div class="agileheader-topbar">
 			<div class="container">
 				<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
-					<p> 全场满 $ 199 免邮费。</p>
+					<p> 全场满 ￥ 99 免邮费。</p>
 				</div>
 					<div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
 						@if (!$Status)

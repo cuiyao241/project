@@ -97,6 +97,10 @@
 						<div class="flexslider">
 							<ul class="slides">
 
+								<li data-thumb="{{$res->pic}}">
+									<div class="thumb-image detail_images"> <img src="{{$res->pic}}" data-imagezoom="true" class="img-responsive" alt="Groovy Apparel"></div>
+								</li>
+
 								@foreach($das as $k=>$v)
 
 								<li data-thumb="{{$v->pic}}">
@@ -245,11 +249,12 @@
 						</style>
 							<div class="accordion-image">
 
-
+<!-- 274 * 411 -->
 
 							@foreach($pro as $k=>$v)
-								<div class="ac-img" style="width:24%;text-align:center;margin-top:10px;">
-									<a href="/home/introduce/index/{{$v->id}}"><img src="{{$v->pic}}" width="230px" height="320px" alt="Groovy Apparel"></a>
+								<div class="ac-img" style="width:274px; height:410px;text-align:center;margin-top:10px;">
+								<!-- <div class="ac-img" style="width:24%;text-align:center;margin-top:10px;"> -->
+									<img src="{{$v->pic}}" style="width:230px;height:320px" alt="Groovy Apparel">
 									<br>
 									<a href="/home/introduce/index/{{$v->id}}" class="title">{{$v->title}}</a>
 									<br>
@@ -266,7 +271,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title asd">
-								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">等级 & 评论 (40+) <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
+								<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">等级 & 评论 ({{count($post)}}) <span class="glyphicon glyphicon glyphicon-chevron-down" aria-hidden="true"></span><i class="glyphicon glyphicon-menu-up" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
