@@ -52,7 +52,7 @@ class HomeforgetpwdController extends Controller
              $User_name = $res->User_name;
              //发送邮件
             $this->getSendmail($User_name,$data['token'],$data['Emails']);
-
+            return view('homes.user.jc');
        }else{
 
          return view('homes.user.forgettwo',['res'=>$res])->with('into','邮箱错误');
