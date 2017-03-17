@@ -115,7 +115,7 @@ class HomeforgetpwdController extends Controller
     public function getSendmail($User_name,$token,$Emails)
     {
         $host = $_SERVER['SERVER_NAME'];
-        $url = "<a href='".$host."/home/forgetpwd/forgetthree?User_name=$User_name&token=$token'>点击修改密码</a>";
+        $url = $host."/home/forgetpwd/forgetthree?User_name=$User_name&token=$token>点击链接修改密码";
         Mail::raw($url, function ($message) use($Emails){
             //邮件标题
             $message->subject('找回密码');
