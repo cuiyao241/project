@@ -126,7 +126,7 @@
             <div class="mws-button-row">
                 <input type="submit" class="btn btn-danger" value="修改">
                 {{ csrf_field() }}
-                <input type="reset" class="btn " value="添加">
+                
             </div>
 
     	</form>

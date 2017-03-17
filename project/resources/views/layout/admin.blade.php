@@ -289,7 +289,8 @@
                         <a href="#"><i class="icon-cog-2"></i>网站管理</a>
                         <ul class='closed'>
                             <li><a href="/admin/conf/edit"><i class="icon-settings"></i>　网站配置</a></li>
-                            <li><a href="/admin/adv"><i class="icon-pictures"></i>　首页轮播</a></li>
+                            <li><a href="/admin/adv"><i class="icon-pictures"></i>　轮播排序</a></li>
+                            <li><a href="/admin/adv/add"><i class="icon-pictures"></i>　添加轮播</a></li>
                             
                         </ul>
                     </li>
